@@ -3,7 +3,6 @@ package net.fellter.vanillalayerplus.custom_blocks;
 import net.fellter.vanillalayerplus.block.LayerBlock;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Falling;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -14,10 +13,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.tick.ScheduledTickView;
+import net.minecraft.world.WorldAccess;
 
-public class FallingLayerBlock extends LayerBlock implements Falling {
+public class FallingLayerBlock extends LayerBlock {
 	public FallingLayerBlock(Settings settings) {
 		super(settings);
 	}
@@ -26,9 +24,9 @@ public class FallingLayerBlock extends LayerBlock implements Falling {
 		world.scheduleBlockTick(pos, this, this.getFallDelay());
 	}
 
-	protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
-		tickView.scheduleBlockTick(pos, this, this.getFallDelay());
-		return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+	protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+		world.scheduleBlockTick(pos, this, this.getFallDelay());
+		return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
 	}
 
 	protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {

@@ -65,11 +65,6 @@ public class ModItemGroups {
 						entries.add(ModBlocks.STRIPPED_CHERRY_LOG_LAYER);
 						entries.add(ModBlocks.STRIPPED_CHERRY_WOOD_LAYER);
 
-						entries.add(ModBlocks.PALE_OAK_LAYER);
-						entries.add(ModBlocks.PALE_OAK_LOG_LAYER);
-						entries.add(ModBlocks.PALE_OAK_WOOD_LAYER);
-						entries.add(ModBlocks.STRIPPED_PALE_OAK_LOG_LAYER);
-						entries.add(ModBlocks.STRIPPED_PALE_OAK_WOOD_LAYER);
 
 						entries.add(ModBlocks.BAMBOO_LAYER);
 						entries.add(ModBlocks.BAMBOO_MOSAIC_LAYER);
@@ -122,8 +117,6 @@ public class ModItemGroups {
 						entries.add(ModBlocks.BRICKS_LAYER);
 						entries.add(ModBlocks.PACKED_MUD_LAYER);
 						entries.add(ModBlocks.MUD_BRICKS_LAYER);
-						entries.add(ModBlocks.RESIN_BRICKS_LAYER);
-						entries.add(ModBlocks.CHISELED_RESIN_BRICKS_LAYER);
 
 						entries.add(ModBlocks.SANDSTONE_LAYER);
 						entries.add(ModBlocks.CHISELED_SANDSTONE_LAYER);
@@ -341,7 +334,6 @@ public class ModItemGroups {
 						entries.add(ModBlocks.BLUE_ICE_LAYER);
 						entries.add(ModBlocks.SNOW_LAYER);
 						entries.add(ModBlocks.MOSS_LAYER);
-						entries.add(ModBlocks.PALE_MOSS_LAYER);
 
 						entries.add(ModBlocks.CALCITE_LAYER);
 						entries.add(ModBlocks.DRIPSTONE_LAYER);
@@ -388,7 +380,6 @@ public class ModItemGroups {
 						entries.add(ModBlocks.DARK_OAK_LEAVES_LAYER);
 						entries.add(ModBlocks.MANGROVE_LEAVES_LAYER);
 						entries.add(ModBlocks.CHERRY_LEAVES_LAYER);
-						entries.add(ModBlocks.PALE_OAK_LEAVES_LAYER);
 						entries.add(ModBlocks.AZALEA_LEAVES_LAYER);
 						entries.add(ModBlocks.FLOWERING_AZALEA_LEAVES_LAYER);
 
@@ -418,7 +409,6 @@ public class ModItemGroups {
 						entries.add(ModBlocks.HONEYCOMB_LAYER);
 						entries.add(ModBlocks.SLIME_LAYER);
 						entries.add(ModBlocks.HONEY_LAYER);
-						entries.add(ModBlocks.RESIN_LAYER);
 
 						entries.add(ModBlocks.OCHRE_FROGLIGHT_LAYER);
 						entries.add(ModBlocks.VERDANT_FROGLIGHT_LAYER);

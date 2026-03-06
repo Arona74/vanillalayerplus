@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:chiseled_deepslate",
+  "ingredient": {
+    "item": "minecraft:chiseled_deepslate"
+  },
   "result": {
     "count": 8,
     "id": "vanillalayerplus:chiseled_deepslate_layer"

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:stripped_cherry_wood"
+    "W": {
+      "item": "minecraft:stripped_cherry_wood"
+    }
   },
   "pattern": [
     " W",

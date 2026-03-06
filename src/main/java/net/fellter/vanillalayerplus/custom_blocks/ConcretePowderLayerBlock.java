@@ -10,8 +10,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.tick.ScheduledTickView;
+import net.minecraft.world.WorldAccess;
 
 public class ConcretePowderLayerBlock extends FallingLayerBlock {
 	private final BlockState hardened;
@@ -21,7 +20,6 @@ public class ConcretePowderLayerBlock extends FallingLayerBlock {
 		this.hardened = hardened.getDefaultState();
 	}
 
-	@Override
 	public void onLanding(World world, BlockPos pos, BlockState fallingBlockState, BlockState currentStateInPos, FallingBlockEntity fallingBlockEntity) {
 		if (shouldHarden(world, pos, currentStateInPos) && pos != null) {
 			world.setBlockState(pos, this.hardened
@@ -75,7 +73,7 @@ public class ConcretePowderLayerBlock extends FallingLayerBlock {
 	}
 
 	@Override
-	public BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
+	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
 		if (hardensOnAnySide(world, pos)) {
 			return this.hardened
 					.with(WATERLOGGED, world.getBlockState(pos).get(WATERLOGGED))
@@ -83,7 +81,7 @@ public class ConcretePowderLayerBlock extends FallingLayerBlock {
 					.with(LAYERS, world.getBlockState(pos).get(LAYERS));
 		}
 
-		tickView.scheduleBlockTick(pos, this, this.getFallDelay());
-		return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+		world.scheduleBlockTick(pos, this, this.getFallDelay());
+		return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
 	}
 }

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:mossy_cobblestone"
+    "W": {
+      "item": "minecraft:mossy_cobblestone"
+    }
   },
   "pattern": [
     " W",

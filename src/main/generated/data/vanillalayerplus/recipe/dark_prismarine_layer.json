@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:dark_prismarine"
+    "W": {
+      "item": "minecraft:dark_prismarine"
+    }
   },
   "pattern": [
     " W",

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:red_mushroom_block"
+    "W": {
+      "item": "minecraft:red_mushroom_block"
+    }
   },
   "pattern": [
     " W",

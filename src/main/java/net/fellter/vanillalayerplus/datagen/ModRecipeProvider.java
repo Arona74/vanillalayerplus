@@ -1,20 +1,18 @@
 package net.fellter.vanillalayerplus.datagen;
 
-import java.util.concurrent.CompletableFuture;
-
 import net.fellter.vanillalayerplus.VanillaLayerPlus;
 import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.fellter.vanillalayerplus.registry.Args;
 import net.fellter.vanillalayerplus.registry.DatagenArgs;
 
-import net.minecraft.data.recipe.CraftingRecipeJsonBuilder;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.book.RecipeCategory;
+import java.util.concurrent.CompletableFuture;
+
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -25,43 +23,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 		super(output, registriesFuture);
 	}
 
+	private CraftingRecipeJsonBuilder layerBlockRecipe(ItemConvertible output, ItemConvertible input) {
+		return ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output, 16)
+				.input('W', input)
+				.pattern(" W")
+				.pattern("W ")
+				.criterion(hasItem(input), conditionsFromItem(input))
+				.showNotification(true);
+	}
+
 	@Override
-	protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registryLookup, RecipeExporter exporter) {
-		return new RecipeGenerator(registryLookup, exporter) {
-			public CraftingRecipeJsonBuilder layerBlockRecipe(ItemConvertible output, ItemConvertible input) {
-				return ShapedRecipeJsonBuilder.create(registries.getOrThrow(RegistryKeys.ITEM), RecipeCategory.DECORATIONS, output, 16)
-						.input('W', input)
-						.pattern(" W")
-						.pattern("W ")
-						.criterion(hasItem(input), conditionsFromItem(input))
-						.showNotification(true);
-			}
+	public void generate(RecipeExporter exporter) {
+		Registries.BLOCK.stream().filter(VanillaLayerPlus::isNamespaced).forEach(block -> {
+			if (Args.DATAGEN_ARGS.containsKey(block)) {
+				DatagenArgs args = Args.DATAGEN_ARGS.get(block);
 
-			public void offerStonecuttingRecipe(ItemConvertible output, ItemConvertible input) {
-				this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, output, input, 8);
-			}
+				if (args.parentBlock != null) {
+					if (block instanceof LayerBlock) {
+						layerBlockRecipe(block, args.parentBlock).offerTo(exporter);
+					}
 
-			@Override
-			public void generate() {
-				Registries.BLOCK.stream().filter(VanillaLayerPlus::isNamespaced).forEach(block -> {
-					if (Args.DATAGEN_ARGS.containsKey(block)) {
-						DatagenArgs args = Args.DATAGEN_ARGS.get(block);
-
-						if (args.parentBlock != null) {
-							if (block instanceof LayerBlock) {
-								layerBlockRecipe(block, args.parentBlock).offerTo(exporter);
-							}
-
-							if (block instanceof LayerBlock && args.stonecuttingInput != null) {
-								for (ItemConvertible itemConvertible : args.stonecuttingInput) {
-									offerStonecuttingRecipe(block, itemConvertible);
-								}
-							}
+					if (block instanceof LayerBlock && args.stonecuttingInput != null) {
+						for (ItemConvertible itemConvertible : args.stonecuttingInput) {
+							offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, block, itemConvertible, 8);
 						}
 					}
-				});
+				}
 			}
-		};
+		});
 	}
 
 	@Override

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:lapis_block"
+    "W": {
+      "item": "minecraft:lapis_block"
+    }
   },
   "pattern": [
     " W",

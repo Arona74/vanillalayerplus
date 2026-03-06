@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:yellow_concrete"
+    "W": {
+      "item": "minecraft:yellow_concrete"
+    }
   },
   "pattern": [
     " W",

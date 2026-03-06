@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:bone_block"
+    "W": {
+      "item": "minecraft:bone_block"
+    }
   },
   "pattern": [
     " W",

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:pink_stained_glass"
+    "W": {
+      "item": "minecraft:pink_stained_glass"
+    }
   },
   "pattern": [
     " W",

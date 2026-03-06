@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:light_gray_glazed_terracotta"
+    "W": {
+      "item": "minecraft:light_gray_glazed_terracotta"
+    }
   },
   "pattern": [
     " W",

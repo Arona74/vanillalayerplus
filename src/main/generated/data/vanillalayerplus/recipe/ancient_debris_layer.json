@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:ancient_debris"
+    "W": {
+      "item": "minecraft:ancient_debris"
+    }
   },
   "pattern": [
     " W",

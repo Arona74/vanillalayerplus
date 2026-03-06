@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:mossy_stone_bricks"
+    "W": {
+      "item": "minecraft:mossy_stone_bricks"
+    }
   },
   "pattern": [
     " W",

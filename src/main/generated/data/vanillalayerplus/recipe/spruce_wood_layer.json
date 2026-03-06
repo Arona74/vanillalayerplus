@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:spruce_wood"
+    "W": {
+      "item": "minecraft:spruce_wood"
+    }
   },
   "pattern": [
     " W",

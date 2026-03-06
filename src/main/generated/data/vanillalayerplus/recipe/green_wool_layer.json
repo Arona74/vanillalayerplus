@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:green_wool"
+    "W": {
+      "item": "minecraft:green_wool"
+    }
   },
   "pattern": [
     " W",

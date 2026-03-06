@@ -1,6 +1,9 @@
 package net.fellter.vanillalayerplus.custom_blocks;
 
-import org.jetbrains.annotations.Nullable;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.Set;
 
 import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.fellter.vanillalayerplus.block.ModBlocks;
@@ -14,7 +17,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.minecraft.world.block.WireOrientation;
 
 public class SpongeLayerBlock extends LayerBlock {
 	public SpongeLayerBlock(Settings settings) {
@@ -27,9 +29,9 @@ public class SpongeLayerBlock extends LayerBlock {
 		}
 	}
 
-	protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
+	protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
 		this.update(world, pos);
-		super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
+		super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
 	}
 
 	protected void update(World world, BlockPos pos) {
@@ -41,44 +43,63 @@ public class SpongeLayerBlock extends LayerBlock {
 
 	private boolean absorbWater(World world, BlockPos pos) {
 		BlockState state = world.getBlockState(pos);
+		int maxRange = (int) Math.ceil(state.get(LAYERS) * 0.75);
 
-		return BlockPos.iterateRecursively(pos, (int) Math.ceil(state.get(LAYERS) * 0.75), 65, (currentPos, queuer) -> {
+		Deque<BlockPos> posQueue = new ArrayDeque<>();
+		Deque<Integer> depthQueue = new ArrayDeque<>();
+		Set<Long> visited = new HashSet<>();
+
+		posQueue.add(pos);
+		depthQueue.add(0);
+		visited.add(pos.asLong());
+
+		int absorbed = 0;
+
+		while (!posQueue.isEmpty()) {
+			BlockPos currentPos = posQueue.poll();
+			int depth = depthQueue.poll();
+
 			for (Direction direction : DIRECTIONS) {
-				queuer.accept(currentPos.offset(direction));
-			}
-		}, (currentPos) -> {
-			if (currentPos.equals(pos)) {
-				return BlockPos.IterationState.ACCEPT;
-			} else {
-				BlockState blockState = world.getBlockState(currentPos);
-				FluidState fluidState = world.getFluidState(currentPos);
+				BlockPos neighborPos = currentPos.offset(direction);
+				if (!visited.add(neighborPos.asLong())) continue;
 
-				if (!fluidState.isIn(FluidTags.WATER)) {
-					return BlockPos.IterationState.SKIP;
-				} else {
-					Block block = blockState.getBlock();
+				BlockState blockState = world.getBlockState(neighborPos);
+				FluidState fluidState = world.getFluidState(neighborPos);
 
-					if (block instanceof FluidDrainable fluidDrainable) {
-						if (!fluidDrainable.tryDrainFluid(null, world, currentPos, blockState).isEmpty()) {
-							return BlockPos.IterationState.ACCEPT;
-						}
+				if (!fluidState.isIn(FluidTags.WATER)) continue;
+
+				Block block = blockState.getBlock();
+				boolean drained = false;
+
+				if (block instanceof FluidDrainable fluidDrainable) {
+					if (!fluidDrainable.tryDrainFluid(null, world, neighborPos, blockState).isEmpty()) {
+						drained = true;
 					}
+				}
 
+				if (!drained) {
 					if (blockState.getBlock() instanceof FluidBlock) {
-						world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), 3);
-					} else {
-						if (!blockState.isOf(Blocks.KELP) && !blockState.isOf(Blocks.KELP_PLANT) && !blockState.isOf(Blocks.SEAGRASS) && !blockState.isOf(Blocks.TALL_SEAGRASS)) {
-							return BlockPos.IterationState.SKIP;
-						}
-
-						BlockEntity blockEntity = blockState.hasBlockEntity() ? world.getBlockEntity(currentPos) : null;
-						dropStacks(blockState, world, currentPos, blockEntity);
-						world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), 3);
+						world.setBlockState(neighborPos, Blocks.AIR.getDefaultState(), 3);
+						drained = true;
+					} else if (blockState.isOf(Blocks.KELP) || blockState.isOf(Blocks.KELP_PLANT)
+							|| blockState.isOf(Blocks.SEAGRASS) || blockState.isOf(Blocks.TALL_SEAGRASS)) {
+						BlockEntity blockEntity = blockState.hasBlockEntity() ? world.getBlockEntity(neighborPos) : null;
+						dropStacks(blockState, world, neighborPos, blockEntity);
+						world.setBlockState(neighborPos, Blocks.AIR.getDefaultState(), 3);
+						drained = true;
 					}
+				}
 
-					return BlockPos.IterationState.ACCEPT;
+				if (drained) {
+					absorbed++;
+					if (depth < maxRange) {
+						posQueue.add(neighborPos);
+						depthQueue.add(depth + 1);
+					}
 				}
 			}
-		}) > 1;
+		}
+
+		return absorbed > 0;
 	}
 }

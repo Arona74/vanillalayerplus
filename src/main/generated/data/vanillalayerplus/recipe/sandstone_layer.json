@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:sandstone"
+    "W": {
+      "item": "minecraft:sandstone"
+    }
   },
   "pattern": [
     " W",

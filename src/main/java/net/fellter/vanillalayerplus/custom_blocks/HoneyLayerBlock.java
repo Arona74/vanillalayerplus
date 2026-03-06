@@ -5,10 +5,9 @@ import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCollisionHandler;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.TntEntity;
-import net.minecraft.entity.vehicle.AbstractBoatEntity;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
@@ -22,10 +21,10 @@ public class HoneyLayerBlock extends LayerBlock {
 	}
 
 	private static boolean hasHoneyBlockEffects(Entity entity) {
-		return entity instanceof LivingEntity || entity instanceof AbstractMinecartEntity || entity instanceof TntEntity || entity instanceof AbstractBoatEntity;
+		return entity instanceof LivingEntity || entity instanceof AbstractMinecartEntity || entity instanceof TntEntity || entity instanceof BoatEntity;
 	}
 
-	public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, double fallDistance) {
+	public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
 		entity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 1.0F, 1.0F);
 
 		if (!world.isClient) {
@@ -37,14 +36,14 @@ public class HoneyLayerBlock extends LayerBlock {
 		}
 	}
 
-	protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler) {
+	protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
 		if (this.isSliding(pos, entity)) {
 			this.triggerAdvancement(entity, pos);
 			this.updateSlidingVelocity(entity);
 			this.addCollisionEffects(world, entity);
 		}
 
-		super.onEntityCollision(state, world, pos, entity, handler);
+		super.onEntityCollision(state, world, pos, entity);
 	}
 
 	private static double method_65067(double d) {

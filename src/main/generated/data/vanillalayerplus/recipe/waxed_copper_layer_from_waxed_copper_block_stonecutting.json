@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:waxed_copper_block",
+  "ingredient": {
+    "item": "minecraft:waxed_copper_block"
+  },
   "result": {
     "count": 8,
     "id": "vanillalayerplus:waxed_copper_layer"

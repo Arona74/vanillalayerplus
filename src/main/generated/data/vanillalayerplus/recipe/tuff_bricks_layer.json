@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:tuff_bricks"
+    "W": {
+      "item": "minecraft:tuff_bricks"
+    }
   },
   "pattern": [
     " W",

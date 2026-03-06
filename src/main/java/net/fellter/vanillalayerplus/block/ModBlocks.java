@@ -14,8 +14,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
@@ -29,79 +27,79 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
 public class ModBlocks {
-	private static final Block LOG_DEF = registerBlock("log_def", Block::new, AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable());
-	private static final Block BAMBOO_DEF = registerBlock("bamboo_def", Block::new, AbstractBlock.Settings.copy(LOG_DEF).sounds(BlockSoundGroup.BAMBOO_WOOD));
-	private static final Block NETHER_DEF = registerBlock("nether_def", Block::new, AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.NETHER_STEM));
+	private static AbstractBlock.Settings logSettings() {
+		return AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable();
+	}
+	private static AbstractBlock.Settings bambooSettings() {
+		return AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.BAMBOO_WOOD).burnable();
+	}
+	private static AbstractBlock.Settings netherSettings() {
+		return AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.NETHER_STEM);
+	}
 
 	public static final Block OAK_LAYER = registerBlock("oak_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
-	public static final Block STRIPPED_OAK_LOG_LAYER = registerBlock("stripped_oak_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block STRIPPED_OAK_LOG_LAYER = registerBlock("stripped_oak_log_layer", LayerBlock::new, logSettings());
 	public static final Block STRIPPED_OAK_WOOD_LAYER = registerBlock("stripped_oak_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD));
-	public static final Block OAK_LOG_LAYER = registerBlock("oak_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block OAK_LOG_LAYER = registerBlock("oak_log_layer", LayerBlock::new, logSettings());
 	public static final Block OAK_WOOD_LAYER = registerBlock("oak_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_WOOD));
 
 	public static final Block SPRUCE_LAYER = registerBlock("spruce_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.SPRUCE_PLANKS));
-	public static final Block STRIPPED_SPRUCE_LOG_LAYER = registerBlock("stripped_spruce_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block STRIPPED_SPRUCE_LOG_LAYER = registerBlock("stripped_spruce_log_layer", LayerBlock::new, logSettings());
 	public static final Block STRIPPED_SPRUCE_WOOD_LAYER = registerBlock("stripped_spruce_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_SPRUCE_WOOD));
-	public static final Block SPRUCE_LOG_LAYER = registerBlock("spruce_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block SPRUCE_LOG_LAYER = registerBlock("spruce_log_layer", LayerBlock::new, logSettings());
 	public static final Block SPRUCE_WOOD_LAYER = registerBlock("spruce_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.SPRUCE_WOOD));
 
 	public static final Block BIRCH_LAYER = registerBlock("birch_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.BIRCH_PLANKS));
-	public static final Block STRIPPED_BIRCH_LOG_LAYER = registerBlock("stripped_birch_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block STRIPPED_BIRCH_LOG_LAYER = registerBlock("stripped_birch_log_layer", LayerBlock::new, logSettings());
 	public static final Block STRIPPED_BIRCH_WOOD_LAYER = registerBlock("stripped_birch_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_BIRCH_WOOD));
-	public static final Block BIRCH_LOG_LAYER = registerBlock("birch_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block BIRCH_LOG_LAYER = registerBlock("birch_log_layer", LayerBlock::new, logSettings());
 	public static final Block BIRCH_WOOD_LAYER = registerBlock("birch_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.BIRCH_WOOD));
 
 	public static final Block JUNGLE_LAYER = registerBlock("jungle_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.JUNGLE_PLANKS));
-	public static final Block STRIPPED_JUNGLE_LOG_LAYER = registerBlock("stripped_jungle_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block STRIPPED_JUNGLE_LOG_LAYER = registerBlock("stripped_jungle_log_layer", LayerBlock::new, logSettings());
 	public static final Block STRIPPED_JUNGLE_WOOD_LAYER = registerBlock("stripped_jungle_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_JUNGLE_WOOD));
-	public static final Block JUNGLE_LOG_LAYER = registerBlock("jungle_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block JUNGLE_LOG_LAYER = registerBlock("jungle_log_layer", LayerBlock::new, logSettings());
 	public static final Block JUNGLE_WOOD_LAYER = registerBlock("jungle_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.JUNGLE_WOOD));
 
 	public static final Block ACACIA_LAYER = registerBlock("acacia_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.ACACIA_PLANKS));
-	public static final Block STRIPPED_ACACIA_LOG_LAYER = registerBlock("stripped_acacia_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block STRIPPED_ACACIA_LOG_LAYER = registerBlock("stripped_acacia_log_layer", LayerBlock::new, logSettings());
 	public static final Block STRIPPED_ACACIA_WOOD_LAYER = registerBlock("stripped_acacia_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_ACACIA_WOOD));
-	public static final Block ACACIA_LOG_LAYER = registerBlock("acacia_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block ACACIA_LOG_LAYER = registerBlock("acacia_log_layer", LayerBlock::new, logSettings());
 	public static final Block ACACIA_WOOD_LAYER = registerBlock("acacia_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.ACACIA_WOOD));
 
 	public static final Block DARK_OAK_LAYER = registerBlock("dark_oak_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.DARK_OAK_PLANKS));
-	public static final Block STRIPPED_DARK_OAK_LOG_LAYER = registerBlock("stripped_dark_oak_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block STRIPPED_DARK_OAK_LOG_LAYER = registerBlock("stripped_dark_oak_log_layer", LayerBlock::new, logSettings());
 	public static final Block STRIPPED_DARK_OAK_WOOD_LAYER = registerBlock("stripped_dark_oak_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_DARK_OAK_WOOD));
-	public static final Block DARK_OAK_LOG_LAYER = registerBlock("dark_oak_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block DARK_OAK_LOG_LAYER = registerBlock("dark_oak_log_layer", LayerBlock::new, logSettings());
 	public static final Block DARK_OAK_WOOD_LAYER = registerBlock("dark_oak_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.DARK_OAK_WOOD));
 
 	public static final Block MANGROVE_LAYER = registerBlock("mangrove_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.MANGROVE_PLANKS));
-	public static final Block STRIPPED_MANGROVE_LOG_LAYER = registerBlock("stripped_mangrove_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
-	public static final Block STRIPPED_MANGROVE_WOOD_LAYER = registerBlock("stripped_mangrove_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
-	public static final Block MANGROVE_LOG_LAYER = registerBlock("mangrove_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block STRIPPED_MANGROVE_LOG_LAYER = registerBlock("stripped_mangrove_log_layer", LayerBlock::new, logSettings());
+	public static final Block STRIPPED_MANGROVE_WOOD_LAYER = registerBlock("stripped_mangrove_wood_layer", LayerBlock::new, logSettings());
+	public static final Block MANGROVE_LOG_LAYER = registerBlock("mangrove_log_layer", LayerBlock::new, logSettings());
 	public static final Block MANGROVE_WOOD_LAYER = registerBlock("mangrove_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.MANGROVE_WOOD));
 
 	public static final Block CHERRY_LAYER = registerBlock("cherry_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CHERRY_PLANKS));
-	public static final Block STRIPPED_CHERRY_LOG_LAYER = registerBlock("stripped_cherry_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block STRIPPED_CHERRY_LOG_LAYER = registerBlock("stripped_cherry_log_layer", LayerBlock::new, logSettings());
 	public static final Block STRIPPED_CHERRY_WOOD_LAYER = registerBlock("stripped_cherry_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_CHERRY_WOOD));
-	public static final Block CHERRY_LOG_LAYER = registerBlock("cherry_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
+	public static final Block CHERRY_LOG_LAYER = registerBlock("cherry_log_layer", LayerBlock::new, logSettings());
 	public static final Block CHERRY_WOOD_LAYER = registerBlock("cherry_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CHERRY_WOOD));
-
-	public static final Block PALE_OAK_LAYER = registerBlock("pale_oak_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.PALE_OAK_PLANKS));
-	public static final Block STRIPPED_PALE_OAK_LOG_LAYER = registerBlock("stripped_pale_oak_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
-	public static final Block STRIPPED_PALE_OAK_WOOD_LAYER = registerBlock("stripped_pale_oak_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_PALE_OAK_WOOD));
-	public static final Block PALE_OAK_LOG_LAYER = registerBlock("pale_oak_log_layer", LayerBlock::new, AbstractBlock.Settings.copy(LOG_DEF));
-	public static final Block PALE_OAK_WOOD_LAYER = registerBlock("pale_oak_wood_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.PALE_OAK_WOOD));
 
 	public static final Block BAMBOO_LAYER = registerBlock("bamboo_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.BAMBOO_PLANKS));
 	public static final Block BAMBOO_MOSAIC_LAYER = registerBlock("bamboo_mosaic_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.BAMBOO_MOSAIC));
-	public static final Block STRIPPED_BAMBOO_BLOCK_LAYER = registerBlock("stripped_bamboo_block_layer", LayerBlock::new, AbstractBlock.Settings.copy(BAMBOO_DEF).sounds(BlockSoundGroup.BAMBOO_WOOD));
-	public static final Block BAMBOO_BLOCK_LAYER = registerBlock("bamboo_block_layer", LayerBlock::new, AbstractBlock.Settings.copy(BAMBOO_DEF).sounds(BlockSoundGroup.BAMBOO_WOOD));
+	public static final Block STRIPPED_BAMBOO_BLOCK_LAYER = registerBlock("stripped_bamboo_block_layer", LayerBlock::new, bambooSettings().sounds(BlockSoundGroup.BAMBOO_WOOD));
+	public static final Block BAMBOO_BLOCK_LAYER = registerBlock("bamboo_block_layer", LayerBlock::new, bambooSettings().sounds(BlockSoundGroup.BAMBOO_WOOD));
 
 	public static final Block CRIMSON_LAYER = registerBlock("crimson_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CRIMSON_PLANKS));
-	public static final Block STRIPPED_CRIMSON_STEM_LAYER = registerBlock("stripped_crimson_stem_layer", LayerBlock::new, AbstractBlock.Settings.copy(NETHER_DEF).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block STRIPPED_CRIMSON_STEM_LAYER = registerBlock("stripped_crimson_stem_layer", LayerBlock::new, netherSettings().sounds(BlockSoundGroup.NETHER_STEM));
 	public static final Block STRIPPED_CRIMSON_HYPHAE_LAYER = registerBlock("stripped_crimson_hyphae_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_CRIMSON_HYPHAE));
-	public static final Block CRIMSON_STEM_LAYER = registerBlock("crimson_stem_layer", LayerBlock::new, AbstractBlock.Settings.copy(NETHER_DEF).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block CRIMSON_STEM_LAYER = registerBlock("crimson_stem_layer", LayerBlock::new, netherSettings().sounds(BlockSoundGroup.NETHER_STEM));
 	public static final Block CRIMSON_HYPHAE_LAYER = registerBlock("crimson_hyphae_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CRIMSON_HYPHAE));
 
 	public static final Block WARPED_LAYER = registerBlock("warped_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WARPED_PLANKS));
-	public static final Block STRIPPED_WARPED_STEM_LAYER = registerBlock("stripped_warped_stem_layer", LayerBlock::new, AbstractBlock.Settings.copy(NETHER_DEF).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block STRIPPED_WARPED_STEM_LAYER = registerBlock("stripped_warped_stem_layer", LayerBlock::new, netherSettings().sounds(BlockSoundGroup.NETHER_STEM));
 	public static final Block STRIPPED_WARPED_HYPHAE_LAYER = registerBlock("stripped_warped_hyphae_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STRIPPED_WARPED_HYPHAE));
-	public static final Block WARPED_STEM_LAYER = registerBlock("warped_stem_layer", LayerBlock::new, AbstractBlock.Settings.copy(NETHER_DEF).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block WARPED_STEM_LAYER = registerBlock("warped_stem_layer", LayerBlock::new, netherSettings().sounds(BlockSoundGroup.NETHER_STEM));
 	public static final Block WARPED_HYPHAE_LAYER = registerBlock("warped_hyphae_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WARPED_HYPHAE));
 
 	public static final Block STONE_LAYER = registerBlock("stone_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.STONE));
@@ -138,9 +136,6 @@ public class ModBlocks {
 	public static final Block BRICKS_LAYER = registerBlock("bricks_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.BRICKS));
 	public static final Block PACKED_MUD_LAYER = registerBlock("packed_mud_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.PACKED_MUD));
 	public static final Block MUD_BRICKS_LAYER = registerBlock("mud_bricks_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.MUD_BRICKS));
-	public static final Block RESIN_BRICKS_LAYER = registerBlock("resin_bricks_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.RESIN_BRICKS));
-	public static final Block CHISELED_RESIN_BRICKS_LAYER = registerBlock("chiseled_resin_bricks_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CHISELED_RESIN_BRICKS));
-
 	public static final Block SANDSTONE_LAYER = registerBlock("sandstone_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.SANDSTONE));
 	public static final Block CHISELED_SANDSTONE_LAYER = registerBlock("chiseled_sandstone_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CHISELED_SANDSTONE));
 	public static final Block SMOOTH_SANDSTONE_LAYER = registerBlock("smooth_sandstone_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.SMOOTH_SANDSTONE));
@@ -377,7 +372,6 @@ public class ModBlocks {
 	public static final Block SNOW_LAYER = registerBlock("snow_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK));
 
 	public static final Block MOSS_LAYER = registerBlock("moss_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.MOSS_BLOCK));
-	public static final Block PALE_MOSS_LAYER = registerBlock("pale_moss_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.PALE_MOSS_BLOCK));
 
 	public static final Block CALCITE_LAYER = registerBlock("calcite_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CALCITE));
 	public static final Block DRIPSTONE_LAYER = registerBlock("dripstone_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
@@ -424,7 +418,6 @@ public class ModBlocks {
 	public static final Block DARK_OAK_LEAVES_LAYER = registerBlock("dark_oak_leaves_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.DARK_OAK_LEAVES));
 	public static final Block MANGROVE_LEAVES_LAYER = registerBlock("mangrove_leaves_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.MANGROVE_LEAVES));
 	public static final Block CHERRY_LEAVES_LAYER = registerBlock("cherry_leaves_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES));
-	public static final Block PALE_OAK_LEAVES_LAYER = registerBlock("pale_oak_leaves_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.PALE_OAK_LEAVES));
 	public static final Block AZALEA_LEAVES_LAYER = registerBlock("azalea_leaves_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES));
 	public static final Block FLOWERING_AZALEA_LEAVES_LAYER = registerBlock("flowering_azalea_leaves_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.FLOWERING_AZALEA_LEAVES));
 
@@ -458,7 +451,6 @@ public class ModBlocks {
 	public static final Block HONEYCOMB_LAYER = registerBlock("honeycomb_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.HONEYCOMB_BLOCK));
 	public static final Block SLIME_LAYER = registerBlock("slime_layer", SlimeLayerBlock::new, AbstractBlock.Settings.copy(Blocks.SLIME_BLOCK));
 	public static final Block HONEY_LAYER = registerBlock("honey_layer", HoneyLayerBlock::new, AbstractBlock.Settings.copy(Blocks.HONEY_BLOCK));
-	public static final Block RESIN_LAYER = registerBlock("resin_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.RESIN_BLOCK));
 
 	public static final Block OCHRE_FROGLIGHT_LAYER = registerBlock("ochre_froglight_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.OCHRE_FROGLIGHT));
 	public static final Block VERDANT_FROGLIGHT_LAYER = registerBlock("verdant_froglight_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.VERDANT_FROGLIGHT));
@@ -469,18 +461,12 @@ public class ModBlocks {
 	public static final Block TARGET_LAYER = registerBlock("target_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.TARGET));
 
 	private static Block registerBlock(String name, @NotNull Function<AbstractBlock.Settings, Block> function, AbstractBlock.@NotNull Settings settings) {
-		Block block = function.apply(settings.registryKey(keyOfBlock(name)));
-		Registry.register(Registries.ITEM, Identifier.of(VanillaLayerPlus.MOD_ID, name), new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey().registryKey(keyOfItem(name))));
-		return Registry.register(Registries.BLOCK, keyOfBlock(name), block);
+		Block block = function.apply(settings);
+		Registry.register(Registries.ITEM, Identifier.of(VanillaLayerPlus.MOD_ID, name), new BlockItem(block, new Item.Settings()));
+		return Registry.register(Registries.BLOCK, Identifier.of(VanillaLayerPlus.MOD_ID, name), block);
 	}
 
-	private static RegistryKey<Item> keyOfItem(String name) {
-		return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(VanillaLayerPlus.MOD_ID, name));
-	}
 
-	private static RegistryKey<Block> keyOfBlock(String name) {
-		return RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(VanillaLayerPlus.MOD_ID, name));
-	}
 
 	public static void registerModBlocks() {
 	}

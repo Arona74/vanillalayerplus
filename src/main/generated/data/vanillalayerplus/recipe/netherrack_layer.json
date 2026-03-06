@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:netherrack"
+    "W": {
+      "item": "minecraft:netherrack"
+    }
   },
   "pattern": [
     " W",

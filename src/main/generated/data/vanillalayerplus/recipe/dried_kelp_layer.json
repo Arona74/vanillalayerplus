@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:dried_kelp_block"
+    "W": {
+      "item": "minecraft:dried_kelp_block"
+    }
   },
   "pattern": [
     " W",

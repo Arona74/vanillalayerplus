@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:honeycomb_block"
+    "W": {
+      "item": "minecraft:honeycomb_block"
+    }
   },
   "pattern": [
     " W",

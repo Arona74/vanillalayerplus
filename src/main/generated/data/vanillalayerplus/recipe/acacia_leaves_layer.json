@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:acacia_leaves"
+    "W": {
+      "item": "minecraft:acacia_leaves"
+    }
   },
   "pattern": [
     " W",

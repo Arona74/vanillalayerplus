@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:slime_block"
+    "W": {
+      "item": "minecraft:slime_block"
+    }
   },
   "pattern": [
     " W",

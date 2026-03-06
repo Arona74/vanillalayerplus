@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:mangrove_planks"
+    "W": {
+      "item": "minecraft:mangrove_planks"
+    }
   },
   "pattern": [
     " W",

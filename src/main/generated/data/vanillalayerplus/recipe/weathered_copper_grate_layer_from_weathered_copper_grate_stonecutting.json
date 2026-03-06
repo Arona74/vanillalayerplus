@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:weathered_copper_grate",
+  "ingredient": {
+    "item": "minecraft:weathered_copper_grate"
+  },
   "result": {
     "count": 8,
     "id": "vanillalayerplus:weathered_copper_grate_layer"

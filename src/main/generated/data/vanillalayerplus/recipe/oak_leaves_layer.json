@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:oak_leaves"
+    "W": {
+      "item": "minecraft:oak_leaves"
+    }
   },
   "pattern": [
     " W",

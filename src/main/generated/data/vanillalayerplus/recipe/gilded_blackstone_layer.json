@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:gilded_blackstone"
+    "W": {
+      "item": "minecraft:gilded_blackstone"
+    }
   },
   "pattern": [
     " W",

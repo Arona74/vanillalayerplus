@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:redstone_ore"
+    "W": {
+      "item": "minecraft:redstone_ore"
+    }
   },
   "pattern": [
     " W",

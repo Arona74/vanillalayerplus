@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:stone",
+  "ingredient": {
+    "item": "minecraft:stone"
+  },
   "result": {
     "count": 8,
     "id": "vanillalayerplus:stone_bricks_layer"

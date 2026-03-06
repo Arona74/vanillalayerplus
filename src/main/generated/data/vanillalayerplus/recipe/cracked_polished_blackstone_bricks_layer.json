@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:cracked_polished_blackstone_bricks"
+    "W": {
+      "item": "minecraft:cracked_polished_blackstone_bricks"
+    }
   },
   "pattern": [
     " W",

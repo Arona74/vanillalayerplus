@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:cut_copper",
+  "ingredient": {
+    "item": "minecraft:cut_copper"
+  },
   "result": {
     "count": 8,
     "id": "vanillalayerplus:cut_copper_layer"

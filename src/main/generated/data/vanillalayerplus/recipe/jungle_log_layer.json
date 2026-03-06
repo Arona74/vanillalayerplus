@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:jungle_log"
+    "W": {
+      "item": "minecraft:jungle_log"
+    }
   },
   "pattern": [
     " W",

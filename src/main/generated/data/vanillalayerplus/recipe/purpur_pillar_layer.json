@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:purpur_pillar"
+    "W": {
+      "item": "minecraft:purpur_pillar"
+    }
   },
   "pattern": [
     " W",

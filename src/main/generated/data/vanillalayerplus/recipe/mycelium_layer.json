@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:mycelium"
+    "W": {
+      "item": "minecraft:mycelium"
+    }
   },
   "pattern": [
     " W",

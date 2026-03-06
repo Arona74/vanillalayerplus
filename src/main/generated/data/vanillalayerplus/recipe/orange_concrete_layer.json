@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:orange_concrete"
+    "W": {
+      "item": "minecraft:orange_concrete"
+    }
   },
   "pattern": [
     " W",

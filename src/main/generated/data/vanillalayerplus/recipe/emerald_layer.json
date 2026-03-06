@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:emerald_block"
+    "W": {
+      "item": "minecraft:emerald_block"
+    }
   },
   "pattern": [
     " W",

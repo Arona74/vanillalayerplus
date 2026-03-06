@@ -63,7 +63,7 @@ public class WetSpongeLayerBlock extends LayerBlock {
 					}
 				}
 
-				world.addParticleClient(ParticleTypes.DRIPPING_WATER, d, e, f, 0.0, 0.0, 0.0);
+				world.addParticle(ParticleTypes.DRIPPING_WATER, d, e, f, 0.0, 0.0, 0.0);
 			}
 		}
 	}

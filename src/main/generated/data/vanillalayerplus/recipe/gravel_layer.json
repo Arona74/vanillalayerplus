@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:gravel"
+    "W": {
+      "item": "minecraft:gravel"
+    }
   },
   "pattern": [
     " W",

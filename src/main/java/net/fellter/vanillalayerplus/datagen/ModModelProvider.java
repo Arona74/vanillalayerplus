@@ -1,7 +1,5 @@
 package net.fellter.vanillalayerplus.datagen;
 
-import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethodStage;
-
 import net.fellter.vanillalayerplus.VanillaLayerPlus;
 import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.fellter.vanillalayerplus.block.ModBlocks;
@@ -10,15 +8,15 @@ import net.fellter.vanillalayerplus.registry.Args;
 import net.fellter.vanillalayerplus.registry.DatagenArgs;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.Models;
-import net.minecraft.client.data.TextureMap;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TextureMap;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
-import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 
 import static net.fellter.vanillalayerplus.util.ModBlockStateModelGenerator.registerLayerBlock;
 import static net.fellter.vanillalayerplus.util.ModBlockStateModelGenerator.registerLayerBlockY15;
@@ -38,18 +36,10 @@ public class ModModelProvider extends FabricModelProvider {
 				DatagenArgs args = Args.DATAGEN_ARGS.get(block);
 
 				if (args.textureMap != null) {
-					if (block instanceof LayerBlock && args.y15 && args.tintSource != null && args.fullTextureBlock != null) {
-						registerLayerBlockY15(block, args.fullTextureBlock, bsmg, args.textureMap, args.tintSource);
-					} else if (block instanceof LayerBlock && args.y15 && args.tintSource != null && args.parentBlock != null) {
-						registerLayerBlockY15(block, args.parentBlock, bsmg, args.textureMap, args.tintSource);
-					} else if (block instanceof LayerBlock && args.y15 && args.fullTextureBlock != null) {
+					if (block instanceof LayerBlock && args.y15 && args.fullTextureBlock != null) {
 						registerLayerBlockY15(block, args.fullTextureBlock, bsmg, args.textureMap);
 					} else if (block instanceof LayerBlock && args.y15 && args.parentBlock != null) {
 						registerLayerBlockY15(block, args.parentBlock, bsmg, args.textureMap);
-					} else if (block instanceof LayerBlock && args.tintSource != null && args.fullTextureBlock != null) {
-						registerLayerBlock(block, args.fullTextureBlock, bsmg, args.textureMap, args.tintSource);
-					} else if (block instanceof LayerBlock && args.tintSource != null && args.parentBlock != null) {
-						registerLayerBlock(block, args.parentBlock, bsmg, args.textureMap, args.tintSource);
 					} else if (block instanceof LayerBlock && args.fullTextureBlock != null) {
 						registerLayerBlock(block, args.fullTextureBlock, bsmg, args.textureMap);
 					} else if (block instanceof LayerBlock && args.parentBlock != null) {

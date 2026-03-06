@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:pearlescent_froglight"
+    "W": {
+      "item": "minecraft:pearlescent_froglight"
+    }
   },
   "pattern": [
     " W",

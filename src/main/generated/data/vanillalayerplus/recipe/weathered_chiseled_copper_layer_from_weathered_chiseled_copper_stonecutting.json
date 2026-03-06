@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:weathered_chiseled_copper",
+  "ingredient": {
+    "item": "minecraft:weathered_chiseled_copper"
+  },
   "result": {
     "count": 8,
     "id": "vanillalayerplus:weathered_chiseled_copper_layer"

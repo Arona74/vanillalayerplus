@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:deepslate_emerald_ore"
+    "W": {
+      "item": "minecraft:deepslate_emerald_ore"
+    }
   },
   "pattern": [
     " W",

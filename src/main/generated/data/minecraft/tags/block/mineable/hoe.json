@@ -1,7 +1,6 @@
 {
   "values": [
     "vanillalayerplus:moss_layer",
-    "vanillalayerplus:pale_moss_layer",
     "vanillalayerplus:oak_leaves_layer",
     "vanillalayerplus:spruce_leaves_layer",
     "vanillalayerplus:birch_leaves_layer",
@@ -10,7 +9,6 @@
     "vanillalayerplus:dark_oak_leaves_layer",
     "vanillalayerplus:mangrove_leaves_layer",
     "vanillalayerplus:cherry_leaves_layer",
-    "vanillalayerplus:pale_oak_leaves_layer",
     "vanillalayerplus:azalea_leaves_layer",
     "vanillalayerplus:flowering_azalea_leaves_layer",
     "vanillalayerplus:nether_wart_layer",

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:crimson_nylium"
+    "W": {
+      "item": "minecraft:crimson_nylium"
+    }
   },
   "pattern": [
     " W",

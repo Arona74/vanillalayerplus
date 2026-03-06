@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:sponge"
+    "W": {
+      "item": "minecraft:sponge"
+    }
   },
   "pattern": [
     " W",

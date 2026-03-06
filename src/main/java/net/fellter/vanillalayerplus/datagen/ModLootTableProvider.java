@@ -33,12 +33,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 			if (Args.DATAGEN_ARGS.containsKey(block)) {
 				DatagenArgs datagenArgs = Args.DATAGEN_ARGS.get(block);
 
-				if (block.getLootTableKey().isPresent()) {
-					if (block instanceof LayerBlock && datagenArgs.needsSilkTouch) {
-						addDrop(block, silkTouchDrops(block));
-					} else if (block instanceof LayerBlock) {
-						addDrop(block, layerDrops(block));
-					}
+				if (block instanceof LayerBlock && datagenArgs.needsSilkTouch) {
+					addDrop(block, silkTouchDrops(block));
+				} else if (block instanceof LayerBlock) {
+					addDrop(block, layerDrops(block));
 				}
 			}
 		});

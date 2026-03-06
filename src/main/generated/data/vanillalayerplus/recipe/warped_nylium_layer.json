@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:warped_nylium"
+    "W": {
+      "item": "minecraft:warped_nylium"
+    }
   },
   "pattern": [
     " W",

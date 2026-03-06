@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:blue_ice"
+    "W": {
+      "item": "minecraft:blue_ice"
+    }
   },
   "pattern": [
     " W",

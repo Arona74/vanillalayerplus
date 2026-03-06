@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:chiseled_nether_bricks"
+    "W": {
+      "item": "minecraft:chiseled_nether_bricks"
+    }
   },
   "pattern": [
     " W",

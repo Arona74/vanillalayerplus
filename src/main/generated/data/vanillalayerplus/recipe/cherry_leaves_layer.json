@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:cherry_leaves"
+    "W": {
+      "item": "minecraft:cherry_leaves"
+    }
   },
   "pattern": [
     " W",

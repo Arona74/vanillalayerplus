@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:waxed_oxidized_copper_grate",
+  "ingredient": {
+    "item": "minecraft:waxed_oxidized_copper_grate"
+  },
   "result": {
     "count": 8,
     "id": "vanillalayerplus:waxed_oxidized_copper_grate_layer"

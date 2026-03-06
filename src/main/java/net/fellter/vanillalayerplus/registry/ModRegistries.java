@@ -12,16 +12,15 @@ import net.fellter.vanillalayerplus.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.color.world.BiomeColors;
-import net.minecraft.client.render.BlockRenderLayer;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.HoeItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.FoliageColors;
 import net.minecraft.world.biome.GrassColors;
 
-import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
 import net.fabricmc.fabric.impl.content.registry.util.ImmutableCollectionUtils;
@@ -111,7 +110,7 @@ public class ModRegistries {
 				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
 
 				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.transparent) {
-					BlockRenderLayerMap.putBlock(block, BlockRenderLayer.CUTOUT);
+					BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
 				}
 			}
 		});
@@ -123,7 +122,7 @@ public class ModRegistries {
 				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
 
 				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.translucent) {
-					BlockRenderLayerMap.putBlock(block, BlockRenderLayer.TRANSLUCENT);
+					BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
 				}
 			}
 		});
@@ -149,7 +148,7 @@ public class ModRegistries {
 					if (args.foliageTinted) {
 						ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
 							if (world == null || pos == null) {
-								return FoliageColors.DEFAULT;
+								return FoliageColors.getDefaultColor();
 							}
 
 							return BiomeColors.getFoliageColor(world, pos);
@@ -180,14 +179,5 @@ public class ModRegistries {
 	}
 
 	public static void registerFuel() {
-		Registries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
-
-				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.fuel != null) {
-					FuelRegistryEvents.BUILD.register((builder, context) -> builder.add(block, context.baseSmeltTime()));
-				}
-			}
-		});
 	}
 }

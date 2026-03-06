@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:cracked_deepslate_bricks"
+    "W": {
+      "item": "minecraft:cracked_deepslate_bricks"
+    }
   },
   "pattern": [
     " W",

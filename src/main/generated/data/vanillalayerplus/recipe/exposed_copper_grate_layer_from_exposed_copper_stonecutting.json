@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:exposed_copper",
+  "ingredient": {
+    "item": "minecraft:exposed_copper"
+  },
   "result": {
     "count": 8,
     "id": "vanillalayerplus:exposed_copper_grate_layer"

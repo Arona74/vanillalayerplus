@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:diamond_ore"
+    "W": {
+      "item": "minecraft:diamond_ore"
+    }
   },
   "pattern": [
     " W",

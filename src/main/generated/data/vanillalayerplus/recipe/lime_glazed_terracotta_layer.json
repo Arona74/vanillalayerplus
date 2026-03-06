@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:lime_glazed_terracotta"
+    "W": {
+      "item": "minecraft:lime_glazed_terracotta"
+    }
   },
   "pattern": [
     " W",

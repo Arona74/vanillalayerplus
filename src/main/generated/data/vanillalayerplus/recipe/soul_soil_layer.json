@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:soul_soil"
+    "W": {
+      "item": "minecraft:soul_soil"
+    }
   },
   "pattern": [
     " W",

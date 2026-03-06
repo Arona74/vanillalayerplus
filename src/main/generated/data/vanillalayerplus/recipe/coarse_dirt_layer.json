@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:coarse_dirt"
+    "W": {
+      "item": "minecraft:coarse_dirt"
+    }
   },
   "pattern": [
     " W",

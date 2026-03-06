@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:magenta_terracotta"
+    "W": {
+      "item": "minecraft:magenta_terracotta"
+    }
   },
   "pattern": [
     " W",

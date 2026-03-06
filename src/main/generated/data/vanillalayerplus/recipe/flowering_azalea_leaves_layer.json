@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:flowering_azalea_leaves"
+    "W": {
+      "item": "minecraft:flowering_azalea_leaves"
+    }
   },
   "pattern": [
     " W",

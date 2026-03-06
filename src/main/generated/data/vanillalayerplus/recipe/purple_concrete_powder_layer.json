@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:purple_concrete_powder"
+    "W": {
+      "item": "minecraft:purple_concrete_powder"
+    }
   },
   "pattern": [
     " W",

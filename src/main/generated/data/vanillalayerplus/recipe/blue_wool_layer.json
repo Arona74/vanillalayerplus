@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:blue_wool"
+    "W": {
+      "item": "minecraft:blue_wool"
+    }
   },
   "pattern": [
     " W",

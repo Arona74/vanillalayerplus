@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:red_concrete_powder"
+    "W": {
+      "item": "minecraft:red_concrete_powder"
+    }
   },
   "pattern": [
     " W",

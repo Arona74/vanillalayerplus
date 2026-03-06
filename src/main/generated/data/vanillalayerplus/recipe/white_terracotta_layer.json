@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:white_terracotta"
+    "W": {
+      "item": "minecraft:white_terracotta"
+    }
   },
   "pattern": [
     " W",

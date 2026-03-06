@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.data.TextureMap;
-import net.minecraft.client.render.item.tint.TintSource;
+import net.minecraft.data.client.TextureMap;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.tag.TagKey;
 
@@ -14,7 +13,6 @@ public class DatagenArgs {
 	public Block parentBlock;
 	public TextureMap textureMap;
 	public Block fullTextureBlock;
-	public TintSource tintSource;
 	public Boolean y15 = false;
 	public Boolean needsSilkTouch = false;
 	public ArrayList<ItemConvertible> stonecuttingInput = new ArrayList<>();
@@ -67,11 +65,6 @@ public class DatagenArgs {
 
 	public DatagenArgs textureMap(TextureMap textureMap) {
 		this.textureMap = textureMap;
-		return this;
-	}
-
-	public DatagenArgs tintSource(TintSource tintSource) {
-		this.tintSource = tintSource;
 		return this;
 	}
 

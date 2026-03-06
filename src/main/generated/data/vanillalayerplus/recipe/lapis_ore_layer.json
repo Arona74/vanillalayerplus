@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:lapis_ore"
+    "W": {
+      "item": "minecraft:lapis_ore"
+    }
   },
   "pattern": [
     " W",

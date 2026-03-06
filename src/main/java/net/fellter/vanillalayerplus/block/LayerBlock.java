@@ -30,7 +30,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.minecraft.world.tick.ScheduledTickView;
 
 public class LayerBlock extends Block implements Waterloggable {
 	public static final EnumProperty<Direction> FACING = Properties.FACING;
@@ -48,7 +47,7 @@ public class LayerBlock extends Block implements Waterloggable {
 		this.setDefaultState(this.getStateManager().getDefaultState().with(LAYERS, 1).with(WATERLOGGED, false).with(FACING, Direction.DOWN));
 	}
 
-	protected boolean canPathfindThrough(BlockState state, NavigationType type) {
+	protected boolean canPathfindThrough(BlockState state, BlockView world, NavigationType type) {
 		if (Objects.requireNonNull(type) == NavigationType.LAND && state.get(FACING) == Direction.DOWN) {
 			return state.get(LAYERS) < 5;
 		}
@@ -121,25 +120,25 @@ public class LayerBlock extends Block implements Waterloggable {
 	}
 
 	@Override
-	protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
+	protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
 		if (!state.canPlaceAt(world, pos)) {
 			return Blocks.AIR.getDefaultState();
 		}
 
 		if (state.get(WATERLOGGED)) {
-			tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+			world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
 		}
 
-		return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+		return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
 	}
 
 	@Override
-	public boolean canFillWithFluid(@Nullable LivingEntity filler, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
+	public boolean canFillWithFluid(@Nullable PlayerEntity player, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
 		return state.get(Properties.LAYERS) < 8;
 	}
 
 	@Override
-	public ItemStack tryDrainFluid(@Nullable LivingEntity drainer, WorldAccess world, BlockPos pos, BlockState state) {
+	public ItemStack tryDrainFluid(@Nullable PlayerEntity player, WorldAccess world, BlockPos pos, BlockState state) {
 		if (state.get(WATERLOGGED)) {
 			world.setBlockState(pos, state.with(WATERLOGGED, false), 3);
 

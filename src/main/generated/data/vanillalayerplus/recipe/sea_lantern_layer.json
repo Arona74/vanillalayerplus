@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:sea_lantern"
+    "W": {
+      "item": "minecraft:sea_lantern"
+    }
   },
   "pattern": [
     " W",

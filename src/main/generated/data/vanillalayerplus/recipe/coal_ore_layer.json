@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": "minecraft:coal_ore"
+    "W": {
+      "item": "minecraft:coal_ore"
+    }
   },
   "pattern": [
     " W",
