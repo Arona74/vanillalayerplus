@@ -6,7 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.particle.ParticleUtil;
+
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -20,16 +20,16 @@ public class FallingLayerBlock extends LayerBlock {
 		super(settings);
 	}
 
-	protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
 		world.scheduleBlockTick(pos, this, this.getFallDelay());
 	}
 
-	protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
 		world.scheduleBlockTick(pos, this, this.getFallDelay());
 		return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
 	}
 
-	protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		if (canFallThrough(world.getBlockState(pos.down())) && pos.getY() >= world.getBottomY()) {
 			FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, pos, state);
 			this.configureFallingBlockEntity(fallingBlockEntity);
@@ -52,7 +52,11 @@ public class FallingLayerBlock extends LayerBlock {
 			BlockPos blockPos = pos.down();
 
 			if (canFallThrough(world.getBlockState(blockPos))) {
-				ParticleUtil.spawnParticle(world, pos, random, new BlockStateParticleEffect(ParticleTypes.FALLING_DUST, state));
+				world.addParticle(new BlockStateParticleEffect(ParticleTypes.FALLING_DUST, state),
+					pos.getX() + random.nextFloat(),
+					pos.getY() + random.nextFloat(),
+					pos.getZ() + random.nextFloat(),
+					0.0, 0.0, 0.0);
 			}
 		}
 	}

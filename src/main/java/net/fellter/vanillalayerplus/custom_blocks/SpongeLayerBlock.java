@@ -23,13 +23,13 @@ public class SpongeLayerBlock extends LayerBlock {
 		super(settings);
 	}
 
-	protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
 		if (!oldState.isOf(state.getBlock())) {
 			this.update(world, pos);
 		}
 	}
 
-	protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+	public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
 		this.update(world, pos);
 		super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
 	}
@@ -37,7 +37,6 @@ public class SpongeLayerBlock extends LayerBlock {
 	protected void update(World world, BlockPos pos) {
 		if (this.absorbWater(world, pos)) {
 			world.setBlockState(pos, ModBlocks.WET_SPONGE_LAYER.getStateWithProperties(world.getBlockState(pos)).with(WATERLOGGED, false), 2);
-			world.playSound(null, pos, SoundEvents.BLOCK_SPONGE_ABSORB, SoundCategory.BLOCKS, 1.0F, 1.0F);
 		}
 	}
 
@@ -72,7 +71,7 @@ public class SpongeLayerBlock extends LayerBlock {
 				boolean drained = false;
 
 				if (block instanceof FluidDrainable fluidDrainable) {
-					if (!fluidDrainable.tryDrainFluid(null, world, neighborPos, blockState).isEmpty()) {
+					if (!fluidDrainable.tryDrainFluid(world, neighborPos, blockState).isEmpty()) {
 						drained = true;
 					}
 				}

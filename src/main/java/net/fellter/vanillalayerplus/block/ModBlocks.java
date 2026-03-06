@@ -8,7 +8,7 @@ import net.fellter.vanillalayerplus.VanillaLayerPlus;
 import net.fellter.vanillalayerplus.custom_blocks.*;
 
 import net.minecraft.block.*;
-import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -28,13 +28,13 @@ import net.minecraft.world.WorldView;
 
 public class ModBlocks {
 	private static AbstractBlock.Settings logSettings() {
-		return AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable();
+		return AbstractBlock.Settings.create().instrument(Instrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable();
 	}
 	private static AbstractBlock.Settings bambooSettings() {
-		return AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.BAMBOO_WOOD).burnable();
+		return AbstractBlock.Settings.create().instrument(Instrument.BASS).strength(2.0F).sounds(BlockSoundGroup.BAMBOO_WOOD).burnable();
 	}
 	private static AbstractBlock.Settings netherSettings() {
-		return AbstractBlock.Settings.create().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.NETHER_STEM);
+		return AbstractBlock.Settings.create().instrument(Instrument.BASS).strength(2.0F).sounds(BlockSoundGroup.NETHER_STEM);
 	}
 
 	public static final Block OAK_LAYER = registerBlock("oak_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
@@ -128,10 +128,6 @@ public class ModBlocks {
 	public static final Block CRACKED_DEEPSLATE_TILES_LAYER = registerBlock("cracked_deepslate_tiles_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CRACKED_DEEPSLATE_TILES));
 
 	public static final Block TUFF_LAYER = registerBlock("tuff_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.TUFF));
-	public static final Block CHISELED_TUFF_LAYER = registerBlock("chiseled_tuff_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CHISELED_TUFF));
-	public static final Block POLISHED_TUFF_LAYER = registerBlock("polished_tuff_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.POLISHED_TUFF));
-	public static final Block TUFF_BRICKS_LAYER = registerBlock("tuff_bricks_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.TUFF_BRICKS));
-	public static final Block CHISELED_TUFF_BRICKS_LAYER = registerBlock("chiseled_tuff_bricks_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.CHISELED_TUFF_BRICKS));
 
 	public static final Block BRICKS_LAYER = registerBlock("bricks_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.BRICKS));
 	public static final Block PACKED_MUD_LAYER = registerBlock("packed_mud_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.PACKED_MUD));
@@ -191,43 +187,27 @@ public class ModBlocks {
 	public static final Block AMETHYST_LAYER = registerBlock("amethyst_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
 
 	public static final Block WAXED_COPPER_LAYER = registerBlock("waxed_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_COPPER_BLOCK));
-	public static final Block WAXED_CHISELED_COPPER_LAYER = registerBlock("waxed_chiseled_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_CHISELED_COPPER));
-	public static final Block WAXED_COPPER_GRATE_LAYER = registerBlock("waxed_copper_grate_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_COPPER_GRATE));
 	public static final Block WAXED_CUT_COPPER_LAYER = registerBlock("waxed_cut_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_CUT_COPPER));
 
 	public static final Block WAXED_EXPOSED_COPPER_LAYER = registerBlock("waxed_exposed_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_EXPOSED_COPPER));
-	public static final Block WAXED_EXPOSED_CHISELED_COPPER_LAYER = registerBlock("waxed_exposed_chiseled_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_EXPOSED_CHISELED_COPPER));
-	public static final Block WAXED_EXPOSED_COPPER_GRATE_LAYER = registerBlock("waxed_exposed_copper_grate_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_EXPOSED_COPPER_GRATE));
 	public static final Block WAXED_EXPOSED_CUT_COPPER_LAYER = registerBlock("waxed_exposed_cut_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_EXPOSED_CUT_COPPER));
 
 	public static final Block WAXED_WEATHERED_COPPER_LAYER = registerBlock("waxed_weathered_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_WEATHERED_COPPER));
-	public static final Block WAXED_WEATHERED_CHISELED_COPPER_LAYER = registerBlock("waxed_weathered_chiseled_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_WEATHERED_CHISELED_COPPER));
-	public static final Block WAXED_WEATHERED_COPPER_GRATE_LAYER = registerBlock("waxed_weathered_copper_grate_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_WEATHERED_COPPER_GRATE));
 	public static final Block WAXED_WEATHERED_CUT_COPPER_LAYER = registerBlock("waxed_weathered_cut_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_WEATHERED_CUT_COPPER));
 
 	public static final Block WAXED_OXIDIZED_COPPER_LAYER = registerBlock("waxed_oxidized_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_OXIDIZED_COPPER));
-	public static final Block WAXED_OXIDIZED_CHISELED_COPPER_LAYER = registerBlock("waxed_oxidized_chiseled_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_OXIDIZED_CHISELED_COPPER));
-	public static final Block WAXED_OXIDIZED_COPPER_GRATE_LAYER = registerBlock("waxed_oxidized_copper_grate_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_OXIDIZED_COPPER_GRATE));
 	public static final Block WAXED_OXIDIZED_CUT_COPPER_LAYER = registerBlock("waxed_oxidized_cut_copper_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WAXED_OXIDIZED_CUT_COPPER));
 
 	public static final Block EXPOSED_COPPER_LAYER = registerBlock("exposed_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.EXPOSED, settings), AbstractBlock.Settings.copy(Blocks.EXPOSED_COPPER));
-	public static final Block EXPOSED_CHISELED_COPPER_LAYER = registerBlock("exposed_chiseled_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.EXPOSED, settings), AbstractBlock.Settings.copy(Blocks.EXPOSED_CHISELED_COPPER));
-	public static final Block EXPOSED_COPPER_GRATE_LAYER = registerBlock("exposed_copper_grate_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.EXPOSED, settings), AbstractBlock.Settings.copy(Blocks.EXPOSED_COPPER_GRATE));
 	public static final Block EXPOSED_CUT_COPPER_LAYER = registerBlock("exposed_cut_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.EXPOSED, settings), AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER));
 
 	public static final Block WEATHERED_COPPER_LAYER = registerBlock("weathered_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.WEATHERED, settings), AbstractBlock.Settings.copy(Blocks.WEATHERED_COPPER));
-	public static final Block WEATHERED_CHISELED_COPPER_LAYER = registerBlock("weathered_chiseled_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.WEATHERED, settings), AbstractBlock.Settings.copy(Blocks.WEATHERED_CHISELED_COPPER));
-	public static final Block WEATHERED_COPPER_GRATE_LAYER = registerBlock("weathered_copper_grate_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.WEATHERED, settings), AbstractBlock.Settings.copy(Blocks.WEATHERED_COPPER_GRATE));
 	public static final Block WEATHERED_CUT_COPPER_LAYER = registerBlock("weathered_cut_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.WEATHERED, settings), AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER));
 
 	public static final Block OXIDIZED_COPPER_LAYER = registerBlock("oxidized_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.OXIDIZED, settings), AbstractBlock.Settings.copy(Blocks.OXIDIZED_COPPER));
-	public static final Block OXIDIZED_CHISELED_COPPER_LAYER = registerBlock("oxidized_chiseled_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.OXIDIZED, settings), AbstractBlock.Settings.copy(Blocks.OXIDIZED_CHISELED_COPPER));
-	public static final Block OXIDIZED_COPPER_GRATE_LAYER = registerBlock("oxidized_copper_grate_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.OXIDIZED, settings), AbstractBlock.Settings.copy(Blocks.OXIDIZED_COPPER_GRATE));
 	public static final Block OXIDIZED_CUT_COPPER_LAYER = registerBlock("oxidized_cut_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.OXIDIZED, settings), AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER));
 
 	public static final Block COPPER_LAYER = registerBlock("copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.UNAFFECTED, settings), AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CHISELED_COPPER_LAYER = registerBlock("chiseled_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.UNAFFECTED, settings), AbstractBlock.Settings.copy(Blocks.CHISELED_COPPER));
-	public static final Block COPPER_GRATE_LAYER = registerBlock("copper_grate_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.UNAFFECTED, settings), AbstractBlock.Settings.copy(Blocks.COPPER_GRATE));
 	public static final Block CUT_COPPER_LAYER = registerBlock("cut_copper_layer", settings -> new OxidizableLayerBlock(Oxidizable.OxidationLevel.UNAFFECTED, settings), AbstractBlock.Settings.copy(Blocks.CUT_COPPER));
 
 	public static final Block WHITE_WOOL_LAYER = registerBlock("white_wool_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WHITE_WOOL));
@@ -350,7 +330,7 @@ public class ModBlocks {
 			return true;
 		}
 
-		protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+		public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 			if (!canSurvive(state, world, pos)) {
 				world.setBlockState(pos, ModBlocks.DIRT_LAYER.getStateWithProperties(state));
 			}
@@ -462,8 +442,8 @@ public class ModBlocks {
 
 	private static Block registerBlock(String name, @NotNull Function<AbstractBlock.Settings, Block> function, AbstractBlock.@NotNull Settings settings) {
 		Block block = function.apply(settings);
-		Registry.register(Registries.ITEM, Identifier.of(VanillaLayerPlus.MOD_ID, name), new BlockItem(block, new Item.Settings()));
-		return Registry.register(Registries.BLOCK, Identifier.of(VanillaLayerPlus.MOD_ID, name), block);
+		Registry.register(Registries.ITEM, new Identifier(VanillaLayerPlus.MOD_ID, name), new BlockItem(block, new Item.Settings()));
+		return Registry.register(Registries.BLOCK, new Identifier(VanillaLayerPlus.MOD_ID, name), block);
 	}
 
 

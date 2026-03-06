@@ -56,17 +56,17 @@ public class LayerBlock extends Block implements Waterloggable {
 	}
 
 	@Override
-	protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		return getSidesShape(state, world, pos);
 	}
 
 	@Override
-	protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+	public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		return getSidesShape(state, world, pos);
 	}
 
 	@Override
-	protected VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) {
+	public VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) {
 		Direction direction = state.get(FACING);
 		VoxelShape voxel;
 		switch (direction) {
@@ -83,22 +83,22 @@ public class LayerBlock extends Block implements Waterloggable {
 	}
 
 	@Override
-	protected VoxelShape getCameraCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+	public VoxelShape getCameraCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		return getOutlineShape(state, world, pos, context);
 	}
 
 	@Override
-	protected boolean hasSidedTransparency(BlockState state) {
+	public boolean hasSidedTransparency(BlockState state) {
 		return true;
 	}
 
 	@Override
-	protected float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
+	public float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
 		return state.get(LAYERS) == 8 ? 0.35f : 1.0f;
 	}
 
 	@Override
-	protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+	public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
 		for (Direction direction : DIRECTIONS) {
 			boolean canPlace = world.getBlockState(pos.offset(direction)).isSideSolidFullSquare(world, pos, direction);
 			if (canPlace) return true;
@@ -120,7 +120,7 @@ public class LayerBlock extends Block implements Waterloggable {
 	}
 
 	@Override
-	protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
 		if (!state.canPlaceAt(world, pos)) {
 			return Blocks.AIR.getDefaultState();
 		}
@@ -133,12 +133,12 @@ public class LayerBlock extends Block implements Waterloggable {
 	}
 
 	@Override
-	public boolean canFillWithFluid(@Nullable PlayerEntity player, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
+	public boolean canFillWithFluid(BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
 		return state.get(Properties.LAYERS) < 8;
 	}
 
 	@Override
-	public ItemStack tryDrainFluid(@Nullable PlayerEntity player, WorldAccess world, BlockPos pos, BlockState state) {
+	public ItemStack tryDrainFluid(WorldAccess world, BlockPos pos, BlockState state) {
 		if (state.get(WATERLOGGED)) {
 			world.setBlockState(pos, state.with(WATERLOGGED, false), 3);
 
@@ -153,7 +153,7 @@ public class LayerBlock extends Block implements Waterloggable {
 	}
 
 	@Override
-	protected boolean canReplace(BlockState state, ItemPlacementContext context) {
+	public boolean canReplace(BlockState state, ItemPlacementContext context) {
 		int i = state.get(LAYERS);
 
 		if (context.getStack().isOf(this.asItem()) && i < 8) {
@@ -187,7 +187,7 @@ public class LayerBlock extends Block implements Waterloggable {
 		builder.add(LAYERS, WATERLOGGED, FACING);
 	}
 
-	protected FluidState getFluidState(BlockState state) {
+	public FluidState getFluidState(BlockState state) {
 		if (state.get(Properties.LAYERS) >= 8) {
 			return Fluids.EMPTY.getDefaultState();
 		} else {

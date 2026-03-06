@@ -26,10 +26,10 @@ public class ModModels {
 	public static final Model LAYER_13 = ModModels.block15("layer_height_13", "_height_13", TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
 
 	private static Model block(String parent, String variant, TextureKey... requiredTextureKeys) {
-		return new Model(Optional.of(Identifier.of(VanillaLayerPlus.MOD_ID, "blockmodels/" + parent)), Optional.of(variant), requiredTextureKeys);
+		return new Model(Optional.of(new Identifier(VanillaLayerPlus.MOD_ID, "blockmodels/" + parent)), Optional.of(variant), requiredTextureKeys);
 	}
 
 	private static Model block15(String parent, String variant, TextureKey... requiredTextureKeys) {
-		return new Model(Optional.of(Identifier.of(VanillaLayerPlus.MOD_ID, "blockmodels/y15/" + parent)), Optional.of(variant), requiredTextureKeys);
+		return new Model(Optional.of(new Identifier(VanillaLayerPlus.MOD_ID, "blockmodels/y15/" + parent)), Optional.of(variant), requiredTextureKeys);
 	}
 }

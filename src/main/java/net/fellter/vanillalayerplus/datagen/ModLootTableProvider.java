@@ -1,7 +1,5 @@
 package net.fellter.vanillalayerplus.datagen;
 
-import java.util.concurrent.CompletableFuture;
-
 import net.fellter.vanillalayerplus.VanillaLayerPlus;
 import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.fellter.vanillalayerplus.registry.Args;
@@ -16,15 +14,14 @@ import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.state.property.Properties;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
-	public ModLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
-		super(dataOutput, registryLookup);
+	public ModLootTableProvider(FabricDataOutput dataOutput) {
+		super(dataOutput);
 	}
 
 	@Override
@@ -44,7 +41,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
 	private LootTable.Builder silkTouchDrops(Block drop) {
 		return LootTable.builder().pool(LootPool.builder()
-				.conditionally(this.createSilkTouchCondition()).rolls(ConstantLootNumberProvider.create(1.0F)).with(layerDropsEntry(drop)));
+				.conditionally(WITH_SILK_TOUCH).rolls(ConstantLootNumberProvider.create(1.0F)).with(layerDropsEntry(drop)));
 	}
 
 	private LeafEntry.Builder<?> layerDropsEntry(Block drop) {

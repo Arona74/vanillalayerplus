@@ -7,7 +7,7 @@ import net.fellter.vanillalayerplus.block.ModBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.TranslucentBlock;
+import net.minecraft.block.TransparentBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(TranslucentBlock.class)
+@Mixin(TransparentBlock.class)
 public class MixinTransparentBlock extends Block {
 	@Unique
 	private static final Map<BlockState, VoxelShape> CACHED = new ConcurrentHashMap<>();

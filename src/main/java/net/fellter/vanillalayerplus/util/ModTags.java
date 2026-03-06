@@ -11,6 +11,6 @@ public class ModTags {
 	public static final TagKey<Block> LAYERS = createTag("layers");
 
 	private static TagKey<Block> createTag(String name) {
-		return TagKey.of(RegistryKeys.BLOCK, Identifier.of(VanillaLayerPlus.MOD_ID, name));
+		return TagKey.of(RegistryKeys.BLOCK, new Identifier(VanillaLayerPlus.MOD_ID, name));
 	}
 }

@@ -36,7 +36,7 @@ public class FlattenableLayerBlock extends LayerBlock {
 	}
 
 	@Override
-	protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
 		if (direction == Direction.UP) {
 			world.scheduleBlockTick(pos, this, 1);
 		}
@@ -45,7 +45,7 @@ public class FlattenableLayerBlock extends LayerBlock {
 	}
 
 	@Override
-	protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		setToDirt(null, state, world, pos);
 	}
 
@@ -69,7 +69,7 @@ public class FlattenableLayerBlock extends LayerBlock {
 	}
 
 	@Override
-	protected VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) {
+	public VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) {
 		Direction direction = state.get(FACING);
 		VoxelShape voxel;
 		switch (direction) {
@@ -86,12 +86,12 @@ public class FlattenableLayerBlock extends LayerBlock {
 	}
 
 	@Override
-	protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+	public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		return getSidesShape(state, world, pos);
 	}
 
 	@Override
-	protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		return getSidesShape(state, world, pos);
 	}
 

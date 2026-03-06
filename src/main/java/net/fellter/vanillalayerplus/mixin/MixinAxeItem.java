@@ -7,8 +7,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -26,13 +28,24 @@ public class MixinAxeItem {
 	@Final
 	protected static Map<Block, Block> STRIPPED_BLOCKS;
 
-	@Inject(method = "tryStrip", at = @At(value = "HEAD"), cancellable = true)
-	private void fellter$tryStrip(World world, BlockPos pos, PlayerEntity player, BlockState state, CallbackInfoReturnable<Optional<BlockState>> cir) {
+	@Inject(method = "useOnBlock", at = @At(value = "HEAD"), cancellable = true)
+	private void fellter$useOnBlock(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
+		World world = context.getWorld();
+		BlockPos pos = context.getBlockPos();
+		PlayerEntity player = context.getPlayer();
+		BlockState state = world.getBlockState(pos);
+
 		Optional<BlockState> optional = this.fellter$getStrippedState(state);
 
 		if (optional.isPresent()) {
 			world.playSound(player, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
-			cir.setReturnValue(optional);
+			if (!world.isClient()) {
+				world.setBlockState(pos, optional.get(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+				if (player != null) {
+					context.getStack().damage(1, player, p -> p.sendToolBreakStatus(context.getHand()));
+				}
+			}
+			cir.setReturnValue(ActionResult.success(world.isClient()));
 		}
 	}
 

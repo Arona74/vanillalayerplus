@@ -14,7 +14,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 
 public class ModItemGroups {
 	public static final ItemGroup VLP_GROUP = Registry.register(Registries.ITEM_GROUP,
-			Identifier.of(VanillaLayerPlus.MOD_ID, "vlp"),
+			new Identifier(VanillaLayerPlus.MOD_ID, "vlp"),
 			FabricItemGroup.builder().displayName(Text.translatable("itemgroup.vanillalayerplus"))
 					.icon(() -> new ItemStack(ModItems.VLP_TITLE)).entries((displayContext, entries) -> {
 						entries.add(ModBlocks.OAK_LAYER);
@@ -109,10 +109,6 @@ public class ModItemGroups {
 						entries.add(ModBlocks.CRACKED_DEEPSLATE_TILES_LAYER);
 
 						entries.add(ModBlocks.TUFF_LAYER);
-						entries.add(ModBlocks.CHISELED_TUFF_LAYER);
-						entries.add(ModBlocks.POLISHED_TUFF_LAYER);
-						entries.add(ModBlocks.TUFF_BRICKS_LAYER);
-						entries.add(ModBlocks.CHISELED_TUFF_BRICKS_LAYER);
 
 						entries.add(ModBlocks.BRICKS_LAYER);
 						entries.add(ModBlocks.PACKED_MUD_LAYER);
@@ -173,43 +169,27 @@ public class ModItemGroups {
 						entries.add(ModBlocks.AMETHYST_LAYER);
 
 						entries.add(ModBlocks.COPPER_LAYER);
-						entries.add(ModBlocks.CHISELED_COPPER_LAYER);
-						entries.add(ModBlocks.COPPER_GRATE_LAYER);
 						entries.add(ModBlocks.CUT_COPPER_LAYER);
 
 						entries.add(ModBlocks.EXPOSED_COPPER_LAYER);
-						entries.add(ModBlocks.EXPOSED_CHISELED_COPPER_LAYER);
-						entries.add(ModBlocks.EXPOSED_COPPER_GRATE_LAYER);
 						entries.add(ModBlocks.EXPOSED_CUT_COPPER_LAYER);
 
 						entries.add(ModBlocks.WEATHERED_COPPER_LAYER);
-						entries.add(ModBlocks.WEATHERED_CHISELED_COPPER_LAYER);
-						entries.add(ModBlocks.WEATHERED_COPPER_GRATE_LAYER);
 						entries.add(ModBlocks.WEATHERED_CUT_COPPER_LAYER);
 
 						entries.add(ModBlocks.OXIDIZED_COPPER_LAYER);
-						entries.add(ModBlocks.OXIDIZED_CHISELED_COPPER_LAYER);
-						entries.add(ModBlocks.OXIDIZED_COPPER_GRATE_LAYER);
 						entries.add(ModBlocks.OXIDIZED_CUT_COPPER_LAYER);
 
 						entries.add(ModBlocks.WAXED_COPPER_LAYER);
-						entries.add(ModBlocks.WAXED_CHISELED_COPPER_LAYER);
-						entries.add(ModBlocks.WAXED_COPPER_GRATE_LAYER);
 						entries.add(ModBlocks.WAXED_CUT_COPPER_LAYER);
 
 						entries.add(ModBlocks.WAXED_EXPOSED_COPPER_LAYER);
-						entries.add(ModBlocks.WAXED_EXPOSED_CHISELED_COPPER_LAYER);
-						entries.add(ModBlocks.WAXED_EXPOSED_COPPER_GRATE_LAYER);
 						entries.add(ModBlocks.WAXED_EXPOSED_CUT_COPPER_LAYER);
 
 						entries.add(ModBlocks.WAXED_WEATHERED_COPPER_LAYER);
-						entries.add(ModBlocks.WAXED_WEATHERED_CHISELED_COPPER_LAYER);
-						entries.add(ModBlocks.WAXED_WEATHERED_COPPER_GRATE_LAYER);
 						entries.add(ModBlocks.WAXED_WEATHERED_CUT_COPPER_LAYER);
 
 						entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_LAYER);
-						entries.add(ModBlocks.WAXED_OXIDIZED_CHISELED_COPPER_LAYER);
-						entries.add(ModBlocks.WAXED_OXIDIZED_COPPER_GRATE_LAYER);
 						entries.add(ModBlocks.WAXED_OXIDIZED_CUT_COPPER_LAYER);
 
 						entries.add(ModBlocks.WHITE_WOOL_LAYER);

@@ -17,11 +17,11 @@ public class WetSpongeLayerBlock extends LayerBlock {
 		super(settings);
 	}
 
-	protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
 		if (world.getDimension().ultrawarm()) {
 			world.setBlockState(pos, ModBlocks.SPONGE_LAYER.getStateWithProperties(state), 3);
 			world.syncWorldEvent(2009, pos, 0);
-			world.playSound(null, pos, SoundEvents.BLOCK_WET_SPONGE_DRIES, SoundCategory.BLOCKS, 1.0F, (1.0F + world.getRandom().nextFloat() * 0.2F) * 0.7F);
+			world.playSound(null, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, (1.0F + world.getRandom().nextFloat() * 0.2F) * 0.7F);
 		}
 	}
 

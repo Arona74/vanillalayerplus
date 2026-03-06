@@ -18,7 +18,7 @@ public class StainedGlassLayerBlock extends GlassLayerBlock implements Stainable
 		return color;
 	}
 
-	protected boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
+	public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
 		if (stateFrom.getBlock() instanceof Stainable stainable) {
 			return stainable.getColor() == color && super.isSideInvisible(state, stateFrom, direction);
 		}

@@ -28,8 +28,8 @@ public class ModModelProvider extends FabricModelProvider {
 
 	@Override
 	public void generateBlockStateModels(BlockStateModelGenerator bsmg) {
-		registerLayerBlock(ModBlocks.BROWN_MUSHROOM_LAYER, Identifier.of(VanillaLayerPlus.MOD_ID, "block/brown_mushroom_block"), bsmg, TextureMap.all(Blocks.BROWN_MUSHROOM_BLOCK));
-		registerLayerBlock(ModBlocks.RED_MUSHROOM_LAYER, Identifier.of(VanillaLayerPlus.MOD_ID, "block/red_mushroom_block"), bsmg, TextureMap.all(Blocks.RED_MUSHROOM_BLOCK));
+		registerLayerBlock(ModBlocks.BROWN_MUSHROOM_LAYER, new Identifier(VanillaLayerPlus.MOD_ID, "block/brown_mushroom_block"), bsmg, TextureMap.all(Blocks.BROWN_MUSHROOM_BLOCK));
+		registerLayerBlock(ModBlocks.RED_MUSHROOM_LAYER, new Identifier(VanillaLayerPlus.MOD_ID, "block/red_mushroom_block"), bsmg, TextureMap.all(Blocks.RED_MUSHROOM_BLOCK));
 
 		Registries.BLOCK.stream().filter(VanillaLayerPlus::isNamespaced).forEach(block -> {
 			if (Args.DATAGEN_ARGS.containsKey(block)) {

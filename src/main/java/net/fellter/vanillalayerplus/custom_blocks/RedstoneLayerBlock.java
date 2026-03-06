@@ -12,11 +12,11 @@ public class RedstoneLayerBlock extends LayerBlock {
 		super(settings);
 	}
 
-	protected boolean emitsRedstonePower(BlockState state) {
+	public boolean emitsRedstonePower(BlockState state) {
 		return true;
 	}
 
-	protected int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
+	public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
 		return (state.get(LAYERS) * 2) - 1;
 	}
 }

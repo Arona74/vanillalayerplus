@@ -36,7 +36,7 @@ public class HoneyLayerBlock extends LayerBlock {
 		}
 	}
 
-	protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
 		if (this.isSliding(pos, entity)) {
 			this.triggerAdvancement(entity, pos);
 			this.updateSlidingVelocity(entity);

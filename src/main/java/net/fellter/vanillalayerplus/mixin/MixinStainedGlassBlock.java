@@ -34,7 +34,7 @@ public class MixinStainedGlassBlock extends Block {
 	}
 
 	@Override
-	protected boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
+	public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
 		if (stateFrom.getBlock() instanceof Stainable stainable && !stateFrom.getBlock().equals(Blocks.BEACON)) {
 			VoxelShape stateCullingShape = getCached(state);
 			VoxelShape stateFromCullingShape = getCached(stateFrom);

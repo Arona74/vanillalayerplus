@@ -24,11 +24,11 @@ public class GlassLayerBlock extends LayerBlock {
 		return CACHED.computeIfAbsent(state, s -> s.getOutlineShape(EmptyBlockView.INSTANCE, BlockPos.ORIGIN));
 	}
 
-	protected VoxelShape getCameraCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+	public VoxelShape getCameraCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		return VoxelShapes.empty();
 	}
 
-	protected float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
+	public float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
 		return 1.0F;
 	}
 
@@ -36,7 +36,7 @@ public class GlassLayerBlock extends LayerBlock {
 		return true;
 	}
 
-	protected boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
+	public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
 		VoxelShape stateCullingShape = getCached(state);
 		VoxelShape stateFromCullingShape = getCached(stateFrom);
 		return VoxelShapes.isSideCovered(stateCullingShape, stateFromCullingShape, direction);

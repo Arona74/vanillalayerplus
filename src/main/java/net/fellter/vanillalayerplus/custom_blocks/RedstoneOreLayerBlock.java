@@ -27,7 +27,7 @@ public class RedstoneOreLayerBlock extends LayerBlock {
 		super(settings);
 	}
 
-	protected void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
+	public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
 		light(state, world, pos);
 		super.onBlockBreakStart(state, world, pos, player);
 	}
@@ -58,17 +58,17 @@ public class RedstoneOreLayerBlock extends LayerBlock {
 		}
 	}
 
-	protected boolean hasRandomTicks(BlockState state) {
+	public boolean hasRandomTicks(BlockState state) {
 		return state.get(LIT);
 	}
 
-	protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		if (state.get(LIT)) {
 			world.setBlockState(pos, state.with(LIT, false), 3);
 		}
 	}
 
-	protected void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack tool, boolean dropExperience) {
+	public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack tool, boolean dropExperience) {
 		super.onStacksDropped(state, world, pos, tool, dropExperience);
 
 		if (dropExperience) {

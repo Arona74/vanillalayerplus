@@ -13,7 +13,7 @@ public class ModItems {
 	public static final Item VLP_TITLE = registerItem("vlp_title", Item::new);
 
 	private static Item registerItem(String name, Function<Item.Settings, Item> function) {
-		return Registry.register(Registries.ITEM, Identifier.of(VanillaLayerPlus.MOD_ID, name), function.apply(new Item.Settings()));
+		return Registry.register(Registries.ITEM, new Identifier(VanillaLayerPlus.MOD_ID, name), function.apply(new Item.Settings()));
 	}
 
 

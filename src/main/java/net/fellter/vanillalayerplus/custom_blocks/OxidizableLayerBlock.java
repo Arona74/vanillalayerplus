@@ -16,11 +16,11 @@ public class OxidizableLayerBlock extends LayerBlock implements Oxidizable {
 		this.oxidationLevel = oxidationLevel;
 	}
 
-	protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		this.tickDegradation(state, world, pos, random);
 	}
 
-	protected boolean hasRandomTicks(BlockState state) {
+	public boolean hasRandomTicks(BlockState state) {
 		return Oxidizable.getIncreasedOxidationBlock(state.getBlock()).isPresent();
 	}
 
