@@ -78,7 +78,7 @@ public class LayerBlock extends Block implements Waterloggable {
 			case NORTH -> voxel = NORTH_LAYERS_TO_SHAPE[state.get(LAYERS)];
 			case UP -> voxel = CEILING_LAYERS_TO_SHAPE[state.get(LAYERS)];
 			case DOWN -> voxel = FLOOR_LAYERS_TO_SHAPE[state.get(LAYERS)];
-			default -> throw new MatchException(null, null);
+			default -> throw new IllegalStateException("unreachable");
 		}
 
 		return voxel;

@@ -79,7 +79,7 @@ public class FlattenableLayerBlock extends LayerBlock {
 			case NORTH -> voxel = NORTH_LAYERS_TO_SHAPE_15[state.get(LAYERS)];
 			case UP -> voxel = CEILING_LAYERS_TO_SHAPE_15[state.get(LAYERS)];
 			case DOWN -> voxel = FLOOR_LAYERS_TO_SHAPE_15[state.get(LAYERS)];
-			default -> throw new MatchException(null, null);
+			default -> throw new IllegalStateException("unreachable");
 		}
 
 		return voxel;
