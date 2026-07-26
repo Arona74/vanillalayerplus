@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "vanillalayerplus:terracotta_layer",
     "vanillalayerplus:white_terracotta_layer",
     "vanillalayerplus:light_gray_terracotta_layer",
     "vanillalayerplus:gray_terracotta_layer",

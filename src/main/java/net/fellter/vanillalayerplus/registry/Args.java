@@ -194,6 +194,7 @@ public final class Args {
 		putInDatagenArgs(ModBlocks.PURPLE_WOOL_LAYER, new DatagenArgs().blockTags(BlockTags.WOOL).parentBlock(Blocks.PURPLE_WOOL).textureMap(TextureMap.all(Blocks.PURPLE_WOOL)));
 		putInDatagenArgs(ModBlocks.MAGENTA_WOOL_LAYER, new DatagenArgs().blockTags(BlockTags.WOOL).parentBlock(Blocks.MAGENTA_WOOL).textureMap(TextureMap.all(Blocks.MAGENTA_WOOL)));
 		putInDatagenArgs(ModBlocks.PINK_WOOL_LAYER, new DatagenArgs().blockTags(BlockTags.WOOL).parentBlock(Blocks.PINK_WOOL).textureMap(TextureMap.all(Blocks.PINK_WOOL)));
+		putInDatagenArgs(ModBlocks.TERRACOTTA_LAYER, new DatagenArgs().blockTags(BlockTags.PICKAXE_MINEABLE, BlockTags.TERRACOTTA).parentBlock(Blocks.TERRACOTTA).textureMap(TextureMap.all(Blocks.TERRACOTTA)));
 		putInDatagenArgs(ModBlocks.WHITE_TERRACOTTA_LAYER, new DatagenArgs().blockTags(BlockTags.PICKAXE_MINEABLE, BlockTags.TERRACOTTA).parentBlock(Blocks.WHITE_TERRACOTTA).textureMap(TextureMap.all(Blocks.WHITE_TERRACOTTA)));
 		putInDatagenArgs(ModBlocks.LIGHT_GRAY_TERRACOTTA_LAYER, new DatagenArgs().blockTags(BlockTags.PICKAXE_MINEABLE, BlockTags.TERRACOTTA).parentBlock(Blocks.LIGHT_GRAY_TERRACOTTA).textureMap(TextureMap.all(Blocks.LIGHT_GRAY_TERRACOTTA)));
 		putInDatagenArgs(ModBlocks.GRAY_TERRACOTTA_LAYER, new DatagenArgs().blockTags(BlockTags.PICKAXE_MINEABLE, BlockTags.TERRACOTTA).parentBlock(Blocks.GRAY_TERRACOTTA).textureMap(TextureMap.all(Blocks.GRAY_TERRACOTTA)));

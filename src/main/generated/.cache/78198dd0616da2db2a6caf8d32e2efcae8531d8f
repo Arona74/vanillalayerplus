@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-26T22:49:29.0864193	Vanilla+ Layers/Block Loot Tables
+// 1.20.1	2026-07-26T22:51:51.767176	Vanilla+ Layers/Block Loot Tables
 def878a7f4e33f9c83a9b98f2a7172d632effc6d data\vanillalayerplus\loot_tables\blocks\light_blue_glazed_terracotta_layer.json
 1d2493b3f0b0cf81d6aae5cb797d0a08ca19ec1d data\vanillalayerplus\loot_tables\blocks\green_wool_layer.json
 54c81d3101503eede35ec5e2a60fd13e10fa0851 data\vanillalayerplus\loot_tables\blocks\magma_layer.json
@@ -131,6 +131,7 @@ af38838a042277112b3a86d30ef106d805fc798e data\vanillalayerplus\loot_tables\block
 1f4df2aa5d229506e71a3af238c976815267b57d data\vanillalayerplus\loot_tables\blocks\emerald_ore_layer.json
 737e61d6843024c2a46c1b37a15c802538f303bb data\vanillalayerplus\loot_tables\blocks\deepslate_redstone_ore_layer.json
 edc39612af72c469a2f13d4449c6fa656d82fdcc data\vanillalayerplus\loot_tables\blocks\oak_wood_layer.json
+09e2b0c863aabeb5aa15056497003975c1d56dac data\vanillalayerplus\loot_tables\blocks\terracotta_layer.json
 75b2efc9fb78fa84a960fa5fef9ba3072413ac29 data\vanillalayerplus\loot_tables\blocks\weathered_copper_layer.json
 4789934541a105c4ffc13279cd19e89bbaa30a9d data\vanillalayerplus\loot_tables\blocks\white_concrete_layer.json
 6d98f7279b7b3a700b9e11d163bc102aa37a1a48 data\vanillalayerplus\loot_tables\blocks\purpur_layer.json

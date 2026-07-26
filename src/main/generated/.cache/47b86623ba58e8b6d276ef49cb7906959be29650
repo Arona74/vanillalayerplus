@@ -1,8 +1,8 @@
-// 1.20.1	2026-07-26T22:49:29.0854178	Vanilla+ Layers/Tags for minecraft:block
-e96f1030162e941b6b9346427aadfd74e2779db9 data\minecraft\tags\blocks\mineable\pickaxe.json
+// 1.20.1	2026-07-26T22:51:51.7661763	Vanilla+ Layers/Tags for minecraft:block
+62bebb1061ed35ddea418077c71890e329275c52 data\minecraft\tags\blocks\mineable\pickaxe.json
 46d9b3cb433be7898a956be4fa70973966ae78c7 data\minecraft\tags\blocks\mineable\axe.json
 1d3bee21b756ec58095ddd40588bf950e2ca1f3c data\minecraft\tags\blocks\wool.json
 d77f5902e702b900e6fcb252b92febe2f084702c data\minecraft\tags\blocks\mineable\hoe.json
-60ca813e7c57cabf4685b6f2c38111a0db9c1de6 data\minecraft\tags\blocks\terracotta.json
+c2bd23a0588d78195e2c21db89009090bb8ed119 data\minecraft\tags\blocks\terracotta.json
 0ca9dfb90b44af3a613273c84472b7cd8a85e59c data\minecraft\tags\blocks\mineable\shovel.json
-62a8e31fcb79af42e863ed390501ab067fbf4fb1 data\vanillalayerplus\tags\blocks\layers.json
+c5bd5771ebb19f8e6c6088ddab42d8d4790713d6 data\vanillalayerplus\tags\blocks\layers.json
