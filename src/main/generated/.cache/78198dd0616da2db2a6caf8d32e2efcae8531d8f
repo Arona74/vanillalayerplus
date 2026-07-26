@@ -1,10 +1,11 @@
-// 1.21.1	2026-03-06T21:09:06.0960826	Vanilla+ Layers/Block Loot Tables
+// 1.21.1	2026-07-26T23:14:16.9261008	Vanilla+ Layers/Block Loot Tables
 d096790abaf7b43c24b6a1ed485c039d479d4496 data\vanillalayerplus\loot_table\blocks\green_stained_glass_layer.json
 bb05dc49d71fc8a54cc8c60e1fb4aaa36e0c9252 data\vanillalayerplus\loot_table\blocks\purple_glazed_terracotta_layer.json
 cd8f20d45845355b633985ef0fa6a1a798ad64d8 data\vanillalayerplus\loot_table\blocks\gray_terracotta_layer.json
 f3e07bfeec778080e34885b6870a7d34418c036b data\vanillalayerplus\loot_table\blocks\pink_glazed_terracotta_layer.json
 0c8b40cfbca32610a3ad741ab56c646055fabad0 data\vanillalayerplus\loot_table\blocks\prismarine_bricks_layer.json
 b15db859045c178018d22e6eecfa75c3ac4bc89f data\vanillalayerplus\loot_table\blocks\crimson_stem_layer.json
+09e2b0c863aabeb5aa15056497003975c1d56dac data\vanillalayerplus\loot_table\blocks\terracotta_layer.json
 8dde0d51e9b4ab4418c726d015865fdc52834763 data\vanillalayerplus\loot_table\blocks\chiseled_stone_bricks_layer.json
 4a7057a5b28a8d50d715064bb2348bb8c7ec982e data\vanillalayerplus\loot_table\blocks\red_terracotta_layer.json
 54c81d3101503eede35ec5e2a60fd13e10fa0851 data\vanillalayerplus\loot_table\blocks\magma_layer.json

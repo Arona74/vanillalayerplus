@@ -229,6 +229,7 @@ public class ModItemGroups {
 						entries.add(ModBlocks.MAGENTA_WOOL_LAYER);
 						entries.add(ModBlocks.PINK_WOOL_LAYER);
 
+						entries.add(ModBlocks.TERRACOTTA_LAYER);
 						entries.add(ModBlocks.WHITE_TERRACOTTA_LAYER);
 						entries.add(ModBlocks.LIGHT_GRAY_TERRACOTTA_LAYER);
 						entries.add(ModBlocks.GRAY_TERRACOTTA_LAYER);
