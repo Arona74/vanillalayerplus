@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,6 +16,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -123,7 +125,8 @@ public class LayerBlock extends Block implements Waterloggable {
 	@Override
 	protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
 		if (!state.canPlaceAt(world, pos)) {
-			return Blocks.AIR.getDefaultState();
+			// Schedule a tick instead of immediately breaking, so the block can fall as an entity
+			tickView.scheduleBlockTick(pos, this, 2);
 		}
 
 		if (state.get(WATERLOGGED)) {
@@ -131,6 +134,17 @@ public class LayerBlock extends Block implements Waterloggable {
 		}
 
 		return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+	}
+
+	@Override
+	protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+		if (!state.canPlaceAt(world, pos)) {
+			if (FallingBlock.canFallThrough(world.getBlockState(pos.down()))) {
+				FallingBlockEntity.spawnFromBlock(world, pos, state);
+			} else {
+				world.breakBlock(pos, true);
+			}
+		}
 	}
 
 	@Override
