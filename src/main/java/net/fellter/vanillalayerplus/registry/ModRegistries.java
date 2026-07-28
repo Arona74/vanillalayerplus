@@ -8,17 +8,15 @@ import com.google.common.collect.Maps;
 
 import net.fellter.vanillalayerplus.VanillaLayerPlus;
 import net.fellter.vanillalayerplus.block.ModBlocks;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.client.color.world.BiomeColors;
-import net.minecraft.client.render.BlockRenderLayer;
-import net.minecraft.item.HoeItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.FoliageColors;
-import net.minecraft.world.biome.GrassColors;
-
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
@@ -43,11 +41,11 @@ public class ModRegistries {
 	}
 
 	public static void registerStrippableBlocks() {
-		Registries.BLOCK.forEach(block -> {
+		BuiltInRegistries.BLOCK.forEach(block -> {
 			if (Args.REGISTRY_ARGS.containsKey(block)) {
 				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
 
-				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.stripped != null) {
+				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.stripped != null) {
 					register(block, registryArgs.stripped);
 				}
 			}
@@ -55,13 +53,13 @@ public class ModRegistries {
 	}
 
 	public static void registerTillableBlocks() {
-		Registries.BLOCK.forEach(block -> {
+		BuiltInRegistries.BLOCK.forEach(block -> {
 			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				Identifier identifier = Registries.BLOCK.getId(block);
+				Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
 				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
 
 				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID) && args.tilled != null) {
-					TillableBlockRegistry.register(block, HoeItem::canTillFarmland, HoeItem.createTillAction(args.tilled.getDefaultState()));
+					TillableBlockRegistry.register(block, HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(args.tilled.defaultBlockState()));
 				}
 			}
 		});
@@ -73,9 +71,9 @@ public class ModRegistries {
 		flattenedToBlock(ModBlocks.DIRT_PATH_LAYER, ModBlocks.DIRT_LAYER);
 		flattenedToBlock(ModBlocks.FARMLAND_LAYER, ModBlocks.DIRT_LAYER);
 
-		Registries.BLOCK.forEach(block -> {
+		BuiltInRegistries.BLOCK.forEach(block -> {
 			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				Identifier identifier = Registries.BLOCK.getId(block);
+				Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
 				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
 
 				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID) && args.flattened != null) {
@@ -88,7 +86,7 @@ public class ModRegistries {
 	private static void blockToFlattened(Block input, Block flattened) {
 		Objects.requireNonNull(input, "input block cannot be null");
 		Objects.requireNonNull(flattened, "flattened block state cannot be null");
-		BlockState old = ShovelItemAccessor.getPathStates().put(input, flattened.getDefaultState());
+		BlockState old = ShovelItemAccessor.getPathStates().put(input, flattened.defaultBlockState());
 
 		if (old != null) {
 			VanillaLayerPlus.LOGGER.debug("Replaced old flattening mapping from {} to {} with {}", input, old, flattened);
@@ -98,7 +96,7 @@ public class ModRegistries {
 	private static void flattenedToBlock(Block flattened, Block output) {
 		Objects.requireNonNull(flattened, "flattened block cannot be null");
 		Objects.requireNonNull(output, "output block cannot be null");
-		BlockState old = FLATTENED_TO_BLOCK_MAP.put(flattened, output.getDefaultState());
+		BlockState old = FLATTENED_TO_BLOCK_MAP.put(flattened, output.defaultBlockState());
 
 		if (old != null) {
 			VanillaLayerPlus.LOGGER.debug("Replaced old block mapping from {} to {} with {}", flattened, old, output);
@@ -106,53 +104,53 @@ public class ModRegistries {
 	}
 
 	public static void registerTransparentBlocks() {
-		Registries.BLOCK.forEach(block -> {
+		BuiltInRegistries.BLOCK.forEach(block -> {
 			if (Args.REGISTRY_ARGS.containsKey(block)) {
 				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
 
-				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.transparent) {
-					BlockRenderLayerMap.putBlock(block, BlockRenderLayer.CUTOUT);
+				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.transparent) {
+					BlockRenderLayerMap.putBlock(block, ChunkSectionLayer.CUTOUT);
 				}
 			}
 		});
 	}
 
 	public static void registerTranslucentBlocks() {
-		Registries.BLOCK.forEach(block -> {
+		BuiltInRegistries.BLOCK.forEach(block -> {
 			if (Args.REGISTRY_ARGS.containsKey(block)) {
 				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
 
-				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.translucent) {
-					BlockRenderLayerMap.putBlock(block, BlockRenderLayer.TRANSLUCENT);
+				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.translucent) {
+					BlockRenderLayerMap.putBlock(block, ChunkSectionLayer.TRANSLUCENT);
 				}
 			}
 		});
 	}
 
 	public static void registerFoliage() {
-		Registries.BLOCK.forEach(block -> {
+		BuiltInRegistries.BLOCK.forEach(block -> {
 			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				Identifier identifier = Registries.BLOCK.getId(block);
+				Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
 				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
 
 				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID)) {
 					if (args.grassTinted) {
 						ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
 							if (world == null || pos == null) {
-								return GrassColors.getDefaultColor();
+								return GrassColor.getDefaultColor();
 							}
 
-							return BiomeColors.getGrassColor(world, pos);
+							return BiomeColors.getAverageGrassColor(world, pos);
 						}), block);
 					}
 
 					if (args.foliageTinted) {
 						ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
 							if (world == null || pos == null) {
-								return FoliageColors.DEFAULT;
+								return FoliageColor.FOLIAGE_DEFAULT;
 							}
 
-							return BiomeColors.getFoliageColor(world, pos);
+							return BiomeColors.getAverageFoliageColor(world, pos);
 						}), block);
 					}
 				}
@@ -161,11 +159,11 @@ public class ModRegistries {
 	}
 
 	public static void registerOxidizableBlocks() {
-		Registries.BLOCK.forEach(block -> {
+		BuiltInRegistries.BLOCK.forEach(block -> {
 			if (Args.REGISTRY_ARGS.containsKey(block)) {
 				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
 
-				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.oxidizables != null) {
+				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.oxidizables != null) {
 					OxidizableBlocksRegistry.registerOxidizableBlockPair(block, registryArgs.exposed);
 					OxidizableBlocksRegistry.registerOxidizableBlockPair(registryArgs.exposed, registryArgs.weathered);
 					OxidizableBlocksRegistry.registerOxidizableBlockPair(registryArgs.weathered, registryArgs.oxidized);
@@ -180,11 +178,11 @@ public class ModRegistries {
 	}
 
 	public static void registerFuel() {
-		Registries.BLOCK.forEach(block -> {
+		BuiltInRegistries.BLOCK.forEach(block -> {
 			if (Args.REGISTRY_ARGS.containsKey(block)) {
 				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
 
-				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.fuel != null) {
+				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.fuel != null) {
 					FuelRegistryEvents.BUILD.register((builder, context) -> builder.add(block, context.baseSmeltTime()));
 				}
 			}

@@ -6,54 +6,52 @@ import net.fellter.vanillalayerplus.VanillaLayerPlus;
 import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.fellter.vanillalayerplus.registry.Args;
 import net.fellter.vanillalayerplus.registry.DatagenArgs;
-
-import net.minecraft.data.recipe.CraftingRecipeJsonBuilder;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
-
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.world.level.ItemLike;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-	public ModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+	public ModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
 	@Override
-	protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registryLookup, RecipeExporter exporter) {
-		return new RecipeGenerator(registryLookup, exporter) {
-			public CraftingRecipeJsonBuilder layerBlockRecipe(ItemConvertible output, ItemConvertible input) {
-				return ShapedRecipeJsonBuilder.create(registries.getOrThrow(RegistryKeys.ITEM), RecipeCategory.DECORATIONS, output, 16)
-						.input('W', input)
+	protected RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
+		return new RecipeProvider(registryLookup, exporter) {
+			public RecipeBuilder layerBlockRecipe(ItemLike output, ItemLike input) {
+				return ShapedRecipeBuilder.shaped(registries.lookupOrThrow(Registries.ITEM), RecipeCategory.DECORATIONS, output, 16)
+						.define('W', input)
 						.pattern(" W")
 						.pattern("W ")
-						.criterion(hasItem(input), conditionsFromItem(input))
+						.unlockedBy(getHasName(input), has(input))
 						.showNotification(true);
 			}
 
-			public void offerStonecuttingRecipe(ItemConvertible output, ItemConvertible input) {
-				this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, output, input, 8);
+			public void offerStonecuttingRecipe(ItemLike output, ItemLike input) {
+				this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, output, input, 8);
 			}
 
 			@Override
-			public void generate() {
-				Registries.BLOCK.stream().filter(VanillaLayerPlus::isNamespaced).forEach(block -> {
+			public void buildRecipes() {
+				BuiltInRegistries.BLOCK.stream().filter(VanillaLayerPlus::isNamespaced).forEach(block -> {
 					if (Args.DATAGEN_ARGS.containsKey(block)) {
 						DatagenArgs args = Args.DATAGEN_ARGS.get(block);
 
 						if (args.parentBlock != null) {
 							if (block instanceof LayerBlock) {
-								layerBlockRecipe(block, args.parentBlock).offerTo(exporter);
+								layerBlockRecipe(block, args.parentBlock).save(output);
 							}
 
 							if (block instanceof LayerBlock && args.stonecuttingInput != null) {
-								for (ItemConvertible itemConvertible : args.stonecuttingInput) {
+								for (ItemLike itemConvertible : args.stonecuttingInput) {
 									offerStonecuttingRecipe(block, itemConvertible);
 								}
 							}

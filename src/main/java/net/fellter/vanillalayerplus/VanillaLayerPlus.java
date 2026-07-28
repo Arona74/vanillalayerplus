@@ -6,10 +6,8 @@ import org.slf4j.LoggerFactory;
 import net.fellter.vanillalayerplus.block.ModBlocks;
 import net.fellter.vanillalayerplus.item.ModItemGroups;
 import net.fellter.vanillalayerplus.item.ModItems;
-
-import net.minecraft.block.Block;
-import net.minecraft.registry.Registries;
-
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.Block;
 import net.fabricmc.api.ModInitializer;
 
 public class VanillaLayerPlus implements ModInitializer {
@@ -24,6 +22,6 @@ public class VanillaLayerPlus implements ModInitializer {
 	}
 
 	public static boolean isNamespaced(Block block) {
-		return Registries.BLOCK.getId(block).getNamespace().equals(MOD_ID);
+		return BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(MOD_ID);
 	}
 }

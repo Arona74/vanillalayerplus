@@ -5,78 +5,84 @@ import org.jetbrains.annotations.Nullable;
 import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.fellter.vanillalayerplus.block.ModBlocks;
 
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.registry.tag.FluidTags;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
-import net.minecraft.world.block.WireOrientation;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BucketPickup;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.redstone.Orientation;
 
 public class SpongeLayerBlock extends LayerBlock {
-	public SpongeLayerBlock(Settings settings) {
+	public SpongeLayerBlock(Properties settings) {
 		super(settings);
 	}
 
-	protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-		if (!oldState.isOf(state.getBlock())) {
+	protected void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean notify) {
+		if (!oldState.is(state.getBlock())) {
 			this.update(world, pos);
 		}
 	}
 
-	protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
+	protected void neighborChanged(BlockState state, Level world, BlockPos pos, Block sourceBlock, @Nullable Orientation wireOrientation, boolean notify) {
 		this.update(world, pos);
-		super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
+		super.neighborChanged(state, world, pos, sourceBlock, wireOrientation, notify);
 	}
 
-	protected void update(World world, BlockPos pos) {
+	protected void update(Level world, BlockPos pos) {
 		if (this.absorbWater(world, pos)) {
-			world.setBlockState(pos, ModBlocks.WET_SPONGE_LAYER.getStateWithProperties(world.getBlockState(pos)).with(WATERLOGGED, false), 2);
-			world.playSound(null, pos, SoundEvents.BLOCK_SPONGE_ABSORB, SoundCategory.BLOCKS, 1.0F, 1.0F);
+			world.setBlock(pos, ModBlocks.WET_SPONGE_LAYER.withPropertiesOf(world.getBlockState(pos)).setValue(WATERLOGGED, false), 2);
+			world.playSound(null, pos, SoundEvents.SPONGE_ABSORB, SoundSource.BLOCKS, 1.0F, 1.0F);
 		}
 	}
 
-	private boolean absorbWater(World world, BlockPos pos) {
+	private boolean absorbWater(Level world, BlockPos pos) {
 		BlockState state = world.getBlockState(pos);
 
-		return BlockPos.iterateRecursively(pos, (int) Math.ceil(state.get(LAYERS) * 0.75), 65, (currentPos, queuer) -> {
-			for (Direction direction : DIRECTIONS) {
-				queuer.accept(currentPos.offset(direction));
+		return BlockPos.breadthFirstTraversal(pos, (int) Math.ceil(state.getValue(LAYERS) * 0.75), 65, (currentPos, queuer) -> {
+			for (Direction direction : UPDATE_SHAPE_ORDER) {
+				queuer.accept(currentPos.relative(direction));
 			}
 		}, (currentPos) -> {
 			if (currentPos.equals(pos)) {
-				return BlockPos.IterationState.ACCEPT;
+				return BlockPos.TraversalNodeStatus.ACCEPT;
 			} else {
 				BlockState blockState = world.getBlockState(currentPos);
 				FluidState fluidState = world.getFluidState(currentPos);
 
-				if (!fluidState.isIn(FluidTags.WATER)) {
-					return BlockPos.IterationState.SKIP;
+				if (!fluidState.is(FluidTags.WATER)) {
+					return BlockPos.TraversalNodeStatus.SKIP;
 				} else {
 					Block block = blockState.getBlock();
 
-					if (block instanceof FluidDrainable fluidDrainable) {
-						if (!fluidDrainable.tryDrainFluid(null, world, currentPos, blockState).isEmpty()) {
-							return BlockPos.IterationState.ACCEPT;
+					if (block instanceof BucketPickup fluidDrainable) {
+						if (!fluidDrainable.pickupBlock(null, world, currentPos, blockState).isEmpty()) {
+							return BlockPos.TraversalNodeStatus.ACCEPT;
 						}
 					}
 
-					if (blockState.getBlock() instanceof FluidBlock) {
-						world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), 3);
+					if (blockState.getBlock() instanceof LiquidBlock) {
+						world.setBlock(currentPos, Blocks.AIR.defaultBlockState(), 3);
 					} else {
-						if (!blockState.isOf(Blocks.KELP) && !blockState.isOf(Blocks.KELP_PLANT) && !blockState.isOf(Blocks.SEAGRASS) && !blockState.isOf(Blocks.TALL_SEAGRASS)) {
-							return BlockPos.IterationState.SKIP;
+						if (!blockState.is(Blocks.KELP) && !blockState.is(Blocks.KELP_PLANT) && !blockState.is(Blocks.SEAGRASS) && !blockState.is(Blocks.TALL_SEAGRASS)) {
+							return BlockPos.TraversalNodeStatus.SKIP;
 						}
 
 						BlockEntity blockEntity = blockState.hasBlockEntity() ? world.getBlockEntity(currentPos) : null;
-						dropStacks(blockState, world, currentPos, blockEntity);
-						world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), 3);
+						dropResources(blockState, world, currentPos, blockEntity);
+						world.setBlock(currentPos, Blocks.AIR.defaultBlockState(), 3);
 					}
 
-					return BlockPos.IterationState.ACCEPT;
+					return BlockPos.TraversalNodeStatus.ACCEPT;
 				}
 			}
 		}) > 1;

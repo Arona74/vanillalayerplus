@@ -2,22 +2,21 @@ package net.fellter.vanillalayerplus.registry;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import net.minecraft.block.Block;
-import net.minecraft.client.data.TextureMap;
-import net.minecraft.client.render.item.tint.TintSource;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.client.color.item.ItemTintSource;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 
 public class DatagenArgs {
 	public ArrayList<TagKey<Block>> blockTags = new ArrayList<>();
 	public Block parentBlock;
-	public TextureMap textureMap;
+	public TextureMapping textureMap;
 	public Block fullTextureBlock;
-	public TintSource tintSource;
+	public ItemTintSource tintSource;
 	public Boolean y15 = false;
 	public Boolean needsSilkTouch = false;
-	public ArrayList<ItemConvertible> stonecuttingInput = new ArrayList<>();
+	public ArrayList<ItemLike> stonecuttingInput = new ArrayList<>();
 
 	public DatagenArgs() {
 	}
@@ -42,7 +41,7 @@ public class DatagenArgs {
 		return this;
 	}
 
-	public DatagenArgs stonecutting(ItemConvertible... stonecuttingInput) {
+	public DatagenArgs stonecutting(ItemLike... stonecuttingInput) {
 		this.stonecuttingInput.add(this.parentBlock);
 		this.stonecuttingInput.addAll(Arrays.asList(stonecuttingInput));
 		return this;
@@ -65,12 +64,12 @@ public class DatagenArgs {
 		return this;
 	}
 
-	public DatagenArgs textureMap(TextureMap textureMap) {
+	public DatagenArgs textureMap(TextureMapping textureMap) {
 		this.textureMap = textureMap;
 		return this;
 	}
 
-	public DatagenArgs tintSource(TintSource tintSource) {
+	public DatagenArgs tintSource(ItemTintSource tintSource) {
 		this.tintSource = tintSource;
 		return this;
 	}

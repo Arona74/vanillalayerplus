@@ -8,15 +8,13 @@ import net.fellter.vanillalayerplus.block.ModBlocks;
 import net.fellter.vanillalayerplus.item.ModItems;
 import net.fellter.vanillalayerplus.registry.Args;
 import net.fellter.vanillalayerplus.registry.DatagenArgs;
-
-import net.minecraft.block.Blocks;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.Models;
-import net.minecraft.client.data.TextureMap;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
-
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.Blocks;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 
@@ -29,11 +27,11 @@ public class ModModelProvider extends FabricModelProvider {
 	}
 
 	@Override
-	public void generateBlockStateModels(BlockStateModelGenerator bsmg) {
-		registerLayerBlock(ModBlocks.BROWN_MUSHROOM_LAYER, Identifier.of(VanillaLayerPlus.MOD_ID, "block/brown_mushroom_block"), bsmg, TextureMap.all(Blocks.BROWN_MUSHROOM_BLOCK));
-		registerLayerBlock(ModBlocks.RED_MUSHROOM_LAYER, Identifier.of(VanillaLayerPlus.MOD_ID, "block/red_mushroom_block"), bsmg, TextureMap.all(Blocks.RED_MUSHROOM_BLOCK));
+	public void generateBlockStateModels(BlockModelGenerators bsmg) {
+		registerLayerBlock(ModBlocks.BROWN_MUSHROOM_LAYER, Identifier.fromNamespaceAndPath(VanillaLayerPlus.MOD_ID, "block/brown_mushroom_block"), bsmg, TextureMapping.cube(Blocks.BROWN_MUSHROOM_BLOCK));
+		registerLayerBlock(ModBlocks.RED_MUSHROOM_LAYER, Identifier.fromNamespaceAndPath(VanillaLayerPlus.MOD_ID, "block/red_mushroom_block"), bsmg, TextureMapping.cube(Blocks.RED_MUSHROOM_BLOCK));
 
-		Registries.BLOCK.stream().filter(VanillaLayerPlus::isNamespaced).forEach(block -> {
+		BuiltInRegistries.BLOCK.stream().filter(VanillaLayerPlus::isNamespaced).forEach(block -> {
 			if (Args.DATAGEN_ARGS.containsKey(block)) {
 				DatagenArgs args = Args.DATAGEN_ARGS.get(block);
 
@@ -61,7 +59,7 @@ public class ModModelProvider extends FabricModelProvider {
 	}
 
 	@Override
-	public void generateItemModels(ItemModelGenerator img) {
-		img.register(ModItems.VLP_TITLE, Models.GENERATED);
+	public void generateItemModels(ItemModelGenerators img) {
+		img.generateFlatItem(ModItems.VLP_TITLE, ModelTemplates.FLAT_ITEM);
 	}
 }

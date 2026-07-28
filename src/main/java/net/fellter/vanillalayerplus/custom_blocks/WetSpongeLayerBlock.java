@@ -2,38 +2,37 @@ package net.fellter.vanillalayerplus.custom_blocks;
 
 import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.fellter.vanillalayerplus.block.ModBlocks;
-
-import net.minecraft.block.BlockState;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.attribute.EnvironmentAttributes;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class WetSpongeLayerBlock extends LayerBlock {
-	public WetSpongeLayerBlock(Settings settings) {
+	public WetSpongeLayerBlock(Properties settings) {
 		super(settings);
 	}
 
-	protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-		if (world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.WATER_EVAPORATES_GAMEPLAY, pos)) {
-			world.setBlockState(pos, ModBlocks.SPONGE_LAYER.getStateWithProperties(state), 3);
-			world.syncWorldEvent(2009, pos, 0);
-			world.playSound(null, pos, SoundEvents.BLOCK_WET_SPONGE_DRIES, SoundCategory.BLOCKS, 1.0F, (1.0F + world.getRandom().nextFloat() * 0.2F) * 0.7F);
+	protected void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean notify) {
+		if (world.environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, pos)) {
+			world.setBlock(pos, ModBlocks.SPONGE_LAYER.withPropertiesOf(state), 3);
+			world.levelEvent(2009, pos, 0);
+			world.playSound(null, pos, SoundEvents.WET_SPONGE_DRIES, SoundSource.BLOCKS, 1.0F, (1.0F + world.getRandom().nextFloat() * 0.2F) * 0.7F);
 		}
 	}
 
-	public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-		Direction direction = Direction.random(random);
+	public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
+		Direction direction = Direction.getRandom(random);
 
 		if (direction != Direction.UP) {
-			BlockPos blockPos = pos.offset(direction);
+			BlockPos blockPos = pos.relative(direction);
 			BlockState blockState = world.getBlockState(blockPos);
 
-			if (!state.isOpaque() || !blockState.isSideSolidFullSquare(world, blockPos, direction.getOpposite())) {
+			if (!state.canOcclude() || !blockState.isFaceSturdy(world, blockPos, direction.getOpposite())) {
 				double d = pos.getX();
 				double e = pos.getY();
 				double f = pos.getZ();
@@ -64,7 +63,7 @@ public class WetSpongeLayerBlock extends LayerBlock {
 					}
 				}
 
-				world.addParticleClient(ParticleTypes.DRIPPING_WATER, d, e, f, 0.0, 0.0, 0.0);
+				world.addParticle(ParticleTypes.DRIPPING_WATER, d, e, f, 0.0, 0.0, 0.0);
 			}
 		}
 	}
