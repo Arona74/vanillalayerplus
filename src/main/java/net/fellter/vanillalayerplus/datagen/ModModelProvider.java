@@ -16,13 +16,13 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Blocks;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
 import static net.fellter.vanillalayerplus.util.ModBlockStateModelGenerator.registerLayerBlock;
 import static net.fellter.vanillalayerplus.util.ModBlockStateModelGenerator.registerLayerBlockY15;
 
 public class ModModelProvider extends FabricModelProvider {
-	public ModModelProvider(FabricDataOutput output) {
+	public ModModelProvider(FabricPackOutput output) {
 		super(output);
 	}
 

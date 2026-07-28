@@ -1,7 +1,7 @@
 package net.fellter.vanillalayerplus.custom_blocks;
 
 import net.fellter.vanillalayerplus.block.LayerBlock;
-import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
