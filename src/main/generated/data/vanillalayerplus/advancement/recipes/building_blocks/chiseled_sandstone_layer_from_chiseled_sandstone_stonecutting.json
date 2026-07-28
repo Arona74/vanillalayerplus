@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:chiseled_sandstone_layer_from_chiseled_sandstone_stonecutting"
+        "recipe": "vanillalayerplus:chiseled_sandstone_layer_from_chiseled_sandstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:chiseled_sandstone_layer_from_chiseled_sandstone_stonecutting"
+      "vanillalayerplus:chiseled_sandstone_layer_from_chiseled_sandstone_stonecutting"
     ]
   }
 }
