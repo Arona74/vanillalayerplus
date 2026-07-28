@@ -28,7 +28,7 @@ public class HoneyLayerBlock extends LayerBlock {
 	public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, double fallDistance) {
 		entity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 1.0F, 1.0F);
 
-		if (!world.isClient) {
+		if (!world.isClient()) {
 			world.sendEntityStatus(entity, (byte) 54);
 		}
 
@@ -37,14 +37,14 @@ public class HoneyLayerBlock extends LayerBlock {
 		}
 	}
 
-	protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler) {
+	protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler, boolean bl) {
 		if (this.isSliding(pos, entity)) {
 			this.triggerAdvancement(entity, pos);
 			this.updateSlidingVelocity(entity);
 			this.addCollisionEffects(world, entity);
 		}
 
-		super.onEntityCollision(state, world, pos, entity, handler);
+		super.onEntityCollision(state, world, pos, entity, handler, bl);
 	}
 
 	private static double method_65067(double d) {
@@ -71,8 +71,8 @@ public class HoneyLayerBlock extends LayerBlock {
 	}
 
 	private void triggerAdvancement(Entity entity, BlockPos pos) {
-		if (entity instanceof ServerPlayerEntity && entity.getWorld().getTime() % 20L == 0L) {
-			Criteria.SLIDE_DOWN_BLOCK.trigger((ServerPlayerEntity) entity, entity.getWorld().getBlockState(pos));
+		if (entity instanceof ServerPlayerEntity && entity.getEntityWorld().getTime() % 20L == 0L) {
+			Criteria.SLIDE_DOWN_BLOCK.trigger((ServerPlayerEntity) entity, entity.getEntityWorld().getBlockState(pos));
 		}
 	}
 
@@ -95,7 +95,7 @@ public class HoneyLayerBlock extends LayerBlock {
 				entity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 1.0F, 1.0F);
 			}
 
-			if (!world.isClient && world.random.nextInt(5) == 0) {
+			if (!world.isClient() && world.random.nextInt(5) == 0) {
 				world.sendEntityStatus(entity, (byte) 53);
 			}
 		}

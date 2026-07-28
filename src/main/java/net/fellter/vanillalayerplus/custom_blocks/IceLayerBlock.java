@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 
 public class IceLayerBlock extends LayerBlock {
 	public IceLayerBlock(Settings settings) {
@@ -28,7 +29,7 @@ public class IceLayerBlock extends LayerBlock {
 
 	public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
 		if (!EnchantmentHelper.hasAnyEnchantmentsIn(tool, EnchantmentTags.PREVENTS_ICE_MELTING)) {
-			if (world.getDimension().ultrawarm()) {
+			if (world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.WATER_EVAPORATES_GAMEPLAY, pos)) {
 				world.removeBlock(pos, false);
 				return;
 			}
@@ -50,7 +51,7 @@ public class IceLayerBlock extends LayerBlock {
 	}
 
 	protected void melt(World world, BlockPos pos) {
-		if (world.getDimension().ultrawarm() || world.getBlockState(pos).get(LAYERS) < 8) {
+		if (world.getEnvironmentAttributes().getAttributeValue(EnvironmentAttributes.WATER_EVAPORATES_GAMEPLAY, pos) || world.getBlockState(pos).get(LAYERS) < 8) {
 			world.removeBlock(pos, false);
 		} else {
 			world.setBlockState(pos, getMeltedState());
