@@ -252,6 +252,7 @@ public class ModBlocks {
 	public static final Block MAGENTA_WOOL_LAYER = registerBlock("magenta_wool_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.MAGENTA_WOOL));
 	public static final Block PINK_WOOL_LAYER = registerBlock("pink_wool_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.PINK_WOOL));
 
+	public static final Block TERRACOTTA_LAYER = registerBlock("terracotta_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.TERRACOTTA));
 	public static final Block WHITE_TERRACOTTA_LAYER = registerBlock("white_terracotta_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.WHITE_TERRACOTTA));
 	public static final Block LIGHT_GRAY_TERRACOTTA_LAYER = registerBlock("light_gray_terracotta_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.LIGHT_GRAY_TERRACOTTA));
 	public static final Block GRAY_TERRACOTTA_LAYER = registerBlock("gray_terracotta_layer", LayerBlock::new, AbstractBlock.Settings.copy(Blocks.GRAY_TERRACOTTA));
