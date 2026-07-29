@@ -103,11 +103,12 @@ public class ModRegistries {
 		}
 	}
 
-	// TODO(26.2): render layers are no longer registered at runtime. Fabric's
-	// BlockRenderLayerMap and vanilla's ItemBlockRenderTypes are both gone, and the
-	// layer now comes from "render_type" in the block model json. Until the model
-	// generator emits that for blocks flagged transparent/translucent in
-	// RegistryArgs, cutout and translucent layer blocks will render as solid.
+	// Render layers are no longer registered at runtime in 26.2; both Fabric's
+	// BlockRenderLayerMap and vanilla's ItemBlockRenderTypes are gone. The layer is
+	// derived from the texture instead: alpha content is detected automatically, so
+	// blocks flagged transparent need nothing, and blocks flagged translucent get
+	// "force_translucent" on their sprites from ModModelProvider. These two methods
+	// are kept as no-ops so the call sites in VanillaLayerPlusClient stay stable.
 	public static void registerTransparentBlocks() {
 	}
 

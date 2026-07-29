@@ -1,8 +1,17 @@
 {
   "parent": "vanillalayerplus:blockmodels/layer_height_14",
   "textures": {
-    "bottom": "minecraft:block/slime_block",
-    "side": "minecraft:block/slime_block",
-    "top": "minecraft:block/slime_block"
+    "bottom": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/slime_block"
+    },
+    "side": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/slime_block"
+    },
+    "top": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/slime_block"
+    }
   }
 }

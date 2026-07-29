@@ -1,8 +1,17 @@
 {
   "parent": "vanillalayerplus:blockmodels/layer_height_14",
   "textures": {
-    "bottom": "minecraft:block/lime_stained_glass",
-    "side": "minecraft:block/lime_stained_glass",
-    "top": "minecraft:block/lime_stained_glass"
+    "bottom": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/lime_stained_glass"
+    },
+    "side": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/lime_stained_glass"
+    },
+    "top": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/lime_stained_glass"
+    }
   }
 }

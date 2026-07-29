@@ -1,8 +1,17 @@
 {
   "parent": "vanillalayerplus:blockmodels/layer_height_8",
   "textures": {
-    "bottom": "minecraft:block/ice",
-    "side": "minecraft:block/ice",
-    "top": "minecraft:block/ice"
+    "bottom": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/ice"
+    },
+    "side": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/ice"
+    },
+    "top": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/ice"
+    }
   }
 }

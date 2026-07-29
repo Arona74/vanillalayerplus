@@ -1,8 +1,17 @@
 {
   "parent": "vanillalayerplus:blockmodels/layer_height_12",
   "textures": {
-    "bottom": "minecraft:block/magenta_stained_glass",
-    "side": "minecraft:block/magenta_stained_glass",
-    "top": "minecraft:block/magenta_stained_glass"
+    "bottom": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/magenta_stained_glass"
+    },
+    "side": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/magenta_stained_glass"
+    },
+    "top": {
+      "force_translucent": true,
+      "sprite": "minecraft:block/magenta_stained_glass"
+    }
   }
 }
