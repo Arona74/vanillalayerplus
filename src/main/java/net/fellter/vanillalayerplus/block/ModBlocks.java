@@ -128,6 +128,7 @@ public class ModBlocks {
 	public static final Block POLISHED_ANDESITE_LAYER = registerBlock("polished_andesite_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_ANDESITE));
 
 	public static final Block DEEPSLATE_LAYER = registerBlock("deepslate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE));
+	public static final Block REINFORCED_DEEPSLATE_LAYER = registerBlock("reinforced_deepslate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.REINFORCED_DEEPSLATE));
 	public static final Block COBBLED_DEEPSLATE_LAYER = registerBlock("cobbled_deepslate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLED_DEEPSLATE));
 	public static final Block CHISELED_DEEPSLATE_LAYER = registerBlock("chiseled_deepslate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_DEEPSLATE));
 	public static final Block POLISHED_DEEPSLATE_LAYER = registerBlock("polished_deepslate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE));
@@ -340,6 +341,7 @@ public class ModBlocks {
 	public static final Block PINK_GLAZED_TERRACOTTA_LAYER = registerBlock("pink_glazed_terracotta_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.GLAZED_TERRACOTTA.pick(DyeColor.PINK)));
 
 	public static final Block GLASS_LAYER = registerBlock("glass_layer", GlassLayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS));
+	public static final Block TINTED_GLASS_LAYER = registerBlock("tinted_glass_layer", GlassLayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.TINTED_GLASS));
 	public static final Block WHITE_STAINED_GLASS_LAYER = registerBlock("white_stained_glass_layer", settings -> new StainedGlassLayerBlock(DyeColor.WHITE, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.STAINED_GLASS.pick(DyeColor.WHITE)));
 	public static final Block LIGHT_GRAY_STAINED_GLASS_LAYER = registerBlock("light_gray_stained_glass_layer", settings -> new StainedGlassLayerBlock(DyeColor.LIGHT_GRAY, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.STAINED_GLASS.pick(DyeColor.LIGHT_GRAY)));
 	public static final Block GRAY_STAINED_GLASS_LAYER = registerBlock("gray_stained_glass_layer", settings -> new StainedGlassLayerBlock(DyeColor.GRAY, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.STAINED_GLASS.pick(DyeColor.GRAY)));
@@ -386,9 +388,11 @@ public class ModBlocks {
 	public static final Block ROOTED_DIRT_LAYER = registerBlock("rooted_dirt_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.ROOTED_DIRT));
 
 	public static final Block MUD_LAYER = registerBlock("mud_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MUD));
+	public static final Block MUDDY_MANGROVE_ROOTS_LAYER = registerBlock("muddy_mangrove_roots_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MUDDY_MANGROVE_ROOTS));
 	public static final Block CLAY_LAYER = registerBlock("clay_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CLAY));
 	public static final Block GRAVEL_LAYER = registerBlock("gravel_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.GRAVEL));
 	public static final Block SAND_LAYER = registerBlock("sand_layer", FallingLayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SAND));
+	public static final Block RED_SAND_LAYER = registerBlock("red_sand_layer", FallingLayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SAND));
 
 	public static final Block ICE_LAYER = registerBlock("ice_layer", IceLayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.ICE));
 	public static final Block PACKED_ICE_LAYER = registerBlock("packed_ice_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE));

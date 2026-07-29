@@ -115,6 +115,7 @@ public final class Args {
 		putInDatagenArgs(ModBlocks.ANDESITE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.ANDESITE).textureMap(TextureMapping.cube(Blocks.ANDESITE)).stonecutting());
 		putInDatagenArgs(ModBlocks.POLISHED_ANDESITE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.POLISHED_ANDESITE).textureMap(TextureMapping.cube(Blocks.POLISHED_ANDESITE)).stonecutting(Blocks.ANDESITE));
 		putInDatagenArgs(ModBlocks.DEEPSLATE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.DEEPSLATE).textureMap(blockAndTopForEnds(Blocks.DEEPSLATE)));
+		putInDatagenArgs(ModBlocks.REINFORCED_DEEPSLATE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.REINFORCED_DEEPSLATE).textureMap(blockSTB(Blocks.REINFORCED_DEEPSLATE)));
 		putInDatagenArgs(ModBlocks.COBBLED_DEEPSLATE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.COBBLED_DEEPSLATE).textureMap(TextureMapping.cube(Blocks.COBBLED_DEEPSLATE)).stonecutting());
 		putInDatagenArgs(ModBlocks.CHISELED_DEEPSLATE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.CHISELED_DEEPSLATE).textureMap(TextureMapping.cube(Blocks.CHISELED_DEEPSLATE)).stonecutting(Blocks.COBBLED_DEEPSLATE));
 		putInDatagenArgs(ModBlocks.POLISHED_DEEPSLATE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.POLISHED_DEEPSLATE).textureMap(TextureMapping.cube(Blocks.POLISHED_DEEPSLATE)).stonecutting());
@@ -301,6 +302,7 @@ public final class Args {
 		putInDatagenArgs(ModBlocks.MAGENTA_GLAZED_TERRACOTTA_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.GLAZED_TERRACOTTA.pick(DyeColor.MAGENTA)).textureMap(TextureMapping.cube(Blocks.GLAZED_TERRACOTTA.pick(DyeColor.MAGENTA))));
 		putInDatagenArgs(ModBlocks.PINK_GLAZED_TERRACOTTA_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.GLAZED_TERRACOTTA.pick(DyeColor.PINK)).textureMap(TextureMapping.cube(Blocks.GLAZED_TERRACOTTA.pick(DyeColor.PINK))));
 		putInDatagenArgs(ModBlocks.GLASS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.GLASS).textureMap(TextureMapping.cube(Blocks.GLASS)).needsSilkTouch());
+		putInDatagenArgs(ModBlocks.TINTED_GLASS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.TINTED_GLASS).textureMap(TextureMapping.cube(Blocks.TINTED_GLASS)));
 		putInDatagenArgs(ModBlocks.WHITE_STAINED_GLASS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.STAINED_GLASS.pick(DyeColor.WHITE)).textureMap(TextureMapping.cube(Blocks.STAINED_GLASS.pick(DyeColor.WHITE))).needsSilkTouch());
 		putInDatagenArgs(ModBlocks.LIGHT_GRAY_STAINED_GLASS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.STAINED_GLASS.pick(DyeColor.LIGHT_GRAY)).textureMap(TextureMapping.cube(Blocks.STAINED_GLASS.pick(DyeColor.LIGHT_GRAY))).needsSilkTouch());
 		putInDatagenArgs(ModBlocks.GRAY_STAINED_GLASS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.STAINED_GLASS.pick(DyeColor.GRAY)).textureMap(TextureMapping.cube(Blocks.STAINED_GLASS.pick(DyeColor.GRAY))).needsSilkTouch());
@@ -326,9 +328,11 @@ public final class Args {
 		putInDatagenArgs(ModBlocks.COARSE_DIRT_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_SHOVEL).parentBlock(Blocks.COARSE_DIRT).textureMap(TextureMapping.cube(Blocks.COARSE_DIRT)));
 		putInDatagenArgs(ModBlocks.ROOTED_DIRT_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_SHOVEL).parentBlock(Blocks.ROOTED_DIRT).textureMap(TextureMapping.cube(Blocks.ROOTED_DIRT)));
 		putInDatagenArgs(ModBlocks.MUD_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_SHOVEL).parentBlock(Blocks.MUD).textureMap(TextureMapping.cube(Blocks.MUD)));
+		putInDatagenArgs(ModBlocks.MUDDY_MANGROVE_ROOTS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_SHOVEL).parentBlock(Blocks.MUDDY_MANGROVE_ROOTS).textureMap(sideAndTopForEnds(Blocks.MUDDY_MANGROVE_ROOTS)));
 		putInDatagenArgs(ModBlocks.CLAY_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_SHOVEL).parentBlock(Blocks.CLAY).textureMap(TextureMapping.cube(Blocks.CLAY)));
 		putInDatagenArgs(ModBlocks.GRAVEL_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_SHOVEL).parentBlock(Blocks.GRAVEL).textureMap(TextureMapping.cube(Blocks.GRAVEL)));
 		putInDatagenArgs(ModBlocks.SAND_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_SHOVEL).parentBlock(Blocks.SAND).textureMap(TextureMapping.cube(Blocks.SAND)));
+		putInDatagenArgs(ModBlocks.RED_SAND_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_SHOVEL).parentBlock(Blocks.RED_SAND).textureMap(TextureMapping.cube(Blocks.RED_SAND)));
 		putInDatagenArgs(ModBlocks.ICE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.ICE).textureMap(TextureMapping.cube(Blocks.ICE)));
 		putInDatagenArgs(ModBlocks.PACKED_ICE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.PACKED_ICE).textureMap(TextureMapping.cube(Blocks.PACKED_ICE)));
 		putInDatagenArgs(ModBlocks.BLUE_ICE_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.BLUE_ICE).textureMap(TextureMapping.cube(Blocks.BLUE_ICE)));
@@ -478,6 +482,7 @@ public final class Args {
 		putInRegistryArgs(ModBlocks.COPPER_GRATE_LAYER, new RegistryArgs().transparent().oxidizable(ModBlocks.EXPOSED_COPPER_GRATE_LAYER, ModBlocks.WEATHERED_COPPER_GRATE_LAYER, ModBlocks.OXIDIZED_COPPER_GRATE_LAYER, ModBlocks.WAXED_COPPER_GRATE_LAYER, ModBlocks.WEATHERED_COPPER_GRATE_LAYER, ModBlocks.WAXED_WEATHERED_COPPER_GRATE_LAYER, ModBlocks.WAXED_OXIDIZED_COPPER_GRATE_LAYER));
 		putInRegistryArgs(ModBlocks.CUT_COPPER_LAYER, new RegistryArgs().oxidizable(ModBlocks.EXPOSED_CUT_COPPER_LAYER, ModBlocks.WEATHERED_CUT_COPPER_LAYER, ModBlocks.OXIDIZED_CUT_COPPER_LAYER, ModBlocks.WAXED_CUT_COPPER_LAYER, ModBlocks.WAXED_EXPOSED_CUT_COPPER_LAYER, ModBlocks.WAXED_WEATHERED_CUT_COPPER_LAYER, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_LAYER));
 		putInRegistryArgs(ModBlocks.GLASS_LAYER, new RegistryArgs().transparent());
+		putInRegistryArgs(ModBlocks.TINTED_GLASS_LAYER, new RegistryArgs().transparent());
 		putInRegistryArgs(ModBlocks.WHITE_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
 		putInRegistryArgs(ModBlocks.LIGHT_GRAY_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
 		putInRegistryArgs(ModBlocks.GRAY_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
