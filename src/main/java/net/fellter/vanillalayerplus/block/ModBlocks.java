@@ -142,6 +142,17 @@ public class ModBlocks {
 	public static final Block TUFF_BRICKS_LAYER = registerBlock("tuff_bricks_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF_BRICKS));
 	public static final Block CHISELED_TUFF_BRICKS_LAYER = registerBlock("chiseled_tuff_bricks_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_TUFF_BRICKS));
 
+	public static final Block CINNABAR_LAYER = registerBlock("cinnabar_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CINNABAR));
+	public static final Block POLISHED_CINNABAR_LAYER = registerBlock("polished_cinnabar_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_CINNABAR));
+	public static final Block CINNABAR_BRICKS_LAYER = registerBlock("cinnabar_bricks_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CINNABAR_BRICKS));
+	public static final Block CHISELED_CINNABAR_LAYER = registerBlock("chiseled_cinnabar_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_CINNABAR));
+
+	public static final Block SULFUR_LAYER = registerBlock("sulfur_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SULFUR));
+	public static final Block POTENT_SULFUR_LAYER = registerBlock("potent_sulfur_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.POTENT_SULFUR));
+	public static final Block POLISHED_SULFUR_LAYER = registerBlock("polished_sulfur_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_SULFUR));
+	public static final Block SULFUR_BRICKS_LAYER = registerBlock("sulfur_bricks_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SULFUR_BRICKS));
+	public static final Block CHISELED_SULFUR_LAYER = registerBlock("chiseled_sulfur_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_SULFUR));
+
 	public static final Block BRICKS_LAYER = registerBlock("bricks_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS));
 	public static final Block PACKED_MUD_LAYER = registerBlock("packed_mud_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_MUD));
 	public static final Block MUD_BRICKS_LAYER = registerBlock("mud_bricks_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS));

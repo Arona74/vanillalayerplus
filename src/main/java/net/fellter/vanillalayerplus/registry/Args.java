@@ -127,6 +127,17 @@ public final class Args {
 		putInDatagenArgs(ModBlocks.POLISHED_TUFF_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.POLISHED_TUFF).textureMap(TextureMapping.cube(Blocks.POLISHED_TUFF)).stonecutting(Blocks.TUFF));
 		putInDatagenArgs(ModBlocks.TUFF_BRICKS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.TUFF_BRICKS).textureMap(TextureMapping.cube(Blocks.TUFF_BRICKS)).stonecutting(Blocks.POLISHED_TUFF, Blocks.TUFF));
 		putInDatagenArgs(ModBlocks.CHISELED_TUFF_BRICKS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.CHISELED_TUFF_BRICKS).textureMap(blockAndTopForEnds(Blocks.CHISELED_TUFF_BRICKS)).stonecutting(Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS));
+		putInDatagenArgs(ModBlocks.CINNABAR_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.CINNABAR).textureMap(TextureMapping.cube(Blocks.CINNABAR)).stonecutting());
+		putInDatagenArgs(ModBlocks.POLISHED_CINNABAR_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.POLISHED_CINNABAR).textureMap(TextureMapping.cube(Blocks.POLISHED_CINNABAR)).stonecutting(Blocks.CINNABAR));
+		putInDatagenArgs(ModBlocks.CINNABAR_BRICKS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.CINNABAR_BRICKS).textureMap(TextureMapping.cube(Blocks.CINNABAR_BRICKS)).stonecutting(Blocks.CINNABAR, Blocks.POLISHED_CINNABAR));
+		putInDatagenArgs(ModBlocks.CHISELED_CINNABAR_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.CHISELED_CINNABAR).textureMap(TextureMapping.cube(Blocks.CHISELED_CINNABAR)).stonecutting(Blocks.CINNABAR));
+
+		putInDatagenArgs(ModBlocks.SULFUR_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.SULFUR).textureMap(TextureMapping.cube(Blocks.SULFUR)).stonecutting());
+		putInDatagenArgs(ModBlocks.POTENT_SULFUR_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.POTENT_SULFUR).textureMap(TextureMapping.cube(Blocks.POTENT_SULFUR)));
+		putInDatagenArgs(ModBlocks.POLISHED_SULFUR_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.POLISHED_SULFUR).textureMap(TextureMapping.cube(Blocks.POLISHED_SULFUR)).stonecutting(Blocks.SULFUR));
+		putInDatagenArgs(ModBlocks.SULFUR_BRICKS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.SULFUR_BRICKS).textureMap(TextureMapping.cube(Blocks.SULFUR_BRICKS)).stonecutting(Blocks.SULFUR, Blocks.POLISHED_SULFUR));
+		putInDatagenArgs(ModBlocks.CHISELED_SULFUR_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.CHISELED_SULFUR).textureMap(TextureMapping.cube(Blocks.CHISELED_SULFUR)).stonecutting(Blocks.SULFUR));
+
 		putInDatagenArgs(ModBlocks.BRICKS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.BRICKS).textureMap(TextureMapping.cube(Blocks.BRICKS)).stonecutting());
 		putInDatagenArgs(ModBlocks.PACKED_MUD_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.PACKED_MUD).textureMap(TextureMapping.cube(Blocks.PACKED_MUD)));
 		putInDatagenArgs(ModBlocks.MUD_BRICKS_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_PICKAXE).parentBlock(Blocks.MUD_BRICKS).textureMap(TextureMapping.cube(Blocks.MUD_BRICKS)).stonecutting());
