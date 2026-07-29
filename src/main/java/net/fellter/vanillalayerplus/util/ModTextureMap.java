@@ -1,5 +1,6 @@
 package net.fellter.vanillalayerplus.util;
 
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.resources.Identifier;
@@ -46,8 +47,8 @@ public class ModTextureMap {
 
 	public static TextureMapping blockSTB(Identifier block) {
 		return new TextureMapping()
-				.put(TextureSlot.TOP, block.withSuffix("_top"))
-				.put(TextureSlot.SIDE, block.withSuffix("_side"))
-				.put(TextureSlot.BOTTOM, block.withSuffix("_bottom"));
+				.put(TextureSlot.TOP, new Material(block.withSuffix("_top")))
+				.put(TextureSlot.SIDE, new Material(block.withSuffix("_side")))
+				.put(TextureSlot.BOTTOM, new Material(block.withSuffix("_bottom")));
 	}
 }

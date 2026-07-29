@@ -44,7 +44,7 @@ public class IceLayerBlock extends LayerBlock {
 	}
 
 	protected void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
-		if (world.getBrightness(LightLayer.BLOCK, pos) > 11 - state.getLightBlock()) {
+		if (world.getBrightness(LightLayer.BLOCK, pos) > 11 - state.getLightDampening()) {
 			this.melt(world, pos);
 		}
 	}

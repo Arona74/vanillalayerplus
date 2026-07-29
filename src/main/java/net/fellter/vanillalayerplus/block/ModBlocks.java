@@ -202,45 +202,45 @@ public class ModBlocks {
 
 	public static final Block AMETHYST_LAYER = registerBlock("amethyst_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK));
 
-	public static final Block WAXED_COPPER_LAYER = registerBlock("waxed_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_COPPER_BLOCK));
-	public static final Block WAXED_CHISELED_COPPER_LAYER = registerBlock("waxed_chiseled_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_CHISELED_COPPER));
-	public static final Block WAXED_COPPER_GRATE_LAYER = registerBlock("waxed_copper_grate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_COPPER_GRATE));
-	public static final Block WAXED_CUT_COPPER_LAYER = registerBlock("waxed_cut_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_CUT_COPPER));
+	public static final Block WAXED_COPPER_LAYER = registerBlock("waxed_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.waxed().unaffected()));
+	public static final Block WAXED_CHISELED_COPPER_LAYER = registerBlock("waxed_chiseled_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_COPPER.waxed().unaffected()));
+	public static final Block WAXED_COPPER_GRATE_LAYER = registerBlock("waxed_copper_grate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE.waxed().unaffected()));
+	public static final Block WAXED_CUT_COPPER_LAYER = registerBlock("waxed_cut_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER.waxed().unaffected()));
 
-	public static final Block WAXED_EXPOSED_COPPER_LAYER = registerBlock("waxed_exposed_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_EXPOSED_COPPER));
-	public static final Block WAXED_EXPOSED_CHISELED_COPPER_LAYER = registerBlock("waxed_exposed_chiseled_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_EXPOSED_CHISELED_COPPER));
-	public static final Block WAXED_EXPOSED_COPPER_GRATE_LAYER = registerBlock("waxed_exposed_copper_grate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_EXPOSED_COPPER_GRATE));
-	public static final Block WAXED_EXPOSED_CUT_COPPER_LAYER = registerBlock("waxed_exposed_cut_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_EXPOSED_CUT_COPPER));
+	public static final Block WAXED_EXPOSED_COPPER_LAYER = registerBlock("waxed_exposed_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.waxed().exposed()));
+	public static final Block WAXED_EXPOSED_CHISELED_COPPER_LAYER = registerBlock("waxed_exposed_chiseled_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_COPPER.waxed().exposed()));
+	public static final Block WAXED_EXPOSED_COPPER_GRATE_LAYER = registerBlock("waxed_exposed_copper_grate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE.waxed().exposed()));
+	public static final Block WAXED_EXPOSED_CUT_COPPER_LAYER = registerBlock("waxed_exposed_cut_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER.waxed().exposed()));
 
-	public static final Block WAXED_WEATHERED_COPPER_LAYER = registerBlock("waxed_weathered_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_WEATHERED_COPPER));
-	public static final Block WAXED_WEATHERED_CHISELED_COPPER_LAYER = registerBlock("waxed_weathered_chiseled_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_WEATHERED_CHISELED_COPPER));
-	public static final Block WAXED_WEATHERED_COPPER_GRATE_LAYER = registerBlock("waxed_weathered_copper_grate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_WEATHERED_COPPER_GRATE));
-	public static final Block WAXED_WEATHERED_CUT_COPPER_LAYER = registerBlock("waxed_weathered_cut_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_WEATHERED_CUT_COPPER));
+	public static final Block WAXED_WEATHERED_COPPER_LAYER = registerBlock("waxed_weathered_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.waxed().weathered()));
+	public static final Block WAXED_WEATHERED_CHISELED_COPPER_LAYER = registerBlock("waxed_weathered_chiseled_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_COPPER.waxed().weathered()));
+	public static final Block WAXED_WEATHERED_COPPER_GRATE_LAYER = registerBlock("waxed_weathered_copper_grate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE.waxed().weathered()));
+	public static final Block WAXED_WEATHERED_CUT_COPPER_LAYER = registerBlock("waxed_weathered_cut_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER.waxed().weathered()));
 
-	public static final Block WAXED_OXIDIZED_COPPER_LAYER = registerBlock("waxed_oxidized_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_OXIDIZED_COPPER));
-	public static final Block WAXED_OXIDIZED_CHISELED_COPPER_LAYER = registerBlock("waxed_oxidized_chiseled_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_OXIDIZED_CHISELED_COPPER));
-	public static final Block WAXED_OXIDIZED_COPPER_GRATE_LAYER = registerBlock("waxed_oxidized_copper_grate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_OXIDIZED_COPPER_GRATE));
-	public static final Block WAXED_OXIDIZED_CUT_COPPER_LAYER = registerBlock("waxed_oxidized_cut_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_OXIDIZED_CUT_COPPER));
+	public static final Block WAXED_OXIDIZED_COPPER_LAYER = registerBlock("waxed_oxidized_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.waxed().oxidized()));
+	public static final Block WAXED_OXIDIZED_CHISELED_COPPER_LAYER = registerBlock("waxed_oxidized_chiseled_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_COPPER.waxed().oxidized()));
+	public static final Block WAXED_OXIDIZED_COPPER_GRATE_LAYER = registerBlock("waxed_oxidized_copper_grate_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE.waxed().oxidized()));
+	public static final Block WAXED_OXIDIZED_CUT_COPPER_LAYER = registerBlock("waxed_oxidized_cut_copper_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER.waxed().oxidized()));
 
-	public static final Block EXPOSED_COPPER_LAYER = registerBlock("exposed_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.EXPOSED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.EXPOSED_COPPER));
-	public static final Block EXPOSED_CHISELED_COPPER_LAYER = registerBlock("exposed_chiseled_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.EXPOSED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.EXPOSED_CHISELED_COPPER));
-	public static final Block EXPOSED_COPPER_GRATE_LAYER = registerBlock("exposed_copper_grate_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.EXPOSED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.EXPOSED_COPPER_GRATE));
-	public static final Block EXPOSED_CUT_COPPER_LAYER = registerBlock("exposed_cut_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.EXPOSED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.EXPOSED_CUT_COPPER));
+	public static final Block EXPOSED_COPPER_LAYER = registerBlock("exposed_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.EXPOSED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.weathering().exposed()));
+	public static final Block EXPOSED_CHISELED_COPPER_LAYER = registerBlock("exposed_chiseled_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.EXPOSED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_COPPER.weathering().exposed()));
+	public static final Block EXPOSED_COPPER_GRATE_LAYER = registerBlock("exposed_copper_grate_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.EXPOSED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE.weathering().exposed()));
+	public static final Block EXPOSED_CUT_COPPER_LAYER = registerBlock("exposed_cut_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.EXPOSED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER.weathering().exposed()));
 
-	public static final Block WEATHERED_COPPER_LAYER = registerBlock("weathered_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.WEATHERED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.WEATHERED_COPPER));
-	public static final Block WEATHERED_CHISELED_COPPER_LAYER = registerBlock("weathered_chiseled_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.WEATHERED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.WEATHERED_CHISELED_COPPER));
-	public static final Block WEATHERED_COPPER_GRATE_LAYER = registerBlock("weathered_copper_grate_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.WEATHERED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.WEATHERED_COPPER_GRATE));
-	public static final Block WEATHERED_CUT_COPPER_LAYER = registerBlock("weathered_cut_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.WEATHERED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.WEATHERED_CUT_COPPER));
+	public static final Block WEATHERED_COPPER_LAYER = registerBlock("weathered_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.WEATHERED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.weathering().weathered()));
+	public static final Block WEATHERED_CHISELED_COPPER_LAYER = registerBlock("weathered_chiseled_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.WEATHERED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_COPPER.weathering().weathered()));
+	public static final Block WEATHERED_COPPER_GRATE_LAYER = registerBlock("weathered_copper_grate_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.WEATHERED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE.weathering().weathered()));
+	public static final Block WEATHERED_CUT_COPPER_LAYER = registerBlock("weathered_cut_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.WEATHERED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER.weathering().weathered()));
 
-	public static final Block OXIDIZED_COPPER_LAYER = registerBlock("oxidized_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.OXIDIZED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.OXIDIZED_COPPER));
-	public static final Block OXIDIZED_CHISELED_COPPER_LAYER = registerBlock("oxidized_chiseled_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.OXIDIZED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.OXIDIZED_CHISELED_COPPER));
-	public static final Block OXIDIZED_COPPER_GRATE_LAYER = registerBlock("oxidized_copper_grate_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.OXIDIZED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.OXIDIZED_COPPER_GRATE));
-	public static final Block OXIDIZED_CUT_COPPER_LAYER = registerBlock("oxidized_cut_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.OXIDIZED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.OXIDIZED_CUT_COPPER));
+	public static final Block OXIDIZED_COPPER_LAYER = registerBlock("oxidized_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.OXIDIZED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.weathering().oxidized()));
+	public static final Block OXIDIZED_CHISELED_COPPER_LAYER = registerBlock("oxidized_chiseled_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.OXIDIZED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_COPPER.weathering().oxidized()));
+	public static final Block OXIDIZED_COPPER_GRATE_LAYER = registerBlock("oxidized_copper_grate_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.OXIDIZED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE.weathering().oxidized()));
+	public static final Block OXIDIZED_CUT_COPPER_LAYER = registerBlock("oxidized_cut_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.OXIDIZED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER.weathering().oxidized()));
 
-	public static final Block COPPER_LAYER = registerBlock("copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK));
-	public static final Block CHISELED_COPPER_LAYER = registerBlock("chiseled_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_COPPER));
-	public static final Block COPPER_GRATE_LAYER = registerBlock("copper_grate_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE));
-	public static final Block CUT_COPPER_LAYER = registerBlock("cut_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER));
+	public static final Block COPPER_LAYER = registerBlock("copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK.weathering().unaffected()));
+	public static final Block CHISELED_COPPER_LAYER = registerBlock("chiseled_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CHISELED_COPPER.weathering().unaffected()));
+	public static final Block COPPER_GRATE_LAYER = registerBlock("copper_grate_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_GRATE.weathering().unaffected()));
+	public static final Block CUT_COPPER_LAYER = registerBlock("cut_copper_layer", settings -> new OxidizableLayerBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings), BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER.weathering().unaffected()));
 
 	public static final Block WHITE_WOOL_LAYER = registerBlock("white_wool_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.WHITE)));
 	public static final Block LIGHT_GRAY_WOOL_LAYER = registerBlock("light_gray_wool_layer", LayerBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WOOL.pick(DyeColor.LIGHT_GRAY)));

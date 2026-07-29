@@ -8,12 +8,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 
 public class ModItemGroups {
 	public static final CreativeModeTab VLP_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
 			Identifier.fromNamespaceAndPath(VanillaLayerPlus.MOD_ID, "vlp"),
-			FabricItemGroup.builder().title(Component.translatable("itemgroup.vanillalayerplus"))
+			FabricCreativeModeTab.builder().title(Component.translatable("itemgroup.vanillalayerplus"))
 					.icon(() -> new ItemStack(ModItems.VLP_TITLE)).displayItems((displayContext, entries) -> {
 						entries.accept(ModBlocks.OAK_LAYER);
 						entries.accept(ModBlocks.OAK_LOG_LAYER);
