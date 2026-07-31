@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:end_stone_layer_from_end_stone_stonecutting"
+        "recipe": "vanillalayerplus:end_stone_layer_from_end_stone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:end_stone_layer_from_end_stone_stonecutting"
+      "vanillalayerplus:end_stone_layer_from_end_stone_stonecutting"
     ]
   },
   "sends_telemetry_event": false

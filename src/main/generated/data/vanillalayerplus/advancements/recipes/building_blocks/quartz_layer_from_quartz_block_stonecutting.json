@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:quartz_layer_from_quartz_block_stonecutting"
+        "recipe": "vanillalayerplus:quartz_layer_from_quartz_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:quartz_layer_from_quartz_block_stonecutting"
+      "vanillalayerplus:quartz_layer_from_quartz_block_stonecutting"
     ]
   },
   "sends_telemetry_event": false

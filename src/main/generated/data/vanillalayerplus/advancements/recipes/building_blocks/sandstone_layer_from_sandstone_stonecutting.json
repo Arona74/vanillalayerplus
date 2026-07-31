@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:sandstone_layer_from_sandstone_stonecutting"
+        "recipe": "vanillalayerplus:sandstone_layer_from_sandstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:sandstone_layer_from_sandstone_stonecutting"
+      "vanillalayerplus:sandstone_layer_from_sandstone_stonecutting"
     ]
   },
   "sends_telemetry_event": false

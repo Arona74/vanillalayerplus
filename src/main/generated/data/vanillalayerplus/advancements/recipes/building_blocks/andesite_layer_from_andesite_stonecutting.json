@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:andesite_layer_from_andesite_stonecutting"
+        "recipe": "vanillalayerplus:andesite_layer_from_andesite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:andesite_layer_from_andesite_stonecutting"
+      "vanillalayerplus:andesite_layer_from_andesite_stonecutting"
     ]
   },
   "sends_telemetry_event": false

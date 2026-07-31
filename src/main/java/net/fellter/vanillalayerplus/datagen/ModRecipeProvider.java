@@ -8,8 +8,11 @@ import net.fellter.vanillalayerplus.registry.DatagenArgs;
 import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.SingleItemRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.util.Identifier;
 import java.util.function.Consumer;
 
 import net.minecraft.registry.Registries;
@@ -44,7 +47,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 					if (block instanceof LayerBlock && args.stonecuttingInput != null) {
 						for (ItemConvertible itemConvertible : args.stonecuttingInput) {
-							offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, block, itemConvertible, 8);
+							// offerStonecuttingRecipe names the recipe with a bare string, which
+							// resolves to the minecraft namespace, so the generated unlock
+							// advancement pointed at a recipe that does not exist and the recipe
+							// never showed up in the recipe book. Build it with our own id instead.
+							SingleItemRecipeJsonBuilder.createStonecutting(Ingredient.ofItems(itemConvertible), RecipeCategory.BUILDING_BLOCKS, block, 8)
+									.criterion(hasItem(itemConvertible), conditionsFromItem(itemConvertible))
+									.offerTo(exporter, new Identifier(VanillaLayerPlus.MOD_ID, convertBetween(block, itemConvertible) + "_stonecutting"));
 						}
 					}
 				}

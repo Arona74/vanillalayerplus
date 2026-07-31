@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:weathered_cut_copper_layer_from_weathered_cut_copper_stonecutting"
+        "recipe": "vanillalayerplus:weathered_cut_copper_layer_from_weathered_cut_copper_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:weathered_cut_copper_layer_from_weathered_cut_copper_stonecutting"
+      "vanillalayerplus:weathered_cut_copper_layer_from_weathered_cut_copper_stonecutting"
     ]
   },
   "sends_telemetry_event": false

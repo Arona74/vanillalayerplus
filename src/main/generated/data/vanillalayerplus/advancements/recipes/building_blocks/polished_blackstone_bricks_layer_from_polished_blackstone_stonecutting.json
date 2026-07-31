@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:polished_blackstone_bricks_layer_from_polished_blackstone_stonecutting"
+        "recipe": "vanillalayerplus:polished_blackstone_bricks_layer_from_polished_blackstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:polished_blackstone_bricks_layer_from_polished_blackstone_stonecutting"
+      "vanillalayerplus:polished_blackstone_bricks_layer_from_polished_blackstone_stonecutting"
     ]
   },
   "sends_telemetry_event": false

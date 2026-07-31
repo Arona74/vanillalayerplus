@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:prismarine_layer_from_prismarine_stonecutting"
+        "recipe": "vanillalayerplus:prismarine_layer_from_prismarine_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:prismarine_layer_from_prismarine_stonecutting"
+      "vanillalayerplus:prismarine_layer_from_prismarine_stonecutting"
     ]
   },
   "sends_telemetry_event": false

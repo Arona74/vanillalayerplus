@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blackstone_layer_from_blackstone_stonecutting"
+        "recipe": "vanillalayerplus:blackstone_layer_from_blackstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blackstone_layer_from_blackstone_stonecutting"
+      "vanillalayerplus:blackstone_layer_from_blackstone_stonecutting"
     ]
   },
   "sends_telemetry_event": false

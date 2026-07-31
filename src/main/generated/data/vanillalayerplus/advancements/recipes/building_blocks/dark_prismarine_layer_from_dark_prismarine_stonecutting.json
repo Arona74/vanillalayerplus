@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:dark_prismarine_layer_from_dark_prismarine_stonecutting"
+        "recipe": "vanillalayerplus:dark_prismarine_layer_from_dark_prismarine_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:dark_prismarine_layer_from_dark_prismarine_stonecutting"
+      "vanillalayerplus:dark_prismarine_layer_from_dark_prismarine_stonecutting"
     ]
   },
   "sends_telemetry_event": false
