@@ -1,4 +1,4 @@
-// 1.21.1	2026-07-31T17:56:00.8723919	Vanilla+ Layers/Block Loot Tables
+// 1.21.1	2026-07-31T18:35:55.2208796	Vanilla+ Layers/Block Loot Tables
 d096790abaf7b43c24b6a1ed485c039d479d4496 data\vanillalayerplus\loot_table\blocks\green_stained_glass_layer.json
 bb05dc49d71fc8a54cc8c60e1fb4aaa36e0c9252 data\vanillalayerplus\loot_table\blocks\purple_glazed_terracotta_layer.json
 cd8f20d45845355b633985ef0fa6a1a798ad64d8 data\vanillalayerplus\loot_table\blocks\gray_terracotta_layer.json
@@ -95,8 +95,8 @@ a758b305ce9a16952a45074a672291910b3320e1 data\vanillalayerplus\loot_table\blocks
 a7500b905c6c011550e11fe911a62814a502d928 data\vanillalayerplus\loot_table\blocks\cherry_wood_layer.json
 dd37a395df38290940046c68f9ff95da7d93d0ed data\vanillalayerplus\loot_table\blocks\dirt_layer.json
 3a9993bcbecb01f19d77f19826a6f5b04f4e251b data\vanillalayerplus\loot_table\blocks\basalt_layer.json
-3909e3a2b8388d7c60ee6576bf7728254838afb0 data\vanillalayerplus\loot_table\blocks\bricks_layer.json
 0eb6d86e1120039dc1db82c9e3e9cc33216fc443 data\vanillalayerplus\loot_table\blocks\rooted_dirt_layer.json
+3909e3a2b8388d7c60ee6576bf7728254838afb0 data\vanillalayerplus\loot_table\blocks\bricks_layer.json
 285f6dd125cd86646a82b4f852d183bd33aa6d7a data\vanillalayerplus\loot_table\blocks\pearlescent_froglight_layer.json
 95dd07521ab5ca6fadf7feb780d4c7cc07678994 data\vanillalayerplus\loot_table\blocks\chiseled_polished_blackstone_layer.json
 2ef3bd17b1dac6be7186c879ec264115de4aa841 data\vanillalayerplus\loot_table\blocks\honeycomb_layer.json

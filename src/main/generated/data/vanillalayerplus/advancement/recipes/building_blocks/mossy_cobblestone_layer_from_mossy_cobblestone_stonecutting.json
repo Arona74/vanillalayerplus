@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:mossy_cobblestone_layer_from_mossy_cobblestone_stonecutting"
+        "recipe": "vanillalayerplus:mossy_cobblestone_layer_from_mossy_cobblestone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:mossy_cobblestone_layer_from_mossy_cobblestone_stonecutting"
+      "vanillalayerplus:mossy_cobblestone_layer_from_mossy_cobblestone_stonecutting"
     ]
   }
 }

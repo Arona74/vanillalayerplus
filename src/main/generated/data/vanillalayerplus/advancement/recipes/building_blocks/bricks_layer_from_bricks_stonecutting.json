@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:bricks_layer_from_bricks_stonecutting"
+        "recipe": "vanillalayerplus:bricks_layer_from_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:bricks_layer_from_bricks_stonecutting"
+      "vanillalayerplus:bricks_layer_from_bricks_stonecutting"
     ]
   }
 }
