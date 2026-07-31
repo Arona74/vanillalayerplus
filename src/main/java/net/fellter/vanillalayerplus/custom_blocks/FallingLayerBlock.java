@@ -34,6 +34,14 @@ public class FallingLayerBlock extends LayerBlock implements Fallable {
 		if (canFallThrough(world.getBlockState(pos.below())) && pos.getY() >= world.getMinY()) {
 			FallingBlockEntity fallingBlockEntity = FallingBlockEntity.fall(world, pos, state);
 			this.configureFallingBlockEntity(fallingBlockEntity);
+			return;
+		}
+
+		// Nothing to fall into. If the layer has also lost its support, defer to the
+		// base class so it breaks rather than floating; this happens when the block
+		// below is solid enough to block a fall but is not a full square to rest on.
+		if (!state.canSurvive(world, pos)) {
+			super.tick(state, world, pos, random);
 		}
 	}
 

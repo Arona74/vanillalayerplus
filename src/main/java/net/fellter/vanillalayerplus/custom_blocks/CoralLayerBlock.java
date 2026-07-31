@@ -25,6 +25,14 @@ public class CoralLayerBlock extends LayerBlock {
 	}
 
 	protected void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+		// See FlattenableLayerBlock: the base class schedules a tick when support is
+		// lost, and that tick lands here, so it has to be handled before the coral
+		// death check or the block ends up floating.
+		if (!state.canSurvive(world, pos)) {
+			super.tick(state, world, pos, random);
+			return;
+		}
+
 		if (!this.isInWater(world, pos)) {
 			world.setBlock(pos, this.dead.withPropertiesOf(state), 2);
 		}
