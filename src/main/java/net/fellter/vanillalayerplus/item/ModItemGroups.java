@@ -100,6 +100,7 @@ public class ModItemGroups {
 						entries.add(ModBlocks.POLISHED_ANDESITE_LAYER);
 
 						entries.add(ModBlocks.DEEPSLATE_LAYER);
+						entries.add(ModBlocks.REINFORCED_DEEPSLATE_LAYER);
 						entries.add(ModBlocks.COBBLED_DEEPSLATE_LAYER);
 						entries.add(ModBlocks.CHISELED_DEEPSLATE_LAYER);
 						entries.add(ModBlocks.POLISHED_DEEPSLATE_LAYER);
@@ -279,6 +280,7 @@ public class ModItemGroups {
 						entries.add(ModBlocks.PINK_GLAZED_TERRACOTTA_LAYER);
 
 						entries.add(ModBlocks.GLASS_LAYER);
+						entries.add(ModBlocks.TINTED_GLASS_LAYER);
 						entries.add(ModBlocks.WHITE_STAINED_GLASS_LAYER);
 						entries.add(ModBlocks.LIGHT_GRAY_STAINED_GLASS_LAYER);
 						entries.add(ModBlocks.GRAY_STAINED_GLASS_LAYER);
@@ -306,9 +308,11 @@ public class ModItemGroups {
 						entries.add(ModBlocks.FARMLAND_LAYER);
 
 						entries.add(ModBlocks.MUD_LAYER);
+						entries.add(ModBlocks.MUDDY_MANGROVE_ROOTS_LAYER);
 						entries.add(ModBlocks.CLAY_LAYER);
 						entries.add(ModBlocks.GRAVEL_LAYER);
 						entries.add(ModBlocks.SAND_LAYER);
+						entries.add(ModBlocks.RED_SAND_LAYER);
 
 						entries.add(ModBlocks.ICE_LAYER);
 						entries.add(ModBlocks.PACKED_ICE_LAYER);

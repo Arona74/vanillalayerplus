@@ -46,6 +46,14 @@ public class FlattenableLayerBlock extends LayerBlock {
 
 	@Override
 	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+		// LayerBlock schedules a tick when support is lost so the layer can fall. That
+		// tick arrives here, so without this the block would be left floating instead.
+		// Handle it first: setToDirt would throw on the air left behind.
+		if (!state.canPlaceAt(world, pos)) {
+			super.scheduledTick(state, world, pos, random);
+			return;
+		}
+
 		setToDirt(null, state, world, pos);
 	}
 
