@@ -103,7 +103,7 @@ public class ModRegistries {
 		}
 	}
 
-	// Render layers are no longer registered at runtime in 26.2; both Fabric's
+	// Render layers are no longer registered at runtime in 26.1; both Fabric's
 	// BlockRenderLayerMap and vanilla's ItemBlockRenderTypes are gone. The layer is
 	// derived from the texture instead: alpha content is detected automatically, so
 	// blocks flagged transparent need nothing, and blocks flagged translucent get

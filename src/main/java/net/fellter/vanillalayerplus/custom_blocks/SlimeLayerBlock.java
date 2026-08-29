@@ -20,9 +20,22 @@ public class SlimeLayerBlock extends LayerBlock {
 		}
 	}
 
-	// 26.2 removed the overridable fall-on bounce hook; bouncing is now driven by
-	// the bounceRestitution block property, which SLIME_LAYER already inherits by
-	// copying Blocks.SLIME_BLOCK's settings.
+	public void updateEntityMovementAfterFallOn(BlockGetter world, Entity entity) {
+		if (entity.isSuppressingBounce()) {
+			super.updateEntityMovementAfterFallOn(world, entity);
+		} else {
+			this.bounce(entity);
+		}
+	}
+
+	private void bounce(Entity entity) {
+		Vec3 vec3d = entity.getDeltaMovement();
+
+		if (vec3d.y < 0.0) {
+			double d = entity instanceof LivingEntity ? 1.0 : 0.8;
+			entity.setDeltaMovement(vec3d.x, -vec3d.y * d, vec3d.z);
+		}
+	}
 
 	public void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
 		double d = Math.abs(entity.getDeltaMovement().y);

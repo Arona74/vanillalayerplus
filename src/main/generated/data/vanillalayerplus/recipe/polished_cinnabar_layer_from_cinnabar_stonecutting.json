@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:cinnabar",
-  "result": {
-    "count": 8,
-    "id": "vanillalayerplus:polished_cinnabar_layer"
-  }
-}

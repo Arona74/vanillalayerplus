@@ -62,7 +62,7 @@ public class ModModelProvider extends FabricModelProvider {
 		});
 	}
 
-	// 26.2 dropped runtime render layer registration. The layer is now derived from
+	// 26.1 dropped runtime render layer registration. The layer is now derived from
 	// the texture: alpha content is detected automatically, which covers our cutout
 	// blocks, and "force_translucent" on the texture selects the blended path for
 	// blocks whose sprite would otherwise be detected as cutout. Vanilla marks glass
