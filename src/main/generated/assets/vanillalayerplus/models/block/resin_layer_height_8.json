@@ -1,8 +1,0 @@
-{
-  "parent": "vanillalayerplus:blockmodels/layer_height_8",
-  "textures": {
-    "bottom": "minecraft:block/resin_block",
-    "side": "minecraft:block/resin_block",
-    "top": "minecraft:block/resin_block"
-  }
-}

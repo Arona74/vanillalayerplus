@@ -7,19 +7,36 @@ This fork exists to keep the mod running on more Minecraft versions than upstrea
 and to fix a handful of bugs found along the way. All credit for the mod itself goes to
 **Fellter**; everything here builds on their work.
 
+> This branch holds no code. Each Minecraft version lives on its own branch — pick one from the
+> table below.
+
 ## Supported versions
 
 | Minecraft | Branch | Mod version | Java |
 |---|---|---|---|
-| 26.2 | [`26.2`](../../tree/26.2) | `4.0.0+26.2` | 25 |
-| 1.21.11 | [`1.21.11`](../../tree/1.21.11) | `4.0.0+1.21.11` | 21 |
-| 1.21.6 – 1.21.7 | [`1.21.7`](../../tree/1.21.7) | `4.0.0+1.21.6-7` | 21 |
-| 1.21.1 | [`1.21.1`](../../tree/1.21.1) | `4.0.0+1.21.1` | 21 |
-| 1.20.1 | [`1.20.1`](../../tree/1.20.1) | `4.0.0+1.20.1` | 17 |
+| 26.2 | [`26.2`](../../tree/26.2) | `4.1.0+26.2` | 25 |
+| 26.1.2 | [`26.1.2`](../../tree/26.1.2) | `4.1.0+26.1.2` | 25 |
+| 1.21.11 | [`1.21.11`](../../tree/1.21.11) | `4.1.0+1.21.11` | 21 |
+| 1.21.6 – 1.21.7 | [`1.21.7`](../../tree/1.21.7) | `4.1.0+1.21.6-7` | 21 |
+| 1.21.1 | [`1.21.1`](../../tree/1.21.1) | `4.1.0+1.21.1` | 21 |
+| 1.20.1 | [`1.20.1`](../../tree/1.20.1) | `4.1.0+1.20.1` | 17 |
 
 Upstream targets 1.21.6–1.21.7. Every other version in that table is added by this fork.
 
 ## What this fork changes
+
+### New in 4.1.0: reverse recipes
+
+- **Eight layers craft back into one full block**, arranged in a ring with the centre slot
+  empty. Two blocks make sixteen layers, so the round trip loses nothing. Every layer has one,
+  including layers of blocks you cannot normally obtain, such as grass, farmland and dirt path.
+- **They ship as a built-in datapack**, *Vanilla+ Layers: Reverse Recipes*, enabled by default.
+  Turn it off per world from the Data Packs screen when creating a world, or at any time with:
+
+  ```
+  /datapack disable "vanillalayerplus:reverse_recipes"
+  /datapack enable "vanillalayerplus:reverse_recipes"
+  ```
 
 ### New blocks
 
@@ -31,8 +48,8 @@ Upstream targets 1.21.6–1.21.7. Every other version in that table is added by 
   sulfur, potent, polished, bricks and chiseled. Stonecutting chains mirror vanilla exactly.
 
 These came out of a sweep that compared the mod's registrations against every full-cube block in
-each supported Minecraft version. All five branches are now complete for the version they target,
-apart from functional and block-entity blocks (barrels, note blocks, TNT and similar), which are
+each supported Minecraft version. Every branch is complete for the version it targets, apart from
+functional and block-entity blocks (barrels, note blocks, TNT and similar), which are
 intentionally excluded.
 
 ### Behaviour
@@ -42,39 +59,42 @@ intentionally excluded.
 
 ### Fixes
 
+- **Chiseled stone bricks layers were tied to cracked stone bricks.** They were crafted from
+  cracked stone bricks, stonecut from them, and showed the cracked texture at full height. They now
+  use chiseled stone bricks throughout. *(4.1.0)*
 - **Layer blocks could be left floating in mid-air** when their support was removed. Dirt path,
   farmland and coral layers were affected, plus sand layers in one edge case.
 - **Stonecutter recipes never unlocked** in the recipe book. Their unlock advancements pointed at
   the `minecraft` namespace instead of the mod's own, so they referenced recipes that do not exist.
-  This affected every version.
 - **On 1.20.1, recipes, loot tables and block tags never loaded at all** — they had been written
   under the directory names used by newer Minecraft versions. Crafting, block drops and tool tags
   were all broken.
-- **On 26.2, translucent blocks rendered incorrectly.** Render layers are no longer registered at
-  runtime in that version; they are derived from the block's texture instead.
+- **On 26.x, translucent blocks rendered incorrectly.** Render layers are no longer registered at
+  runtime from 26.1 onward; they are derived from the block's texture instead.
 
 ### Under the hood
 
-- **26.2 moves to Mojang's official mappings.** Yarn is discontinued from Minecraft 26.1 onward, so
+- **26.x moves to Mojang's official mappings.** Yarn is discontinued from Minecraft 26.1 onward, so
   this was required rather than optional.
-- 26.2 needs **Java 25** and Gradle 9; the 1.21.x branches use Java 21, and 1.20.1 uses Java 17.
+- 26.x needs **Java 25** and Gradle 9; the 1.21.x branches use Java 21, and 1.20.1 uses Java 17.
 
 ## Building
 
-Each Minecraft version lives on its own branch. Check one out and run:
+Check out the branch for your Minecraft version and run:
 
 ```bash
 ./gradlew build          # jar lands in build/libs/
 ./gradlew runDatagen     # regenerate assets and data after changing blocks
 ```
 
-Gradle must run on the JDK listed in the table above — for 26.2 this means Gradle's own JVM, not
-just the compile target, or the build fails during configuration.
+Gradle must run on the JDK listed in the table above. The 26.x branches pin this through
+`gradle/gradle-daemon-jvm.properties`, so Gradle picks an installed JDK 25 on its own even when
+`JAVA_HOME` points elsewhere. On the other branches, point `JAVA_HOME` at the right JDK.
 
 ## A note on how this fork is developed
 
 I use Claude AI as a development aid, mainly for the repetitive parts of multi-version maintenance:
-porting a change across five branches, tracking down what a renamed Minecraft API became, and
+porting a change across six branches, tracking down what a renamed Minecraft API became, and
 running the coverage comparisons that found the missing blocks.
 
 That is where the help stops. I decide what goes in, I read the changes, and I test in-game before

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:cut_sandstone",
-  "result": {
-    "count": 8,
-    "id": "vanillalayerplus:cut_sandstone_layer"
-  }
-}

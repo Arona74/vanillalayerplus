@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:quartz_pillar",
-  "result": {
-    "count": 8,
-    "id": "vanillalayerplus:quartz_pillar_layer"
-  }
-}
