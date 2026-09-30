@@ -22,7 +22,7 @@
       "model": "vanillalayerplus:block/chiseled_stone_bricks_layer_height_14"
     },
     "facing=down,layers=8": {
-      "model": "minecraft:block/cracked_stone_bricks"
+      "model": "minecraft:block/chiseled_stone_bricks"
     },
     "facing=east,layers=1": {
       "model": "vanillalayerplus:block/chiseled_stone_bricks_layer_height_2",
@@ -60,7 +60,7 @@
       "y": 90
     },
     "facing=east,layers=8": {
-      "model": "minecraft:block/cracked_stone_bricks",
+      "model": "minecraft:block/chiseled_stone_bricks",
       "x": 270,
       "y": 90
     },
@@ -93,7 +93,7 @@
       "x": 270
     },
     "facing=north,layers=8": {
-      "model": "minecraft:block/cracked_stone_bricks",
+      "model": "minecraft:block/chiseled_stone_bricks",
       "x": 270
     },
     "facing=south,layers=1": {
@@ -125,7 +125,7 @@
       "x": 90
     },
     "facing=south,layers=8": {
-      "model": "minecraft:block/cracked_stone_bricks",
+      "model": "minecraft:block/chiseled_stone_bricks",
       "x": 90
     },
     "facing=up,layers=1": {
@@ -157,7 +157,7 @@
       "x": 180
     },
     "facing=up,layers=8": {
-      "model": "minecraft:block/cracked_stone_bricks",
+      "model": "minecraft:block/chiseled_stone_bricks",
       "x": 180
     },
     "facing=west,layers=1": {
@@ -196,7 +196,7 @@
       "y": 270
     },
     "facing=west,layers=8": {
-      "model": "minecraft:block/cracked_stone_bricks",
+      "model": "minecraft:block/chiseled_stone_bricks",
       "x": 270,
       "y": 270
     }

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_farmland_layer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "vanillalayerplus:farmland_layer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "vanillalayerplus:farmland_from_farmland_layer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_farmland_layer",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "vanillalayerplus:farmland_from_farmland_layer"
+    ]
+  },
+  "sends_telemetry_event": false
+}
