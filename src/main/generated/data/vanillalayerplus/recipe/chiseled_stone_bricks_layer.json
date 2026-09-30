@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "W": "minecraft:cracked_stone_bricks"
+    "W": "minecraft:chiseled_stone_bricks"
   },
   "pattern": [
     " W",
