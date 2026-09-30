@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "L": "vanillalayerplus:nether_gold_ore_layer"
+  },
+  "pattern": [
+    "LLL",
+    "L L",
+    "LLL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:nether_gold_ore"
+  }
+}
