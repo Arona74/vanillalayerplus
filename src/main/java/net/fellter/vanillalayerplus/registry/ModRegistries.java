@@ -11,16 +11,10 @@ import net.fellter.vanillalayerplus.block.ModBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.color.world.BiomeColors;
-import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.item.HoeItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.FoliageColors;
-import net.minecraft.world.biome.GrassColors;
 
-import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
@@ -44,8 +38,8 @@ public class ModRegistries {
 
 	public static void registerStrippableBlocks() {
 		Registries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
+				RegistryArgs registryArgs = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.stripped != null) {
 					register(block, registryArgs.stripped);
@@ -56,9 +50,9 @@ public class ModRegistries {
 
 	public static void registerTillableBlocks() {
 		Registries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
 				Identifier identifier = Registries.BLOCK.getId(block);
-				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
+				RegistryArgs args = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID) && args.tilled != null) {
 					TillableBlockRegistry.register(block, HoeItem::canTillFarmland, HoeItem.createTillAction(args.tilled.getDefaultState()));
@@ -74,9 +68,9 @@ public class ModRegistries {
 		flattenedToBlock(ModBlocks.FARMLAND_LAYER, ModBlocks.DIRT_LAYER);
 
 		Registries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
 				Identifier identifier = Registries.BLOCK.getId(block);
-				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
+				RegistryArgs args = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID) && args.flattened != null) {
 					blockToFlattened(block, args.flattened);
@@ -105,65 +99,10 @@ public class ModRegistries {
 		}
 	}
 
-	public static void registerTransparentBlocks() {
-		Registries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
-
-				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.transparent) {
-					BlockRenderLayerMap.putBlock(block, BlockRenderLayer.CUTOUT);
-				}
-			}
-		});
-	}
-
-	public static void registerTranslucentBlocks() {
-		Registries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
-
-				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.translucent) {
-					BlockRenderLayerMap.putBlock(block, BlockRenderLayer.TRANSLUCENT);
-				}
-			}
-		});
-	}
-
-	public static void registerFoliage() {
-		Registries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				Identifier identifier = Registries.BLOCK.getId(block);
-				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
-
-				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID)) {
-					if (args.grassTinted) {
-						ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
-							if (world == null || pos == null) {
-								return GrassColors.getDefaultColor();
-							}
-
-							return BiomeColors.getGrassColor(world, pos);
-						}), block);
-					}
-
-					if (args.foliageTinted) {
-						ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
-							if (world == null || pos == null) {
-								return FoliageColors.DEFAULT;
-							}
-
-							return BiomeColors.getFoliageColor(world, pos);
-						}), block);
-					}
-				}
-			}
-		});
-	}
-
 	public static void registerOxidizableBlocks() {
 		Registries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
+				RegistryArgs registryArgs = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.oxidizables != null) {
 					OxidizableBlocksRegistry.registerOxidizableBlockPair(block, registryArgs.exposed);
@@ -179,15 +118,13 @@ public class ModRegistries {
 		});
 	}
 
+	// A layer burns 1/8 as long as its parent block. Blast furnaces and smokers
+	// halve every burn time themselves, so the ratio holds there too.
 	public static void registerFuel() {
-		Registries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
-
-				if (Registries.BLOCK.getId(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.fuel != null) {
-					FuelRegistryEvents.BUILD.register((builder, context) -> builder.add(block, context.baseSmeltTime()));
-				}
+		FuelRegistryEvents.BUILD.register((builder, context) -> ModRegistryArgs.REGISTRY_ARGS.forEach((block, args) -> {
+			if (args.fuel != null) {
+				builder.add(block, args.fuel * context.baseSmeltTime() / 200 / 8);
 			}
-		});
+		}));
 	}
 }
