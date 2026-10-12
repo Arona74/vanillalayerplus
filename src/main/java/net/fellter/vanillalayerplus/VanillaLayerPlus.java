@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import net.fellter.vanillalayerplus.block.ModBlocks;
 import net.fellter.vanillalayerplus.item.ModItemGroups;
 import net.fellter.vanillalayerplus.item.ModItems;
+import net.fellter.vanillalayerplus.registry.ModRegistries;
+import net.fellter.vanillalayerplus.registry.ModRegistryArgs;
 
 import net.minecraft.block.Block;
 import net.minecraft.registry.Registries;
@@ -28,6 +30,15 @@ public class VanillaLayerPlus implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
+
+		// Gameplay registrations run on both sides: tool interactions, oxidation and
+		// fuel are applied by the server, including dedicated servers.
+		ModRegistryArgs.registerRegistryArgs();
+		ModRegistries.registerStrippableBlocks();
+		ModRegistries.registerOxidizableBlocks();
+		ModRegistries.registerFuel();
+		ModRegistries.registerFlattenableBlocks();
+		ModRegistries.registerTillableBlocks();
 
 		FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(container ->
 				ResourceLoader.registerBuiltinPack(REVERSE_RECIPES_PACK, container,

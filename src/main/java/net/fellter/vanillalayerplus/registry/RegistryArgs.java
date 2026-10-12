@@ -23,7 +23,14 @@ public class RegistryArgs {
 	public Block weatheredWaxed;
 	public Block oxidizedWaxed;
 	public List<Block> oxidizables;
-	public Boolean fuel = false;
+	// Vanilla burn times of the fuel parents, in ticks at the default base smelt time (200).
+	public static final int FUEL_WOOD_BLOCKS = 300;
+	public static final int FUEL_WOOL = 100;
+	public static final int FUEL_COAL_BLOCK = 16000;
+	public static final int FUEL_DRIED_KELP_BLOCK = 4001;
+
+	// Burn time of the parent block; the layer burns 1/8 of it.
+	public Integer fuel;
 
 	public RegistryArgs() {
 	}
@@ -81,8 +88,8 @@ public class RegistryArgs {
 		return this;
 	}
 
-	public RegistryArgs fuel() {
-		this.fuel = true;
+	public RegistryArgs fuel(int parentBurnTime) {
+		this.fuel = parentBurnTime;
 		return this;
 	}
 }
