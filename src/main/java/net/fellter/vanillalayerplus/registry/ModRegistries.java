@@ -1,6 +1,5 @@
 package net.fellter.vanillalayerplus.registry;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -9,16 +8,11 @@ import com.google.common.collect.Maps;
 
 import net.fellter.vanillalayerplus.VanillaLayerPlus;
 import net.fellter.vanillalayerplus.block.ModBlocks;
-import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.level.FoliageColor;
-import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
 import net.fabricmc.fabric.api.registry.FuelValueEvents;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
@@ -42,8 +36,8 @@ public class ModRegistries {
 
 	public static void registerStrippableBlocks() {
 		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
+				RegistryArgs registryArgs = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.stripped != null) {
 					register(block, registryArgs.stripped);
@@ -54,9 +48,9 @@ public class ModRegistries {
 
 	public static void registerTillableBlocks() {
 		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
 				Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
-				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
+				RegistryArgs args = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID) && args.tilled != null) {
 					TillableBlockRegistry.register(block, HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(args.tilled.defaultBlockState()));
@@ -72,9 +66,9 @@ public class ModRegistries {
 		flattenedToBlock(ModBlocks.FARMLAND_LAYER, ModBlocks.DIRT_LAYER);
 
 		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
 				Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
-				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
+				RegistryArgs args = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID) && args.flattened != null) {
 					blockToFlattened(block, args.flattened);
@@ -103,41 +97,10 @@ public class ModRegistries {
 		}
 	}
 
-	// Render layers are no longer registered at runtime in 26.2; both Fabric's
-	// BlockRenderLayerMap and vanilla's ItemBlockRenderTypes are gone. The layer is
-	// derived from the texture instead: alpha content is detected automatically, so
-	// blocks flagged transparent need nothing, and blocks flagged translucent get
-	// "force_translucent" on their sprites from ModModelProvider. These two methods
-	// are kept as no-ops so the call sites in VanillaLayerPlusClient stay stable.
-	public static void registerTransparentBlocks() {
-	}
-
-	public static void registerTranslucentBlocks() {
-	}
-
-	public static void registerFoliage() {
-		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
-				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
-
-				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID)) {
-					if (args.grassTinted) {
-						BlockColorRegistry.register(List.of(BlockTintSources.grass()), block);
-					}
-
-					if (args.foliageTinted) {
-						BlockColorRegistry.register(List.of(BlockTintSources.foliage()), block);
-					}
-				}
-			}
-		});
-	}
-
 	public static void registerOxidizableBlocks() {
 		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
+				RegistryArgs registryArgs = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.oxidizables != null) {
 					OxidizableBlocksRegistry.registerNextStage(block, registryArgs.exposed);
@@ -153,15 +116,13 @@ public class ModRegistries {
 		});
 	}
 
+	// A layer burns 1/8 as long as its parent block. Blast furnaces and smokers
+	// halve every burn time themselves, so the ratio holds there too.
 	public static void registerFuel() {
-		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
-
-				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.fuel != null) {
-					FuelValueEvents.BUILD.register((builder, context) -> builder.add(block, context.baseSmeltTime()));
-				}
+		FuelValueEvents.BUILD.register((builder, context) -> ModRegistryArgs.REGISTRY_ARGS.forEach((block, args) -> {
+			if (args.fuel != null) {
+				builder.add(block, args.fuel * context.baseSmeltTime() / 200 / 8);
 			}
-		});
+		}));
 	}
 }

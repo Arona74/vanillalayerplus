@@ -18,7 +18,6 @@ import static net.fellter.vanillalayerplus.util.ModTextureMap.*;
 
 public final class Args {
 	public static Map<Block, DatagenArgs> DATAGEN_ARGS = new LinkedHashMap<>();
-	public static Map<Block, RegistryArgs> REGISTRY_ARGS = new LinkedHashMap<>();
 
 	private static void putInDatagenArgs(Block block, DatagenArgs datagenArgs) {
 		DatagenArgs oldArgs = DATAGEN_ARGS.put(block, datagenArgs);
@@ -27,16 +26,6 @@ public final class Args {
 			DATAGEN_ARGS.put(block, datagenArgs);
 		} else {
 			throw new IllegalStateException("Block " + block.getName() + " has already been put in DatagenArgs source map.");
-		}
-	}
-
-	private static void putInRegistryArgs(Block block, RegistryArgs registryArgs) {
-		RegistryArgs oldArgs = REGISTRY_ARGS.put(block, registryArgs);
-
-		if (oldArgs == null) {
-			REGISTRY_ARGS.put(block, registryArgs);
-		} else {
-			throw new IllegalStateException("Block " + block.getName() + " has already been put in RegistryArgs source map.");
 		}
 	}
 
@@ -414,113 +403,5 @@ public final class Args {
 		putInDatagenArgs(ModBlocks.SCULK_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_HOE).parentBlock(Blocks.SCULK).textureMap(TextureMapping.cube(Blocks.SCULK)));
 		putInDatagenArgs(ModBlocks.BEDROCK_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_HOE).parentBlock(Blocks.BEDROCK).textureMap(TextureMapping.cube(Blocks.BEDROCK)));
 		putInDatagenArgs(ModBlocks.TARGET_LAYER, new DatagenArgs().blockTags(BlockTags.MINEABLE_WITH_HOE).parentBlock(Blocks.TARGET).textureMap(sideAndTopForEnds(Blocks.TARGET)));
-	}
-
-	public static void registerRegistryArgs() {
-		putInRegistryArgs(ModBlocks.OAK_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.OAK_LOG_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_OAK_LOG_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.OAK_WOOD_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_OAK_WOOD_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_OAK_LOG_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_OAK_WOOD_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.SPRUCE_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.SPRUCE_LOG_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_SPRUCE_LOG_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.SPRUCE_WOOD_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_SPRUCE_WOOD_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_SPRUCE_LOG_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_SPRUCE_WOOD_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.BIRCH_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.BIRCH_LOG_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_BIRCH_LOG_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.BIRCH_WOOD_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_BIRCH_WOOD_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_BIRCH_LOG_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_BIRCH_WOOD_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.JUNGLE_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.JUNGLE_LOG_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_JUNGLE_LOG_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.JUNGLE_WOOD_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_JUNGLE_WOOD_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_JUNGLE_LOG_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_JUNGLE_WOOD_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.ACACIA_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.ACACIA_LOG_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_ACACIA_LOG_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.ACACIA_WOOD_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_ACACIA_WOOD_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_ACACIA_LOG_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_ACACIA_WOOD_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.DARK_OAK_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.DARK_OAK_LOG_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_DARK_OAK_LOG_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.DARK_OAK_WOOD_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_DARK_OAK_WOOD_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_DARK_OAK_LOG_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_DARK_OAK_WOOD_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.MANGROVE_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.MANGROVE_LOG_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_MANGROVE_LOG_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.MANGROVE_WOOD_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_MANGROVE_WOOD_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_MANGROVE_LOG_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_MANGROVE_WOOD_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.CHERRY_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.CHERRY_LOG_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_CHERRY_LOG_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.CHERRY_WOOD_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_CHERRY_WOOD_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_CHERRY_LOG_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_CHERRY_WOOD_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.PALE_OAK_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.PALE_OAK_LOG_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_PALE_OAK_LOG_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.PALE_OAK_WOOD_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_PALE_OAK_WOOD_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_PALE_OAK_LOG_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_PALE_OAK_WOOD_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.BAMBOO_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.BAMBOO_MOSAIC_LAYER, new RegistryArgs().flammable(5, 20));
-		putInRegistryArgs(ModBlocks.BAMBOO_BLOCK_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_BAMBOO_BLOCK_LAYER).flammable(5, 5));
-		putInRegistryArgs(ModBlocks.STRIPPED_BAMBOO_BLOCK_LAYER, new RegistryArgs().flammable(5, 5));
-		putInRegistryArgs(ModBlocks.CRIMSON_STEM_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_CRIMSON_STEM_LAYER));
-		putInRegistryArgs(ModBlocks.CRIMSON_HYPHAE_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_CRIMSON_HYPHAE_LAYER));
-		putInRegistryArgs(ModBlocks.WARPED_STEM_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_WARPED_STEM_LAYER));
-		putInRegistryArgs(ModBlocks.WARPED_HYPHAE_LAYER, new RegistryArgs().stripped(ModBlocks.STRIPPED_WARPED_HYPHAE_LAYER));
-		putInRegistryArgs(ModBlocks.WAXED_COPPER_GRATE_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.WAXED_EXPOSED_COPPER_GRATE_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.WAXED_WEATHERED_COPPER_GRATE_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.WAXED_OXIDIZED_COPPER_GRATE_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.EXPOSED_COPPER_GRATE_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.WEATHERED_COPPER_GRATE_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.OXIDIZED_COPPER_GRATE_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.COPPER_LAYER, new RegistryArgs().oxidizable(ModBlocks.EXPOSED_COPPER_LAYER, ModBlocks.WEATHERED_COPPER_LAYER, ModBlocks.OXIDIZED_COPPER_LAYER, ModBlocks.WAXED_COPPER_LAYER, ModBlocks.WAXED_EXPOSED_COPPER_LAYER, ModBlocks.WAXED_WEATHERED_COPPER_LAYER, ModBlocks.WAXED_OXIDIZED_COPPER_LAYER));
-		putInRegistryArgs(ModBlocks.CHISELED_COPPER_LAYER, new RegistryArgs().oxidizable(ModBlocks.EXPOSED_CHISELED_COPPER_LAYER, ModBlocks.WEATHERED_CHISELED_COPPER_LAYER, ModBlocks.OXIDIZED_CHISELED_COPPER_LAYER, ModBlocks.WAXED_CHISELED_COPPER_LAYER, ModBlocks.WAXED_EXPOSED_CHISELED_COPPER_LAYER, ModBlocks.WAXED_WEATHERED_CHISELED_COPPER_LAYER, ModBlocks.WAXED_OXIDIZED_CHISELED_COPPER_LAYER));
-		putInRegistryArgs(ModBlocks.COPPER_GRATE_LAYER, new RegistryArgs().transparent().oxidizable(ModBlocks.EXPOSED_COPPER_GRATE_LAYER, ModBlocks.WEATHERED_COPPER_GRATE_LAYER, ModBlocks.OXIDIZED_COPPER_GRATE_LAYER, ModBlocks.WAXED_COPPER_GRATE_LAYER, ModBlocks.WEATHERED_COPPER_GRATE_LAYER, ModBlocks.WAXED_WEATHERED_COPPER_GRATE_LAYER, ModBlocks.WAXED_OXIDIZED_COPPER_GRATE_LAYER));
-		putInRegistryArgs(ModBlocks.CUT_COPPER_LAYER, new RegistryArgs().oxidizable(ModBlocks.EXPOSED_CUT_COPPER_LAYER, ModBlocks.WEATHERED_CUT_COPPER_LAYER, ModBlocks.OXIDIZED_CUT_COPPER_LAYER, ModBlocks.WAXED_CUT_COPPER_LAYER, ModBlocks.WAXED_EXPOSED_CUT_COPPER_LAYER, ModBlocks.WAXED_WEATHERED_CUT_COPPER_LAYER, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_LAYER));
-		putInRegistryArgs(ModBlocks.GLASS_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.TINTED_GLASS_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.WHITE_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.LIGHT_GRAY_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.GRAY_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.BLACK_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.BROWN_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.RED_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.ORANGE_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.YELLOW_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.LIME_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.GREEN_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.CYAN_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.LIGHT_BLUE_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.BLUE_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.PURPLE_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.MAGENTA_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.PINK_STAINED_GLASS_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.DIRT_LAYER, new RegistryArgs().tillable(ModBlocks.FARMLAND_LAYER).flattenable(ModBlocks.DIRT_PATH_LAYER));
-		putInRegistryArgs(ModBlocks.GRASS_LAYER, new RegistryArgs().transparent().grassTinted().flattenable(ModBlocks.DIRT_PATH_LAYER).tillable(ModBlocks.FARMLAND_LAYER));
-		putInRegistryArgs(ModBlocks.PODZOL_LAYER, new RegistryArgs().flattenable(ModBlocks.DIRT_PATH_LAYER));
-		putInRegistryArgs(ModBlocks.MYCELIUM_LAYER, new RegistryArgs().flattenable(ModBlocks.DIRT_PATH_LAYER));
-		putInRegistryArgs(ModBlocks.COARSE_DIRT_LAYER, new RegistryArgs().flattenable(ModBlocks.DIRT_PATH_LAYER));
-		putInRegistryArgs(ModBlocks.ROOTED_DIRT_LAYER, new RegistryArgs().flattenable(ModBlocks.DIRT_PATH_LAYER));
-		putInRegistryArgs(ModBlocks.ICE_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.PACKED_ICE_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.BLUE_ICE_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.PALE_MOSS_LAYER, new RegistryArgs().flammable(5, 100));
-		putInRegistryArgs(ModBlocks.OAK_LEAVES_LAYER, new RegistryArgs().transparent().foliageTinted());
-		putInRegistryArgs(ModBlocks.SPRUCE_LEAVES_LAYER, new RegistryArgs().transparent().foliageTinted());
-		putInRegistryArgs(ModBlocks.BIRCH_LEAVES_LAYER, new RegistryArgs().transparent().foliageTinted());
-		putInRegistryArgs(ModBlocks.JUNGLE_LEAVES_LAYER, new RegistryArgs().transparent().foliageTinted());
-		putInRegistryArgs(ModBlocks.ACACIA_LEAVES_LAYER, new RegistryArgs().transparent().foliageTinted());
-		putInRegistryArgs(ModBlocks.DARK_OAK_LEAVES_LAYER, new RegistryArgs().transparent().foliageTinted());
-		putInRegistryArgs(ModBlocks.MANGROVE_LEAVES_LAYER, new RegistryArgs().transparent().foliageTinted());
-		putInRegistryArgs(ModBlocks.CHERRY_LEAVES_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.PALE_OAK_LEAVES_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.AZALEA_LEAVES_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.FLOWERING_AZALEA_LEAVES_LAYER, new RegistryArgs().transparent());
-		putInRegistryArgs(ModBlocks.SLIME_LAYER, new RegistryArgs().translucent());
-		putInRegistryArgs(ModBlocks.HONEY_LAYER, new RegistryArgs().translucent());
 	}
 }
