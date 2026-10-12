@@ -14,16 +14,37 @@ and to fix a handful of bugs found along the way. All credit for the mod itself 
 
 | Minecraft | Branch | Mod version | Java |
 |---|---|---|---|
-| 26.2 | [`26.2`](../../tree/26.2) | `4.1.0+26.2` | 25 |
-| 26.1.2 | [`26.1.2`](../../tree/26.1.2) | `4.1.0+26.1.2` | 25 |
-| 1.21.11 | [`1.21.11`](../../tree/1.21.11) | `4.1.0+1.21.11` | 21 |
-| 1.21.6 – 1.21.7 | [`1.21.7`](../../tree/1.21.7) | `4.1.0+1.21.6-7` | 21 |
-| 1.21.1 | [`1.21.1`](../../tree/1.21.1) | `4.1.0+1.21.1` | 21 |
-| 1.20.1 | [`1.20.1`](../../tree/1.20.1) | `4.1.0+1.20.1` | 17 |
+| 26.3 | [`26.3`](../../tree/26.3) | `4.2.0+26.3` | 25 |
+| 26.2 | [`26.2`](../../tree/26.2) | `4.2.0+26.2` | 25 |
+| 26.1.2 | [`26.1.2`](../../tree/26.1.2) | `4.2.0+26.1.2` | 25 |
+| 1.21.11 | [`1.21.11`](../../tree/1.21.11) | `4.2.0+1.21.11` | 21 |
+| 1.21.6 – 1.21.7 | [`1.21.7`](../../tree/1.21.7) | `4.2.0+1.21.6-7` | 21 |
+| 1.21.1 | [`1.21.1`](../../tree/1.21.1) | `4.2.0+1.21.1` | 21 |
+| 1.20.1 | [`1.20.1`](../../tree/1.20.1) | `4.2.0+1.20.1` | 17 |
 
 Upstream targets 1.21.6–1.21.7. Every other version in that table is added by this fork.
 
 ## What this fork changes
+
+### New in 4.2.0
+
+- **Minecraft 26.3 support.** 26.3 reworked how axes, hoes and shovels act on blocks, so stripping,
+  tilling and flattening layers were rebuilt on the new system. Layers keep their height and
+  waterlogging when transformed, as before.
+- **Layers now work as fuel the way their full block does, at one eighth of its burn time.** A log
+  or planks layer burns for 37 ticks against the log's 300, and a coal block layer for 2000 against
+  16000. Wood, wool, coal block and dried kelp block layers burn; nothing else does. Nether wood
+  layers do not, matching vanilla. Blast furnaces and smokers halve these times, as they do for
+  every fuel.
+
+  This replaces a bug where every layer that had any special behaviour burned for a flat 200
+  ticks, including glass, ice, dirt, slime and honey layers. On 1.21.1 and 1.20.1 it was the
+  opposite: no layer burned at all.
+- **Dedicated servers now get the layers' gameplay behaviour.** Stripping log layers, tilling dirt
+  layers, flattening them into paths, copper layer oxidation and scraping, and fuel were all set up
+  only on the client, so they worked in singleplayer and LAN but not on a dedicated server.
+- **1.21.1 catches up with 4.1.0.** It now has the reverse recipes datapack and the chiseled stone
+  bricks fix below, which it had been missing.
 
 ### New in 4.1.0: reverse recipes
 
@@ -44,7 +65,7 @@ Upstream targets 1.21.6–1.21.7. Every other version in that table is added by 
   already existed, but plain terracotta had been missed.
 - **Red sand, tinted glass, muddy mangrove roots and reinforced deepslate layers.** Four vanilla
   full blocks that never had layer variants.
-- **Cinnabar and sulfur layers** *(26.2 only)* — cinnabar, polished, bricks and chiseled, plus
+- **Cinnabar and sulfur layers** *(26.2 and 26.3)* — cinnabar, polished, bricks and chiseled, plus
   sulfur, potent, polished, bricks and chiseled. Stonecutting chains mirror vanilla exactly.
 
 These came out of a sweep that compared the mod's registrations against every full-cube block in
@@ -69,6 +90,8 @@ intentionally excluded.
 - **On 1.20.1, recipes, loot tables and block tags never loaded at all** — they had been written
   under the directory names used by newer Minecraft versions. Crafting, block drops and tool tags
   were all broken.
+- **Dedicated servers ignored stripping, tilling, flattening, copper oxidation and fuel.** Only
+  singleplayer and LAN games had them. *(4.2.0)*
 - **On 26.x, translucent blocks rendered incorrectly.** Render layers are no longer registered at
   runtime from 26.1 onward; they are derived from the block's texture instead.
 
@@ -94,7 +117,7 @@ Gradle must run on the JDK listed in the table above. The 26.x branches pin this
 ## A note on how this fork is developed
 
 I use Claude AI as a development aid, mainly for the repetitive parts of multi-version maintenance:
-porting a change across six branches, tracking down what a renamed Minecraft API became, and
+porting a change across seven branches, tracking down what a renamed Minecraft API became, and
 running the coverage comparisons that found the missing blocks.
 
 That is where the help stops. I decide what goes in, I read the changes, and I test in-game before
