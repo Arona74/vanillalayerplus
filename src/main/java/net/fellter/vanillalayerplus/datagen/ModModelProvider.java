@@ -7,6 +7,7 @@ import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.fellter.vanillalayerplus.block.ModBlocks;
 import net.fellter.vanillalayerplus.item.ModItems;
 import net.fellter.vanillalayerplus.registry.Args;
+import net.fellter.vanillalayerplus.registry.ModRegistryArgs;
 import net.fellter.vanillalayerplus.registry.DatagenArgs;
 import net.fellter.vanillalayerplus.registry.RegistryArgs;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -68,7 +69,7 @@ public class ModModelProvider extends FabricModelProvider {
 	// blocks whose sprite would otherwise be detected as cutout. Vanilla marks glass
 	// and stained glass exactly this way.
 	private static TextureMapping forceTranslucentIfNeeded(Block block, TextureMapping textureMap) {
-		RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
+		RegistryArgs registryArgs = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 		if (registryArgs != null && registryArgs.translucent) {
 			return textureMap.updateSlots((slot, material) -> material.withForceTranslucent(true));
