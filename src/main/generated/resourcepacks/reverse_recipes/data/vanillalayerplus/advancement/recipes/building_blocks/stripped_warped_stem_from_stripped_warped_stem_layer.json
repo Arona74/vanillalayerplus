@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:stripped_warped_stem_from_stripped_warped_stem_layer"
+        "recipes": "vanillalayerplus:stripped_warped_stem_from_stripped_warped_stem_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

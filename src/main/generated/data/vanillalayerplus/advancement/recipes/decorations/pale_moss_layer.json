@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:pale_moss_layer"
+        "recipes": "vanillalayerplus:pale_moss_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

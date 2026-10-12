@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:emerald_layer"
+        "recipes": "vanillalayerplus:emerald_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:stone_bricks_layer"
+        "recipes": "vanillalayerplus:stone_bricks_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

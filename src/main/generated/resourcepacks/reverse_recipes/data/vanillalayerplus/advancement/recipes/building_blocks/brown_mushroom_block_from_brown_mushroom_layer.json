@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:brown_mushroom_block_from_brown_mushroom_layer"
+        "recipes": "vanillalayerplus:brown_mushroom_block_from_brown_mushroom_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

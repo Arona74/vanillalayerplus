@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:black_glazed_terracotta_from_black_glazed_terracotta_layer"
+        "recipes": "vanillalayerplus:black_glazed_terracotta_from_black_glazed_terracotta_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

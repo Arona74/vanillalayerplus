@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:chiseled_tuff_bricks_from_chiseled_tuff_bricks_layer"
+        "recipes": "vanillalayerplus:chiseled_tuff_bricks_from_chiseled_tuff_bricks_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:brain_coral_block_from_brain_coral_layer"
+        "recipes": "vanillalayerplus:brain_coral_block_from_brain_coral_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

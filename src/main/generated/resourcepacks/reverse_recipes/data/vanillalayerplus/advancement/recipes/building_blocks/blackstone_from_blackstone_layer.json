@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:blackstone_from_blackstone_layer"
+        "recipes": "vanillalayerplus:blackstone_from_blackstone_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

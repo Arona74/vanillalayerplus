@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:pale_oak_wood_layer"
+        "recipes": "vanillalayerplus:pale_oak_wood_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

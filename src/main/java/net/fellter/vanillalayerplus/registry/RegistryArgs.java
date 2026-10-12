@@ -2,7 +2,9 @@ package net.fellter.vanillalayerplus.registry;
 
 import java.util.List;
 import java.util.Objects;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProvider;
 
 public class RegistryArgs {
 	public Boolean transparent = false;
@@ -22,7 +24,8 @@ public class RegistryArgs {
 	public Block weatheredWaxed;
 	public Block oxidizedWaxed;
 	public List<Block> oxidizables;
-	public Boolean fuel = false;
+	// Burn time of the parent block (a vanilla cooking-time key); the layer burns 1/8 of it.
+	public ResourceKey<ContextIntProvider> fuel;
 
 	public RegistryArgs() {
 	}
@@ -80,8 +83,8 @@ public class RegistryArgs {
 		return this;
 	}
 
-	public RegistryArgs fuel() {
-		this.fuel = true;
+	public RegistryArgs fuel(ResourceKey<ContextIntProvider> parentBurnTime) {
+		this.fuel = Objects.requireNonNull(parentBurnTime);
 		return this;
 	}
 }

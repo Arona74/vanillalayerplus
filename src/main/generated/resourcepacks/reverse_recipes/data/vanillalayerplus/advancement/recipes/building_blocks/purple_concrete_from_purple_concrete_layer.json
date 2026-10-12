@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:purple_concrete_from_purple_concrete_layer"
+        "recipes": "vanillalayerplus:purple_concrete_from_purple_concrete_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

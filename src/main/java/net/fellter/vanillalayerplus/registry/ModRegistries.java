@@ -1,6 +1,5 @@
 package net.fellter.vanillalayerplus.registry;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -9,41 +8,35 @@ import com.google.common.collect.Maps;
 
 import net.fellter.vanillalayerplus.VanillaLayerPlus;
 import net.fellter.vanillalayerplus.block.ModBlocks;
-import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.level.FoliageColor;
-import net.minecraft.client.color.block.BlockTintSources;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.component.CookingFuel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
-import net.fabricmc.fabric.api.registry.FuelValueEvents;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
+import net.minecraft.world.level.levelgen.feature.stateproviders.CopyPropertiesProvider;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ContextFloatProviders;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProvider;
+import net.fabricmc.fabric.api.item.v1.BlockTransformerHelper;
+import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
-import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
-import net.fabricmc.fabric.impl.content.registry.util.ImmutableCollectionUtils;
-import net.fabricmc.fabric.mixin.content.registry.AxeItemAccessor;
-import net.fabricmc.fabric.mixin.content.registry.ShovelItemAccessor;
 
 public class ModRegistries {
-	public static void register(Block input, Block stripped) {
-		Block old = getRegistry().put(input, stripped);
-
-		if (old != null) {
-			VanillaLayerPlus.LOGGER.debug("Replaced old stripping mapping from {} to {} with {}", input, old, stripped);
-		}
-	}
-
-	@SuppressWarnings("unstable")
-	private static Map<Block, Block> getRegistry() {
-		return ImmutableCollectionUtils.getAsMutableMap(AxeItemAccessor::getStrippables, AxeItemAccessor::setStrippables);
+	// 26.3 replaced the AxeItem/HoeItem/ShovelItem maps with data-driven block
+	// transformers. Fabric appends our entries to the vanilla axe, hoe and shovel
+	// transformers when they load. CopyPropertiesProvider carries the layer count
+	// (and waterlogging) over to the resulting block, as the old item mixins did.
+	private static void register(Block input, Block stripped) {
+		BlockTransformerHelper.registerStripping(input, stripped);
 	}
 
 	public static void registerStrippableBlocks() {
 		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
+				RegistryArgs registryArgs = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.stripped != null) {
 					register(block, registryArgs.stripped);
@@ -54,12 +47,12 @@ public class ModRegistries {
 
 	public static void registerTillableBlocks() {
 		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
 				Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
-				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
+				RegistryArgs args = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID) && args.tilled != null) {
-					TillableBlockRegistry.register(block, HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(args.tilled.defaultBlockState()));
+					BlockTransformerHelper.registerTilling(BlockPredicate.matchesBlocks(block), new CopyPropertiesProvider(args.tilled));
 				}
 			}
 		});
@@ -72,9 +65,9 @@ public class ModRegistries {
 		flattenedToBlock(ModBlocks.FARMLAND_LAYER, ModBlocks.DIRT_LAYER);
 
 		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
 				Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
-				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
+				RegistryArgs args = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID) && args.flattened != null) {
 					blockToFlattened(block, args.flattened);
@@ -86,11 +79,7 @@ public class ModRegistries {
 	private static void blockToFlattened(Block input, Block flattened) {
 		Objects.requireNonNull(input, "input block cannot be null");
 		Objects.requireNonNull(flattened, "flattened block state cannot be null");
-		BlockState old = ShovelItemAccessor.getFlattenables().put(input, flattened.defaultBlockState());
-
-		if (old != null) {
-			VanillaLayerPlus.LOGGER.debug("Replaced old flattening mapping from {} to {} with {}", input, old, flattened);
-		}
+		BlockTransformerHelper.registerFlattening(BlockPredicate.matchesBlocks(input), new CopyPropertiesProvider(flattened));
 	}
 
 	private static void flattenedToBlock(Block flattened, Block output) {
@@ -103,41 +92,10 @@ public class ModRegistries {
 		}
 	}
 
-	// Render layers are no longer registered at runtime in 26.2; both Fabric's
-	// BlockRenderLayerMap and vanilla's ItemBlockRenderTypes are gone. The layer is
-	// derived from the texture instead: alpha content is detected automatically, so
-	// blocks flagged transparent need nothing, and blocks flagged translucent get
-	// "force_translucent" on their sprites from ModModelProvider. These two methods
-	// are kept as no-ops so the call sites in VanillaLayerPlusClient stay stable.
-	public static void registerTransparentBlocks() {
-	}
-
-	public static void registerTranslucentBlocks() {
-	}
-
-	public static void registerFoliage() {
-		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
-				RegistryArgs args = Args.REGISTRY_ARGS.get(block);
-
-				if (identifier.getNamespace().equals(VanillaLayerPlus.MOD_ID)) {
-					if (args.grassTinted) {
-						BlockColorRegistry.register(List.of(BlockTintSources.grass()), block);
-					}
-
-					if (args.foliageTinted) {
-						BlockColorRegistry.register(List.of(BlockTintSources.foliage()), block);
-					}
-				}
-			}
-		});
-	}
-
 	public static void registerOxidizableBlocks() {
 		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
+			if (ModRegistryArgs.REGISTRY_ARGS.containsKey(block)) {
+				RegistryArgs registryArgs = ModRegistryArgs.REGISTRY_ARGS.get(block);
 
 				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.oxidizables != null) {
 					OxidizableBlocksRegistry.registerNextStage(block, registryArgs.exposed);
@@ -153,15 +111,22 @@ public class ModRegistries {
 		});
 	}
 
-	public static void registerFuel() {
-		BuiltInRegistries.BLOCK.forEach(block -> {
-			if (Args.REGISTRY_ARGS.containsKey(block)) {
-				RegistryArgs registryArgs = Args.REGISTRY_ARGS.get(block);
+	// A layer burns 1/8 as long as its parent block. Fuel is the COOKING_FUEL item
+	// component in 26.3, whose burn time points at a context_int_provider entry. Each
+	// layer points at vanillalayerplus:cooking/layer/<parent entry>, generated by
+	// ModFuelProvider as "parent entry / 8", so blast furnaces and smokers (which
+	// halve the parent value) and data packs that retune vanilla fuel stay in ratio.
+	public static ResourceKey<ContextIntProvider> layerBurnTime(ResourceKey<ContextIntProvider> parentBurnTime) {
+		return ResourceKey.create(Registries.CONTEXT_INT_PROVIDER,
+				Identifier.fromNamespaceAndPath(VanillaLayerPlus.MOD_ID, "cooking/layer/" + parentBurnTime.identifier().getPath().replace("cooking/", "")));
+	}
 
-				if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(VanillaLayerPlus.MOD_ID) && registryArgs.fuel != null) {
-					FuelValueEvents.BUILD.register((builder, context) -> builder.add(block, context.baseSmeltTime()));
-				}
+	public static void registerFuel() {
+		DefaultItemComponentEvents.MODIFY.register(context -> ModRegistryArgs.REGISTRY_ARGS.forEach((block, args) -> {
+			if (args.fuel != null) {
+				context.modify(block.asItem(), builder -> builder.set(DataComponents.COOKING_FUEL,
+						new CookingFuel(layerBurnTime(args.fuel), ContextFloatProviders.COOKING_DEFAULT_SPEED_MULTIPLIER)));
 			}
-		});
+		}));
 	}
 }

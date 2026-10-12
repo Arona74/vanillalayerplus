@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:prismarine_layer"
+        "recipes": "vanillalayerplus:prismarine_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

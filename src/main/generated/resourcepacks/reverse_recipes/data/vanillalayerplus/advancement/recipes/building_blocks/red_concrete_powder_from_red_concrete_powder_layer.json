@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:red_concrete_powder_from_red_concrete_powder_layer"
+        "recipes": "vanillalayerplus:red_concrete_powder_from_red_concrete_powder_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

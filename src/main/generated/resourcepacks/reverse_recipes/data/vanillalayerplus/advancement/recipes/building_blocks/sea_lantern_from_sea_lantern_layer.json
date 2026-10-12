@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:sea_lantern_from_sea_lantern_layer"
+        "recipes": "vanillalayerplus:sea_lantern_from_sea_lantern_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

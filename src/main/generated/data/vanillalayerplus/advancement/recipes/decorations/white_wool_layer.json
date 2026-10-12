@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:white_wool_layer"
+        "recipes": "vanillalayerplus:white_wool_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

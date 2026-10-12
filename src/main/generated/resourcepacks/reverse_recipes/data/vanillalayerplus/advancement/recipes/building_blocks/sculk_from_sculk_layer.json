@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:sculk_from_sculk_layer"
+        "recipes": "vanillalayerplus:sculk_from_sculk_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

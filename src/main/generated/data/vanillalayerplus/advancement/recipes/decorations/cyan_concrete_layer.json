@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:cyan_concrete_layer"
+        "recipes": "vanillalayerplus:cyan_concrete_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

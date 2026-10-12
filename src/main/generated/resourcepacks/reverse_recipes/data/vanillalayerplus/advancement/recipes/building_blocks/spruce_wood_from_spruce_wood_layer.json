@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:spruce_wood_from_spruce_wood_layer"
+        "recipes": "vanillalayerplus:spruce_wood_from_spruce_wood_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

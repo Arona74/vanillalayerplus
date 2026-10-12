@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:glass_from_glass_layer"
+        "recipes": "vanillalayerplus:glass_from_glass_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

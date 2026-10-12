@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:green_concrete_powder_layer"
+        "recipes": "vanillalayerplus:green_concrete_powder_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

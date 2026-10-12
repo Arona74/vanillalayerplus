@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:nether_quartz_ore_from_nether_quartz_ore_layer"
+        "recipes": "vanillalayerplus:nether_quartz_ore_from_nether_quartz_ore_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

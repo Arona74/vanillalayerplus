@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:tinted_glass_from_tinted_glass_layer"
+        "recipes": "vanillalayerplus:tinted_glass_from_tinted_glass_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

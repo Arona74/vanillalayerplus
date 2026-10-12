@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:tube_coral_block_from_tube_coral_layer"
+        "recipes": "vanillalayerplus:tube_coral_block_from_tube_coral_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

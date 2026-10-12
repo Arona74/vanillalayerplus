@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:jungle_leaves_from_jungle_leaves_layer"
+        "recipes": "vanillalayerplus:jungle_leaves_from_jungle_leaves_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

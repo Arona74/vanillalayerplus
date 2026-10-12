@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:copper_grate_layer"
+        "recipes": "vanillalayerplus:copper_grate_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

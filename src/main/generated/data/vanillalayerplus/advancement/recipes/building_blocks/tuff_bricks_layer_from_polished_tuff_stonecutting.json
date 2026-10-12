@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:tuff_bricks_layer_from_polished_tuff_stonecutting"
+        "recipes": "vanillalayerplus:tuff_bricks_layer_from_polished_tuff_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

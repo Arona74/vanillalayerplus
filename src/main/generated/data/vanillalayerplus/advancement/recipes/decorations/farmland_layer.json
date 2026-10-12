@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:farmland_layer"
+        "recipes": "vanillalayerplus:farmland_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

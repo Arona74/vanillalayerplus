@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:end_stone_layer"
+        "recipes": "vanillalayerplus:end_stone_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

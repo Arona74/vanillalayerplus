@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:cobbled_deepslate_layer_from_cobbled_deepslate_stonecutting"
+        "recipes": "vanillalayerplus:cobbled_deepslate_layer_from_cobbled_deepslate_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

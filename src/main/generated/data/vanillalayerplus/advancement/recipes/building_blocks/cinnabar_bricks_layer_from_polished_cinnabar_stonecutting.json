@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:cinnabar_bricks_layer_from_polished_cinnabar_stonecutting"
+        "recipes": "vanillalayerplus:cinnabar_bricks_layer_from_polished_cinnabar_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

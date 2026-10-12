@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:red_wool_from_red_wool_layer"
+        "recipes": "vanillalayerplus:red_wool_from_red_wool_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

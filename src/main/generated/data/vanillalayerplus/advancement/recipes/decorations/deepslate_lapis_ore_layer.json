@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:deepslate_lapis_ore_layer"
+        "recipes": "vanillalayerplus:deepslate_lapis_ore_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

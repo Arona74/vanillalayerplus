@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:gravel_from_gravel_layer"
+        "recipes": "vanillalayerplus:gravel_from_gravel_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

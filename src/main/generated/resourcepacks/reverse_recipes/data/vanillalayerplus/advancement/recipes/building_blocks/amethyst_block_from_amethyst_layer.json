@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:amethyst_block_from_amethyst_layer"
+        "recipes": "vanillalayerplus:amethyst_block_from_amethyst_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

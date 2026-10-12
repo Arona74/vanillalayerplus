@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:quartz_layer"
+        "recipes": "vanillalayerplus:quartz_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

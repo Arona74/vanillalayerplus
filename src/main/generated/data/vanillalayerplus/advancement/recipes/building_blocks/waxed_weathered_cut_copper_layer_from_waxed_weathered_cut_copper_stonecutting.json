@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:waxed_weathered_cut_copper_layer_from_waxed_weathered_cut_copper_stonecutting"
+        "recipes": "vanillalayerplus:waxed_weathered_cut_copper_layer_from_waxed_weathered_cut_copper_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

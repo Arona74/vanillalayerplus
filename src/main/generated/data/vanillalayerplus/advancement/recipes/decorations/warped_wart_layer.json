@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:warped_wart_layer"
+        "recipes": "vanillalayerplus:warped_wart_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

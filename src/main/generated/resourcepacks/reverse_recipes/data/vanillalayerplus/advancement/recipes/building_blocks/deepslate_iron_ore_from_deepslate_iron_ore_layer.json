@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:deepslate_iron_ore_from_deepslate_iron_ore_layer"
+        "recipes": "vanillalayerplus:deepslate_iron_ore_from_deepslate_iron_ore_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

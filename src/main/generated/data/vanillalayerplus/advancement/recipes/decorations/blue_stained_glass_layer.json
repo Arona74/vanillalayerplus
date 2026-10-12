@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:blue_stained_glass_layer"
+        "recipes": "vanillalayerplus:blue_stained_glass_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

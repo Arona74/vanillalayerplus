@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:wet_sponge_from_wet_sponge_layer"
+        "recipes": "vanillalayerplus:wet_sponge_from_wet_sponge_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

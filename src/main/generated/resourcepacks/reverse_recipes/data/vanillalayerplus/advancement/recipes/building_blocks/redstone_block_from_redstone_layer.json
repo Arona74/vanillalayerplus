@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:redstone_block_from_redstone_layer"
+        "recipes": "vanillalayerplus:redstone_block_from_redstone_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

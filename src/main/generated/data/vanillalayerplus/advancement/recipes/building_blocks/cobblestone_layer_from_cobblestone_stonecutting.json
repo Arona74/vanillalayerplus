@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:cobblestone_layer_from_cobblestone_stonecutting"
+        "recipes": "vanillalayerplus:cobblestone_layer_from_cobblestone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

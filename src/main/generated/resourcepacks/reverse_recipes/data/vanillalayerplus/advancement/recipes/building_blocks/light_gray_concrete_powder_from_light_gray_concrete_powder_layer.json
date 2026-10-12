@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:light_gray_concrete_powder_from_light_gray_concrete_powder_layer"
+        "recipes": "vanillalayerplus:light_gray_concrete_powder_from_light_gray_concrete_powder_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

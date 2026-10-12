@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:azalea_leaves_from_azalea_leaves_layer"
+        "recipes": "vanillalayerplus:azalea_leaves_from_azalea_leaves_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

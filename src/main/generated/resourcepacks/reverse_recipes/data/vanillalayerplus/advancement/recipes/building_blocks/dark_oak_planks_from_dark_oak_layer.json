@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:dark_oak_planks_from_dark_oak_layer"
+        "recipes": "vanillalayerplus:dark_oak_planks_from_dark_oak_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

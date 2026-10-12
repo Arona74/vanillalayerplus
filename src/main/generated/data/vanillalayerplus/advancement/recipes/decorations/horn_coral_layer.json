@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:horn_coral_layer"
+        "recipes": "vanillalayerplus:horn_coral_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

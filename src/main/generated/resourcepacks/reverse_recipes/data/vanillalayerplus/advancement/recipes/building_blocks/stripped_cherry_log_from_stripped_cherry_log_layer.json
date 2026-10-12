@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:stripped_cherry_log_from_stripped_cherry_log_layer"
+        "recipes": "vanillalayerplus:stripped_cherry_log_from_stripped_cherry_log_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

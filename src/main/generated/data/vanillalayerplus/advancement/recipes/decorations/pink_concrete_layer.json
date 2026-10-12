@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:pink_concrete_layer"
+        "recipes": "vanillalayerplus:pink_concrete_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:chiseled_quartz_block_from_chiseled_quartz_layer"
+        "recipes": "vanillalayerplus:chiseled_quartz_block_from_chiseled_quartz_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

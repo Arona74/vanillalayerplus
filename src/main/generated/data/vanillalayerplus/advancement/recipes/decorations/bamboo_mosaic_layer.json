@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:bamboo_mosaic_layer"
+        "recipes": "vanillalayerplus:bamboo_mosaic_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

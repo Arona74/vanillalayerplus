@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:cyan_wool_from_cyan_wool_layer"
+        "recipes": "vanillalayerplus:cyan_wool_from_cyan_wool_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

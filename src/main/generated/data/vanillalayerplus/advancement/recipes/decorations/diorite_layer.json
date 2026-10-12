@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:diorite_layer"
+        "recipes": "vanillalayerplus:diorite_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

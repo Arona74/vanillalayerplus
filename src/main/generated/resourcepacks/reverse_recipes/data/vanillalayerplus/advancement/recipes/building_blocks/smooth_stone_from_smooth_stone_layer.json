@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:smooth_stone_from_smooth_stone_layer"
+        "recipes": "vanillalayerplus:smooth_stone_from_smooth_stone_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

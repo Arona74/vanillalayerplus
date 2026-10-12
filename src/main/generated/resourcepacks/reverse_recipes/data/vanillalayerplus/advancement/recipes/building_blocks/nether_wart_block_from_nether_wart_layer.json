@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:nether_wart_block_from_nether_wart_layer"
+        "recipes": "vanillalayerplus:nether_wart_block_from_nether_wart_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

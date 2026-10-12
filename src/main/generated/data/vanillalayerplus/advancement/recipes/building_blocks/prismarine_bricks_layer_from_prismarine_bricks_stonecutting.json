@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:prismarine_bricks_layer_from_prismarine_bricks_stonecutting"
+        "recipes": "vanillalayerplus:prismarine_bricks_layer_from_prismarine_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

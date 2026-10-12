@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:obsidian_from_obsidian_layer"
+        "recipes": "vanillalayerplus:obsidian_from_obsidian_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

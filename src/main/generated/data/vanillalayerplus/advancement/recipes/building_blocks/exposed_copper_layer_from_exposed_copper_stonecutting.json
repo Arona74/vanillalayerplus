@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:exposed_copper_layer_from_exposed_copper_stonecutting"
+        "recipes": "vanillalayerplus:exposed_copper_layer_from_exposed_copper_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

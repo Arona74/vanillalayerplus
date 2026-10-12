@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:pumpkin_from_pumpkin_layer"
+        "recipes": "vanillalayerplus:pumpkin_from_pumpkin_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

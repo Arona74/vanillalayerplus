@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:blue_ice_from_blue_ice_layer"
+        "recipes": "vanillalayerplus:blue_ice_from_blue_ice_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

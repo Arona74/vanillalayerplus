@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:waxed_oxidized_copper_grate_layer"
+        "recipes": "vanillalayerplus:waxed_oxidized_copper_grate_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

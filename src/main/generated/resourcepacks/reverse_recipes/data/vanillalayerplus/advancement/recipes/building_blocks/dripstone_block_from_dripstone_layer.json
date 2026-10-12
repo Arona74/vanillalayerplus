@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:dripstone_block_from_dripstone_layer"
+        "recipes": "vanillalayerplus:dripstone_block_from_dripstone_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

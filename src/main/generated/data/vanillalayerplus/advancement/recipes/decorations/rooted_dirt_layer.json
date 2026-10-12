@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:rooted_dirt_layer"
+        "recipes": "vanillalayerplus:rooted_dirt_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

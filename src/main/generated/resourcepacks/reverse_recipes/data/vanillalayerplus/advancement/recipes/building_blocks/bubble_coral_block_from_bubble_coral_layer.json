@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:bubble_coral_block_from_bubble_coral_layer"
+        "recipes": "vanillalayerplus:bubble_coral_block_from_bubble_coral_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

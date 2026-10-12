@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:end_stone_bricks_layer_from_end_stone_stonecutting"
+        "recipes": "vanillalayerplus:end_stone_bricks_layer_from_end_stone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

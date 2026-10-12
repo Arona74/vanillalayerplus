@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:calcite_from_calcite_layer"
+        "recipes": "vanillalayerplus:calcite_from_calcite_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

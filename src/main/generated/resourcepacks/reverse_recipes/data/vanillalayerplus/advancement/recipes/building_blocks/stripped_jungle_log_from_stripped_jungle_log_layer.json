@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:stripped_jungle_log_from_stripped_jungle_log_layer"
+        "recipes": "vanillalayerplus:stripped_jungle_log_from_stripped_jungle_log_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

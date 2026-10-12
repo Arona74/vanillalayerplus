@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:coal_block_from_coal_layer"
+        "recipes": "vanillalayerplus:coal_block_from_coal_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

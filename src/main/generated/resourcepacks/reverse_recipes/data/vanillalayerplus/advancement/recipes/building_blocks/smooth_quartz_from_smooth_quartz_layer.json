@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:smooth_quartz_from_smooth_quartz_layer"
+        "recipes": "vanillalayerplus:smooth_quartz_from_smooth_quartz_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

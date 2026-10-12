@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:oxidized_copper_grate_layer_from_oxidized_copper_grate_stonecutting"
+        "recipes": "vanillalayerplus:oxidized_copper_grate_layer_from_oxidized_copper_grate_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:lime_concrete_powder_from_lime_concrete_powder_layer"
+        "recipes": "vanillalayerplus:lime_concrete_powder_from_lime_concrete_powder_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

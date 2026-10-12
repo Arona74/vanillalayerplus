@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:reinforced_deepslate_from_reinforced_deepslate_layer"
+        "recipes": "vanillalayerplus:reinforced_deepslate_from_reinforced_deepslate_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

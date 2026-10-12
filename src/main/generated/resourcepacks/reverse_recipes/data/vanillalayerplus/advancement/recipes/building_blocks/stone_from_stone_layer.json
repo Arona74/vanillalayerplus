@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:stone_from_stone_layer"
+        "recipes": "vanillalayerplus:stone_from_stone_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

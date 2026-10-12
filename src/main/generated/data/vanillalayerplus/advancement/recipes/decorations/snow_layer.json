@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:snow_layer"
+        "recipes": "vanillalayerplus:snow_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:warped_layer"
+        "recipes": "vanillalayerplus:warped_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

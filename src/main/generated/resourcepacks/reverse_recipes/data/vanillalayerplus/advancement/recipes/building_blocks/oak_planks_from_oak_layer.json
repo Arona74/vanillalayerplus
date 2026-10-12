@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:oak_planks_from_oak_layer"
+        "recipes": "vanillalayerplus:oak_planks_from_oak_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

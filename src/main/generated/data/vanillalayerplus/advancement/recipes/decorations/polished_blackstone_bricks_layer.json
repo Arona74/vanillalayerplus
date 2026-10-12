@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:polished_blackstone_bricks_layer"
+        "recipes": "vanillalayerplus:polished_blackstone_bricks_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

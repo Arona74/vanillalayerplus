@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:orange_concrete_from_orange_concrete_layer"
+        "recipes": "vanillalayerplus:orange_concrete_from_orange_concrete_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

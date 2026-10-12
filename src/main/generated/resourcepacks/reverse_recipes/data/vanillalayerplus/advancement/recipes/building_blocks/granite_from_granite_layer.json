@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:granite_from_granite_layer"
+        "recipes": "vanillalayerplus:granite_from_granite_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

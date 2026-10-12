@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:basalt_layer"
+        "recipes": "vanillalayerplus:basalt_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

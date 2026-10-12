@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:chiseled_sulfur_layer_from_sulfur_stonecutting"
+        "recipes": "vanillalayerplus:chiseled_sulfur_layer_from_sulfur_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

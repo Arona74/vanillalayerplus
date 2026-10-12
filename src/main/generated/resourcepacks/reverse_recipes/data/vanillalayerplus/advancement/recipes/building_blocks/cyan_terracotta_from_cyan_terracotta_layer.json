@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:cyan_terracotta_from_cyan_terracotta_layer"
+        "recipes": "vanillalayerplus:cyan_terracotta_from_cyan_terracotta_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

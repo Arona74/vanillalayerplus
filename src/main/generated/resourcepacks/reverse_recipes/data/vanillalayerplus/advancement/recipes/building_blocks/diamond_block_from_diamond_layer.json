@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:diamond_block_from_diamond_layer"
+        "recipes": "vanillalayerplus:diamond_block_from_diamond_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

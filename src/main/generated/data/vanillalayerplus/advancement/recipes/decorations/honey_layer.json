@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:honey_layer"
+        "recipes": "vanillalayerplus:honey_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

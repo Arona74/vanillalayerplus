@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:birch_layer"
+        "recipes": "vanillalayerplus:birch_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

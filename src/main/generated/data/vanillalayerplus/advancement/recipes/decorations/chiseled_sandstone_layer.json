@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:chiseled_sandstone_layer"
+        "recipes": "vanillalayerplus:chiseled_sandstone_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

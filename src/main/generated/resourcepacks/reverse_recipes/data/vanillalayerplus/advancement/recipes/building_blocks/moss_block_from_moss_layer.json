@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:moss_block_from_moss_layer"
+        "recipes": "vanillalayerplus:moss_block_from_moss_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

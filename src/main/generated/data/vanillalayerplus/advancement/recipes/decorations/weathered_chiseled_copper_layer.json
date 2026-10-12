@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:weathered_chiseled_copper_layer"
+        "recipes": "vanillalayerplus:weathered_chiseled_copper_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

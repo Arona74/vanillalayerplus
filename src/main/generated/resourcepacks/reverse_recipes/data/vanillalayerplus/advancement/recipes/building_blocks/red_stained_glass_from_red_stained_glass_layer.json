@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:red_stained_glass_from_red_stained_glass_layer"
+        "recipes": "vanillalayerplus:red_stained_glass_from_red_stained_glass_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

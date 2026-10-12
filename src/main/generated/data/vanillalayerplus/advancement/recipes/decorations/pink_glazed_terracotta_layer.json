@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:pink_glazed_terracotta_layer"
+        "recipes": "vanillalayerplus:pink_glazed_terracotta_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

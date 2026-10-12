@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:honeycomb_block_from_honeycomb_layer"
+        "recipes": "vanillalayerplus:honeycomb_block_from_honeycomb_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

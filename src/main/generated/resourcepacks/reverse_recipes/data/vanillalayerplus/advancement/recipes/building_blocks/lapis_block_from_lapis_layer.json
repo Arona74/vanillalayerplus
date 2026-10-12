@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:lapis_block_from_lapis_layer"
+        "recipes": "vanillalayerplus:lapis_block_from_lapis_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

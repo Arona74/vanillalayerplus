@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:red_mushroom_layer"
+        "recipes": "vanillalayerplus:red_mushroom_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

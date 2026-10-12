@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:orange_terracotta_from_orange_terracotta_layer"
+        "recipes": "vanillalayerplus:orange_terracotta_from_orange_terracotta_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

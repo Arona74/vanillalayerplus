@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:warped_nylium_from_warped_nylium_layer"
+        "recipes": "vanillalayerplus:warped_nylium_from_warped_nylium_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

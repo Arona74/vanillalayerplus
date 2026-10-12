@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:chiseled_tuff_layer_from_chiseled_tuff_stonecutting"
+        "recipes": "vanillalayerplus:chiseled_tuff_layer_from_chiseled_tuff_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

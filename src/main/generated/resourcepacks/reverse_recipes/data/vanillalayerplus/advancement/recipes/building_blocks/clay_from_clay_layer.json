@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:clay_from_clay_layer"
+        "recipes": "vanillalayerplus:clay_from_clay_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

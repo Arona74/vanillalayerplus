@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:iron_block_from_iron_layer"
+        "recipes": "vanillalayerplus:iron_block_from_iron_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

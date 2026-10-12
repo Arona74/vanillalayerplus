@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:magma_block_from_magma_layer"
+        "recipes": "vanillalayerplus:magma_block_from_magma_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

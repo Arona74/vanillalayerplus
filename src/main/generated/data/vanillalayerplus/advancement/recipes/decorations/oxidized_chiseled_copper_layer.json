@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:oxidized_chiseled_copper_layer"
+        "recipes": "vanillalayerplus:oxidized_chiseled_copper_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

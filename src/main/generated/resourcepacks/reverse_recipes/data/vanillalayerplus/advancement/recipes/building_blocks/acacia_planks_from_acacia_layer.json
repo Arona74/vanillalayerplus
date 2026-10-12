@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:acacia_planks_from_acacia_layer"
+        "recipes": "vanillalayerplus:acacia_planks_from_acacia_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

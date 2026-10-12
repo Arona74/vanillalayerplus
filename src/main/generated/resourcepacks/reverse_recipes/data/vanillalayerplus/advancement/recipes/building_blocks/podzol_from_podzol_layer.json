@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:podzol_from_podzol_layer"
+        "recipes": "vanillalayerplus:podzol_from_podzol_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

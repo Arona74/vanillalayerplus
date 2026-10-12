@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:potent_sulfur_layer"
+        "recipes": "vanillalayerplus:potent_sulfur_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

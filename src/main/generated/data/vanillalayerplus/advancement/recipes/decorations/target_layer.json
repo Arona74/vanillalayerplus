@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:target_layer"
+        "recipes": "vanillalayerplus:target_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:dried_kelp_block_from_dried_kelp_layer"
+        "recipes": "vanillalayerplus:dried_kelp_block_from_dried_kelp_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

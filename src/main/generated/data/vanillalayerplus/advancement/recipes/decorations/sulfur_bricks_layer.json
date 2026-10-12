@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:sulfur_bricks_layer"
+        "recipes": "vanillalayerplus:sulfur_bricks_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

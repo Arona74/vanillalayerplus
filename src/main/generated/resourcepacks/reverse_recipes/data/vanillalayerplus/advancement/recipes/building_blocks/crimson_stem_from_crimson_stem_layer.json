@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:crimson_stem_from_crimson_stem_layer"
+        "recipes": "vanillalayerplus:crimson_stem_from_crimson_stem_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

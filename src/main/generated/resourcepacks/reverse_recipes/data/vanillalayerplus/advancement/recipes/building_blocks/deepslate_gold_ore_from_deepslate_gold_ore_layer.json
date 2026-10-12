@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:deepslate_gold_ore_from_deepslate_gold_ore_layer"
+        "recipes": "vanillalayerplus:deepslate_gold_ore_from_deepslate_gold_ore_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

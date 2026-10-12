@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:tuff_bricks_from_tuff_bricks_layer"
+        "recipes": "vanillalayerplus:tuff_bricks_from_tuff_bricks_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

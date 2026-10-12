@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:green_glazed_terracotta_from_green_glazed_terracotta_layer"
+        "recipes": "vanillalayerplus:green_glazed_terracotta_from_green_glazed_terracotta_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

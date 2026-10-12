@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:waxed_oxidized_cut_copper_from_waxed_oxidized_cut_copper_layer"
+        "recipes": "vanillalayerplus:waxed_oxidized_cut_copper_from_waxed_oxidized_cut_copper_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

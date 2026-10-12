@@ -21,6 +21,7 @@ public class VanillaLayerPlusDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(ModLootTableProvider::new);
 		pack.addProvider(ModLanguageProvider::new);
+		pack.addProvider(ModFuelProvider::new);
 
 		FabricDataGenerator.Pack reverseRecipesPack = fabricDataGenerator.createBuiltinResourcePack(VanillaLayerPlus.REVERSE_RECIPES_PACK);
 		reverseRecipesPack.addProvider(ModReverseRecipeProvider::new);

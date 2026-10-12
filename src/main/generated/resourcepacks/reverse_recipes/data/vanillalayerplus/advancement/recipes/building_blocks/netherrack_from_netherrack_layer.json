@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:netherrack_from_netherrack_layer"
+        "recipes": "vanillalayerplus:netherrack_from_netherrack_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

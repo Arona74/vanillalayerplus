@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:mossy_stone_bricks_from_mossy_stone_bricks_layer"
+        "recipes": "vanillalayerplus:mossy_stone_bricks_from_mossy_stone_bricks_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

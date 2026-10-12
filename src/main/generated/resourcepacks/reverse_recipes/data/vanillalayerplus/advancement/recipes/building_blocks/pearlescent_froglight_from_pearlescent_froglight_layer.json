@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:pearlescent_froglight_from_pearlescent_froglight_layer"
+        "recipes": "vanillalayerplus:pearlescent_froglight_from_pearlescent_froglight_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

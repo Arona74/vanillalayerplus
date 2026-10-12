@@ -5,10 +5,11 @@ import org.jetbrains.annotations.Nullable;
 import net.fellter.vanillalayerplus.block.LayerBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.attribute.EnvironmentAttributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -26,7 +27,7 @@ public class IceLayerBlock extends LayerBlock {
 		return Blocks.WATER.defaultBlockState();
 	}
 
-	public void playerDestroy(Level world, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
+	public void playerDestroy(ServerLevel world, ServerPlayer player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
 		if (!EnchantmentHelper.hasTag(tool, EnchantmentTags.PREVENTS_ICE_MELTING)) {
 			if (world.environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, pos)) {
 				world.removeBlock(pos, false);
@@ -35,7 +36,7 @@ public class IceLayerBlock extends LayerBlock {
 
 			BlockState blockState = world.getBlockState(pos.below());
 
-			if ((blockState.blocksMotion() && state.getValue(LAYERS) == 8) || blockState.liquid()) {
+			if ((blockState.is(BlockTags.ICE_MELTS_WHEN_DESTROYED_ABOVE) && state.getValue(LAYERS) == 8) || blockState.liquid()) {
 				world.setBlockAndUpdate(pos, getMeltedState());
 			}
 		} else {

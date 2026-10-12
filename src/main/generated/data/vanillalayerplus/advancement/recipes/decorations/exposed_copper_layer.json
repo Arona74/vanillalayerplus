@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:exposed_copper_layer"
+        "recipes": "vanillalayerplus:exposed_copper_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

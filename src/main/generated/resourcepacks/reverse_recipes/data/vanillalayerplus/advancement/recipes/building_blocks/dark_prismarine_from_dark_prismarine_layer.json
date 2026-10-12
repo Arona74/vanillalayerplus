@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:dark_prismarine_from_dark_prismarine_layer"
+        "recipes": "vanillalayerplus:dark_prismarine_from_dark_prismarine_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

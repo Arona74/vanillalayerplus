@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:coal_ore_layer"
+        "recipes": "vanillalayerplus:coal_ore_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:sulfur_bricks_layer_from_sulfur_bricks_stonecutting"
+        "recipes": "vanillalayerplus:sulfur_bricks_layer_from_sulfur_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

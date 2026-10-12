@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:oak_leaves_from_oak_leaves_layer"
+        "recipes": "vanillalayerplus:oak_leaves_from_oak_leaves_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

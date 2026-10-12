@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:cinnabar_from_cinnabar_layer"
+        "recipes": "vanillalayerplus:cinnabar_from_cinnabar_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

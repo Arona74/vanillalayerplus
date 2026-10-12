@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:bone_layer"
+        "recipes": "vanillalayerplus:bone_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

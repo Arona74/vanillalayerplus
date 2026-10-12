@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:chiseled_tuff_bricks_layer_from_tuff_bricks_stonecutting"
+        "recipes": "vanillalayerplus:chiseled_tuff_bricks_layer_from_tuff_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:cherry_leaves_from_cherry_leaves_layer"
+        "recipes": "vanillalayerplus:cherry_leaves_from_cherry_leaves_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

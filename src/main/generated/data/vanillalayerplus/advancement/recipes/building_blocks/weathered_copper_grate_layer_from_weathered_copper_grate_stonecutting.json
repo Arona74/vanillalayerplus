@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:weathered_copper_grate_layer_from_weathered_copper_grate_stonecutting"
+        "recipes": "vanillalayerplus:weathered_copper_grate_layer_from_weathered_copper_grate_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

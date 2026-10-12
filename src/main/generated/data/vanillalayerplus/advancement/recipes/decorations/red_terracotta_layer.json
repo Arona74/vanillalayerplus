@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:red_terracotta_layer"
+        "recipes": "vanillalayerplus:red_terracotta_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

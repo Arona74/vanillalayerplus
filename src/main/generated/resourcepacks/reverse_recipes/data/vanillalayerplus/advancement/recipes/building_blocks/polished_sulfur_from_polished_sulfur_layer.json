@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:polished_sulfur_from_polished_sulfur_layer"
+        "recipes": "vanillalayerplus:polished_sulfur_from_polished_sulfur_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

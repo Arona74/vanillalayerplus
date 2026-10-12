@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:andesite_from_andesite_layer"
+        "recipes": "vanillalayerplus:andesite_from_andesite_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

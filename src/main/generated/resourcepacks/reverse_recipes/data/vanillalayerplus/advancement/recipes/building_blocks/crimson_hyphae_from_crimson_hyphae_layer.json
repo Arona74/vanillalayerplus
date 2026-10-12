@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:crimson_hyphae_from_crimson_hyphae_layer"
+        "recipes": "vanillalayerplus:crimson_hyphae_from_crimson_hyphae_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

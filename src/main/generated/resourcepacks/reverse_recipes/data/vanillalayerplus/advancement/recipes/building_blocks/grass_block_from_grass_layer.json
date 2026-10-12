@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:grass_block_from_grass_layer"
+        "recipes": "vanillalayerplus:grass_block_from_grass_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

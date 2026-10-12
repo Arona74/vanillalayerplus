@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:sand_layer"
+        "recipes": "vanillalayerplus:sand_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

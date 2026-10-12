@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:bedrock_from_bedrock_layer"
+        "recipes": "vanillalayerplus:bedrock_from_bedrock_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:magenta_glazed_terracotta_from_magenta_glazed_terracotta_layer"
+        "recipes": "vanillalayerplus:magenta_glazed_terracotta_from_magenta_glazed_terracotta_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

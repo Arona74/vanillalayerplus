@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:dead_tube_coral_layer"
+        "recipes": "vanillalayerplus:dead_tube_coral_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

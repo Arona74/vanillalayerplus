@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "vanillalayerplus:slime_block_from_slime_layer"
+        "recipes": "vanillalayerplus:slime_block_from_slime_layer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
