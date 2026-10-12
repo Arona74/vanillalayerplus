@@ -6,21 +6,43 @@ import org.slf4j.LoggerFactory;
 import net.fellter.vanillalayerplus.block.ModBlocks;
 import net.fellter.vanillalayerplus.item.ModItemGroups;
 import net.fellter.vanillalayerplus.item.ModItems;
+import net.fellter.vanillalayerplus.registry.ModRegistries;
+import net.fellter.vanillalayerplus.registry.ModRegistryArgs;
 
 import net.minecraft.block.Block;
 import net.minecraft.registry.Registries;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
 
 public class VanillaLayerPlus implements ModInitializer {
 	public static final String MOD_ID = "vanillalayerplus";
 	public static final Logger LOGGER = LoggerFactory.getLogger("Vanilla+ Layers");
+
+	public static final Identifier REVERSE_RECIPES_PACK = Identifier.of(MOD_ID, "reverse_recipes");
 
 	@Override
 	public void onInitialize() {
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
+
+		// Gameplay registrations run on both sides: tool interactions, oxidation and
+		// fuel are applied by the server, including dedicated servers.
+		ModRegistryArgs.registerRegistryArgs();
+		ModRegistries.registerStrippableBlocks();
+		ModRegistries.registerOxidizableBlocks();
+		ModRegistries.registerFuel();
+		ModRegistries.registerFlattenableBlocks();
+		ModRegistries.registerTillableBlocks();
+
+		FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(container ->
+				ResourceManagerHelper.registerBuiltinResourcePack(REVERSE_RECIPES_PACK, container,
+						Text.literal("Vanilla+ Layers: Reverse Recipes"), ResourcePackActivationType.DEFAULT_ENABLED));
 	}
 
 	public static boolean isNamespaced(Block block) {
