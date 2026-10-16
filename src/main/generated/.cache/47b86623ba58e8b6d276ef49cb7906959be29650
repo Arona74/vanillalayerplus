@@ -1,8 +1,11 @@
-// 1.20.1	2026-09-30T19:12:30.4957126	Vanilla+ Layers/Tags for minecraft:block
+// 1.20.1	2026-10-16T18:00:00.7089637	Vanilla+ Layers/Tags for minecraft:block
 ac329c160100ddd0829b7911f47e4467f9ee3695 data\minecraft\tags\blocks\mineable\pickaxe.json
+05d16e49476e6f13866e6a6078951bed235aca66 data\minecraft\tags\blocks\needs_diamond_tool.json
 46d9b3cb433be7898a956be4fa70973966ae78c7 data\minecraft\tags\blocks\mineable\axe.json
 1d3bee21b756ec58095ddd40588bf950e2ca1f3c data\minecraft\tags\blocks\wool.json
 c2bd23a0588d78195e2c21db89009090bb8ed119 data\minecraft\tags\blocks\terracotta.json
 d77f5902e702b900e6fcb252b92febe2f084702c data\minecraft\tags\blocks\mineable\hoe.json
 c7c021e8e139db8db0bff57eefbb6c6917599e56 data\minecraft\tags\blocks\mineable\shovel.json
 b1eedad16b5696421088bc6b72391f7c6820950a data\vanillalayerplus\tags\blocks\layers.json
+616848287b335dddd60040db7a6d196b23e3f146 data\minecraft\tags\blocks\needs_stone_tool.json
+2222c63edf3dc63d67326bb74763ae0a57d85275 data\minecraft\tags\blocks\needs_iron_tool.json

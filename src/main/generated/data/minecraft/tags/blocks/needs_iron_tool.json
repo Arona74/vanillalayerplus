@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "vanillalayerplus:gold_layer",
+    "vanillalayerplus:emerald_layer",
+    "vanillalayerplus:diamond_layer",
+    "vanillalayerplus:gold_ore_layer",
+    "vanillalayerplus:deepslate_gold_ore_layer",
+    "vanillalayerplus:redstone_ore_layer",
+    "vanillalayerplus:deepslate_redstone_ore_layer",
+    "vanillalayerplus:emerald_ore_layer",
+    "vanillalayerplus:deepslate_emerald_ore_layer",
+    "vanillalayerplus:diamond_ore_layer",
+    "vanillalayerplus:deepslate_diamond_ore_layer",
+    "vanillalayerplus:raw_gold_layer"
+  ]
+}

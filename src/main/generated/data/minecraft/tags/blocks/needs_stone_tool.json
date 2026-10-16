@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "vanillalayerplus:iron_layer",
+    "vanillalayerplus:lapis_layer",
+    "vanillalayerplus:waxed_copper_layer",
+    "vanillalayerplus:waxed_cut_copper_layer",
+    "vanillalayerplus:waxed_exposed_copper_layer",
+    "vanillalayerplus:waxed_exposed_cut_copper_layer",
+    "vanillalayerplus:waxed_weathered_copper_layer",
+    "vanillalayerplus:waxed_weathered_cut_copper_layer",
+    "vanillalayerplus:waxed_oxidized_copper_layer",
+    "vanillalayerplus:waxed_oxidized_cut_copper_layer",
+    "vanillalayerplus:exposed_copper_layer",
+    "vanillalayerplus:exposed_cut_copper_layer",
+    "vanillalayerplus:weathered_copper_layer",
+    "vanillalayerplus:weathered_cut_copper_layer",
+    "vanillalayerplus:oxidized_copper_layer",
+    "vanillalayerplus:oxidized_cut_copper_layer",
+    "vanillalayerplus:copper_layer",
+    "vanillalayerplus:cut_copper_layer",
+    "vanillalayerplus:iron_ore_layer",
+    "vanillalayerplus:deepslate_iron_ore_layer",
+    "vanillalayerplus:copper_ore_layer",
+    "vanillalayerplus:deepslate_copper_ore_layer",
+    "vanillalayerplus:lapis_ore_layer",
+    "vanillalayerplus:deepslate_lapis_ore_layer",
+    "vanillalayerplus:raw_iron_layer",
+    "vanillalayerplus:raw_copper_layer"
+  ]
+}
