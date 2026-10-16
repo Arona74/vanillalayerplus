@@ -14,17 +14,28 @@ and to fix a handful of bugs found along the way. All credit for the mod itself 
 
 | Minecraft | Branch | Mod version | Java |
 |---|---|---|---|
-| 26.3 | [`26.3`](../../tree/26.3) | `4.2.0+26.3` | 25 |
-| 26.2 | [`26.2`](../../tree/26.2) | `4.2.0+26.2` | 25 |
-| 26.1.2 | [`26.1.2`](../../tree/26.1.2) | `4.2.0+26.1.2` | 25 |
-| 1.21.11 | [`1.21.11`](../../tree/1.21.11) | `4.2.0+1.21.11` | 21 |
-| 1.21.6 – 1.21.7 | [`1.21.7`](../../tree/1.21.7) | `4.2.0+1.21.6-7` | 21 |
-| 1.21.1 | [`1.21.1`](../../tree/1.21.1) | `4.2.0+1.21.1` | 21 |
-| 1.20.1 | [`1.20.1`](../../tree/1.20.1) | `4.2.0+1.20.1` | 17 |
+| 26.3 | [`26.3`](../../tree/26.3) | `4.3.0+26.3` | 25 |
+| 26.2 | [`26.2`](../../tree/26.2) | `4.3.0+26.2` | 25 |
+| 26.1.2 | [`26.1.2`](../../tree/26.1.2) | `4.3.0+26.1.2` | 25 |
+| 1.21.11 | [`1.21.11`](../../tree/1.21.11) | `4.3.0+1.21.11` | 21 |
+| 1.21.6 – 1.21.7 | [`1.21.7`](../../tree/1.21.7) | `4.3.0+1.21.6-7` | 21 |
+| 1.21.1 | [`1.21.1`](../../tree/1.21.1) | `4.3.0+1.21.1` | 21 |
+| 1.20.1 | [`1.20.1`](../../tree/1.20.1) | `4.3.0+1.20.1` | 17 |
 
 Upstream targets 1.21.6–1.21.7. Every other version in that table is added by this fork.
 
 ## What this fork changes
+
+### New in 4.3.0
+
+- **Layers need the same pickaxe as their full block.** An iron ore layer now drops only when mined
+  with a stone pickaxe or better, diamond ore and gold layers need iron, and obsidian, crying
+  obsidian, netherite and ancient debris layers need diamond. Before, any pickaxe worked, even a
+  wooden one. The tiers are read from vanilla's own data for each Minecraft version, so they also
+  follow copper tools on the versions that have them.
+- **The 1.21.1 and 1.20.1 builds now require exactly that Minecraft version.** They used to accept
+  any later 1.21.x or 1.20.x, where their recipes no longer load. Using the wrong build now fails at
+  launch with a clear message instead.
 
 ### New in 4.2.0
 
@@ -90,6 +101,8 @@ intentionally excluded.
 - **On 1.20.1, recipes, loot tables and block tags never loaded at all** — they had been written
   under the directory names used by newer Minecraft versions. Crafting, block drops and tool tags
   were all broken.
+- **Every layer dropped with any pickaxe**, so a wooden pickaxe collected iron ore, diamond ore and
+  obsidian layers. Layers now need the same tier as their full block. *(4.3.0)*
 - **Dedicated servers ignored stripping, tilling, flattening, copper oxidation and fuel.** Only
   singleplayer and LAN games had them. *(4.2.0)*
 - **On 26.x, translucent blocks rendered incorrectly.** Render layers are no longer registered at
