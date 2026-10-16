@@ -1,8 +1,11 @@
-// 1.21.1	2026-10-12T11:08:36.7000039	Vanilla+ Layers/Tags for minecraft:block
-9c5bf716a41b81fa6750eaf141b1a543cc9bf521 data\minecraft\tags\block\terracotta.json
+// 1.21.1	2026-10-15T00:43:52.6503233	Vanilla+ Layers/Tags for minecraft:block
 644844959c39443134316cba3d20639152c49699 data\minecraft\tags\block\wool.json
+9c5bf716a41b81fa6750eaf141b1a543cc9bf521 data\minecraft\tags\block\terracotta.json
 9b9655f239d57e9f1d6fc6939c5c7ec6840c7ce3 data\minecraft\tags\block\mineable\pickaxe.json
+b30210bfe0c052bc4294e7d12bf77930f2f199d1 data\minecraft\tags\block\needs_stone_tool.json
 2448a7f933cd22681e70ff31fa5c2139103ce3f7 data\vanillalayerplus\tags\block\layers.json
+0c8e2452944790e678cd9e65598483afdc43bdfc data\minecraft\tags\block\needs_iron_tool.json
 c6f5e3d084846113351d8b398326548ad6fda441 data\minecraft\tags\block\mineable\axe.json
 6c140fbb75842c446d4cbef425c4dca01ef273f7 data\minecraft\tags\block\mineable\hoe.json
 e530ccbdd8a1d6c99347d47c0da6f9330a1f7394 data\minecraft\tags\block\mineable\shovel.json
+a4af81ea2da55b27257c41209e26d28a5aa068b0 data\minecraft\tags\block\needs_diamond_tool.json
