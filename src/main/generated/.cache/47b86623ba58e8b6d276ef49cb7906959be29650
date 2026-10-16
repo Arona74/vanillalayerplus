@@ -3,6 +3,9 @@
 81fbb5b4569c4bcadbcdf683a546c46e578cace3 data/minecraft/tags/block/mineable/hoe.json
 488bb5a9d819c47cfcb55626ed0d102e1a679d3d data/minecraft/tags/block/mineable/pickaxe.json
 e530ccbdd8a1d6c99347d47c0da6f9330a1f7394 data/minecraft/tags/block/mineable/shovel.json
+a4af81ea2da55b27257c41209e26d28a5aa068b0 data/minecraft/tags/block/needs_diamond_tool.json
+0c8e2452944790e678cd9e65598483afdc43bdfc data/minecraft/tags/block/needs_iron_tool.json
+b30210bfe0c052bc4294e7d12bf77930f2f199d1 data/minecraft/tags/block/needs_stone_tool.json
 9c5bf716a41b81fa6750eaf141b1a543cc9bf521 data/minecraft/tags/block/terracotta.json
 644844959c39443134316cba3d20639152c49699 data/minecraft/tags/block/wool.json
 eedf73c2096a40ed0976ad6f3ad7afcb56e0e468 data/vanillalayerplus/tags/block/layers.json
